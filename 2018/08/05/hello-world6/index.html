@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件部分总结 | 小丑的技术博客</title>
+  <title>异常部分总结 | 小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="异常1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。2）异常的阶段第一、产生异常（比如：代码错误、业务逻辑错误）第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）3）常见的异常类Exception：Python中所有异常的父类。NameError：访问了一个未声明的变量。keyError:访问一个不存在的字典keyIn">
+  <meta name="description" content="异常1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。 2）异常的阶段 第一、产生异常（比如：代码错误、业务逻辑错误） 第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性） 3）常见的异常类 Exception：Python中所有异常的父类。 NameError：访问了一个未声明的变量。 keyError:访问一个不存在的">
 <meta name="keywords" content="python、爬虫、web开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件部分总结">
+<meta property="og:title" content="异常部分总结">
 <meta property="og:url" content="http://yoursite.com/2018/08/05/hello-world6/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
-<meta property="og:description" content="异常1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。2）异常的阶段第一、产生异常（比如：代码错误、业务逻辑错误）第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）3）常见的异常类Exception：Python中所有异常的父类。NameError：访问了一个未声明的变量。keyError:访问一个不存在的字典keyIn">
+<meta property="og:description" content="异常1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。 2）异常的阶段 第一、产生异常（比如：代码错误、业务逻辑错误） 第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性） 3）常见的异常类 Exception：Python中所有异常的父类。 NameError：访问了一个未声明的变量。 keyError:访问一个不存在的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-05T10:59:48.740Z">
+<meta property="og:updated_time" content="2018-09-08T15:54:19.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件部分总结">
-<meta name="twitter:description" content="异常1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。2）异常的阶段第一、产生异常（比如：代码错误、业务逻辑错误）第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）3）常见的异常类Exception：Python中所有异常的父类。NameError：访问了一个未声明的变量。keyError:访问一个不存在的字典keyIn">
+<meta name="twitter:title" content="异常部分总结">
+<meta name="twitter:description" content="异常1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。 2）异常的阶段 第一、产生异常（比如：代码错误、业务逻辑错误） 第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性） 3）常见的异常类 Exception：Python中所有异常的父类。 NameError：访问了一个未声明的变量。 keyError:访问一个不存在的">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -168,7 +168,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      文件部分总结
+      异常部分总结
     </h1>
   
 
@@ -181,15 +181,82 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。<br>2）异常的阶段<br>第一、产生异常（比如：代码错误、业务逻辑错误）<br>第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）<br>3）常见的异常类<br>Exception：Python中所有异常的父类。<br>NameError：访问了一个未声明的变量。<br>keyError:访问一个不存在的字典key<br>IndexError：索引超出序列的范围<br>ValueError：传给函数的参数类型不正确。<br>IOError：文件操作时输入输出错误<br>4）异常处理流程<br>基本语法：<br>try：<br>   可能会产生异常的代码<br>except  对应的异常 as 别名：<br>   异常处理语句</p>
-<p>说明：在try中，放置可能会产生错误的相关代码；except后标明对应的异常类型，一旦try中产生相关异常，except后声明的异常类能够对应捕获，执行相关异常处理语句。如果try外面后续还要其他语句，会继续执行。在产生异常是，出现异常的语句后，如果还有其他语句则不会执行。<br>try:<br>   可能会产生异常的代码<br>except 对应的异常 as 别名：<br>   异常处理语句<br>else:<br>   程序代码<br>说明：在此结构中，如果try中的代码出现异常，则使用except后面声明的异常类进行捕获处理，如果没有异常出现，则执行else内部的代码。</p>
-<p>try:<br>   可能会产生异常的代码<br>except 对应的异常 as 别名：<br>    异常处理语句<br>except 对应的异常 as 别名：<br>    异常处理语句<br>说明：当try中有多行代码可能会出现不同的异常，那么使用多个except与之对应，根据产生异常的顺序来依次捕获处理。</p>
-<p>try：<br>   可能会出产生异常的代码<br>except 对应的异常 as 别名：<br>   异常处理语句<br>finally：<br>   代码<br>说明：当异常捕获处理流程中，使用了finally来控制，表明不管是否出现异常进行捕获，最后代码都将允许finally内部的语句。<br>注意：finally中的语句，不管前面的代码出现何种操作，比如：break、return、exit等都会执行完finally内部的代码后，才会实现。</p>
-<p>5）异常的分类<br>在Python中所有的异常都继承自BaseExcept,如下：<br>          |——&gt;KeyboardInterrupt（键盘中断异常）<br>          |<br>BaseExcept|——&gt;SystemExit(系统退出异常)<br>          |<br>          |——&gt;Except（其他所有异常的父类）<br>其中：keyboardInterrupt在使用强制中断程序时产生。<br>SystemExit在使用sys.exit()函数时产生。</p>
-<p>6）主动抛出异常<br>raise 异常类对象实例或自定义异常类实例<br>raise IOError(‘IO 错误’)</p>
-<p>7）finally的替换写法<br>with open(‘myfile.txt’,’r’) as f:<br>    for line in f:<br>        print(line)<br>其中打开的文件对象f，在执行完内容的读取后，被强制性关闭。及时在读取过程中，出现错误，也会被关闭。<br>8）使用异常机制的优势<br>第一，把错误控制与业务逻辑进行区分，增强程序的可读性和健壮性。<br>第二，代码结构更加清晰，复杂的业务流程的实现更加便利<br>第三，程序的容错性更强，不会因为一个小bug导致整体崩溃。</p>
-<p>9）assert 断言<br>语法格式：assert 表达式，断言内容。代码如下<br>try:<br>    assert 1==2,’1 不等于 2’<br>except AssertionError as ae:<br>    print(‘{}{}’.format(ae.<strong>class</strong>.<strong>name</strong>, ae))<br>如果断言表达式为真，则正常执行，如果不为真，则返回断言内容，作为异常捕获的输出</p>
+        <h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><pre><code>1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。
+2）异常的阶段
+第一、产生异常（比如：代码错误、业务逻辑错误）
+第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）
+3）常见的异常类
+Exception：Python中所有异常的父类。
+NameError：访问了一个未声明的变量。
+keyError:访问一个不存在的字典key
+IndexError：索引超出序列的范围
+ValueError：传给函数的参数类型不正确。
+IOError：文件操作时输入输出错误
+4）异常处理流程
+基本语法：
+try：
+可能会产生异常的代码
+except  对应的异常 as 别名：
+异常处理语句
 
+说明：在try中，放置可能会产生错误的相关代码；except后标明对应的异常类型，一旦try中产生相关异常，except后声明的异常类能够对应捕获，执行相关异常处理语句。如果try外面后续还要其他语句，会继续执行。在产生异常是，出现异常的语句后，如果还有其他语句则不会执行。
+try:
+可能会产生异常的代码
+except 对应的异常 as 别名：
+异常处理语句
+else:
+程序代码
+说明：在此结构中，如果try中的代码出现异常，则使用except后面声明的异常类进行捕获处理，如果没有异常出现，则执行else内部的代码。
+
+try:
+可能会产生异常的代码
+except 对应的异常 as 别名：
+    异常处理语句
+except 对应的异常 as 别名：
+    异常处理语句
+说明：当try中有多行代码可能会出现不同的异常，那么使用多个except与之对应，根据产生异常的顺序来依次捕获处理。
+
+try：
+可能会出产生异常的代码
+except 对应的异常 as 别名：
+异常处理语句
+finally：
+代码
+说明：当异常捕获处理流程中，使用了finally来控制，表明不管是否出现异常进行捕获，最后代码都将允许finally内部的语句。
+注意：finally中的语句，不管前面的代码出现何种操作，比如：break、return、exit等都会执行完finally内部的代码后，才会实现。
+
+5）异常的分类
+在Python中所有的异常都继承自BaseExcept,如下：
+        |------&gt;KeyboardInterrupt（键盘中断异常） 
+        |
+BaseExcept|------&gt;SystemExit(系统退出异常)
+        |
+        |------&gt;Except（其他所有异常的父类）    
+其中：keyboardInterrupt在使用强制中断程序时产生。
+SystemExit在使用sys.exit()函数时产生。
+
+6）主动抛出异常
+raise 异常类对象实例或自定义异常类实例
+raise IOError(&apos;IO 错误&apos;)
+
+7）finally的替换写法
+with open(&apos;myfile.txt&apos;,&apos;r&apos;) as f:
+    for line in f:
+        print(line)
+其中打开的文件对象f，在执行完内容的读取后，被强制性关闭。及时在读取过程中，出现错误，也会被关闭。
+8）使用异常机制的优势
+第一，把错误控制与业务逻辑进行区分，增强程序的可读性和健壮性。
+第二，代码结构更加清晰，复杂的业务流程的实现更加便利
+第三，程序的容错性更强，不会因为一个小bug导致整体崩溃。
+
+9）assert 断言
+语法格式：assert 表达式，断言内容。代码如下
+try:
+    assert 1==2,&apos;1 不等于 2&apos;
+except AssertionError as ae:
+    print(&apos;{}{}&apos;.format(ae.__class__.__name__, ae))
+如果断言表达式为真，则正常执行，如果不为真，则返回断言内容，作为异常捕获的输出
+</code></pre>
       
 
       
@@ -293,7 +360,7 @@
   
   
     <a href="/2018/08/05/hello-world5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">文件部分总结</div>
+      <div class="article-nav-title">模块部分总结</div>
       <i class="icon-circle-right"></i>
     </a>
   

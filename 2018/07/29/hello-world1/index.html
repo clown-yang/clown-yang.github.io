@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件函数格式部分 | 小丑的技术博客</title>
+  <title>练习例题 | 小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+  <meta name="description" content="练习一敏感词程序：开发敏感词语过滤程序，提示用户输入评论内容，如果用户输入的内容中包含特殊的字符： 则将用户输入的内容中的敏感词汇替换成***，并添加到一个列表中； 如果用户输入的内容没有敏感词汇，则直接添加到上述的列表中 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
 <meta name="keywords" content="python、爬虫、web开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件函数格式部分">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/hello-world3/index.html">
+<meta property="og:title" content="练习例题">
+<meta property="og:url" content="http://yoursite.com/2018/07/29/hello-world1/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
-<meta property="og:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta property="og:description" content="练习一敏感词程序：开发敏感词语过滤程序，提示用户输入评论内容，如果用户输入的内容中包含特殊的字符： 则将用户输入的内容中的敏感词汇替换成***，并添加到一个列表中； 如果用户输入的内容没有敏感词汇，则直接添加到上述的列表中 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-08T16:00:41.298Z">
+<meta property="og:updated_time" content="2018-09-08T16:05:07.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件函数格式部分">
-<meta name="twitter:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta name="twitter:title" content="练习例题">
+<meta name="twitter:description" content="练习一敏感词程序：开发敏感词语过滤程序，提示用户输入评论内容，如果用户输入的内容中包含特殊的字符： 则将用户输入的内容中的敏感词汇替换成***，并添加到一个列表中； 如果用户输入的内容没有敏感词汇，则直接添加到上述的列表中 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -161,98 +161,140 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hello-world1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文件函数格式部分
+      练习例题
     </h1>
   
 
         
-        <a href="/2018/07/29/hello-world3/" class="archive-article-date">
-  	<time datetime="2018-07-29T07:57:04.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+        <a href="/2018/07/29/hello-world1/" class="archive-article-date">
+  	<time datetime="2018-07-29T07:44:19.659Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="文件输入输出（IO）"><a href="#文件输入输出（IO）" class="headerlink" title="文件输入输出（IO）"></a>文件输入输出（IO）</h3><pre><code>1）格式化函数
-repr()
-函数格式：repr(Object)
-返回值：返回一个字符串类型的数据
-说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。
+        <h2 id="练习一"><a href="#练习一" class="headerlink" title="练习一"></a>练习一</h2><h3 id="敏感词程序："><a href="#敏感词程序：" class="headerlink" title="敏感词程序："></a>敏感词程序：</h3><pre><code>开发敏感词语过滤程序，提示用户输入评论内容，如果用户输入的内容中包含特殊的字符：
+则将用户输入的内容中的敏感词汇替换成***，并添加到一个列表中；
+如果用户输入的内容没有敏感词汇，则直接添加到上述的列表中
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br></pre></td><td class="code"><pre><span class="line">    如下：</span><br><span class="line">    li = [<span class="string">"苍老师"</span>,<span class="string">"贩毒"</span>,<span class="string">"武老师"</span>,<span class="string">"自杀"</span>]</span><br><span class="line">    lis = list()</span><br><span class="line">    content = input(<span class="string">'请输入内容：'</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> li:  </span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">in</span> content:</span><br><span class="line">            content = content.replace(i,len(i)*<span class="string">'*'</span>)</span><br><span class="line">    lis.append(content)           </span><br><span class="line">    <span class="built_in">print</span>(lis)</span><br><span class="line">    <span class="built_in">exit</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">### 购物平台：</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    goods_dic = &#123;</span><br><span class="line">        <span class="string">'10001'</span> : <span class="string">'电视机'</span>,</span><br><span class="line">        <span class="string">'10002'</span> : <span class="string">'手机'</span>,</span><br><span class="line">        <span class="string">'10003'</span> : <span class="string">'洗衣机'</span>,</span><br><span class="line">        <span class="string">'10004'</span> : <span class="string">'冰箱'</span>,</span><br><span class="line">        <span class="string">'10005'</span> : <span class="string">'空调'</span></span><br><span class="line">    &#125;</span><br><span class="line">    goods = &#123;</span><br><span class="line">        <span class="string">'10001'</span>:&#123;</span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10001'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'电视机'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:1500,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'zhengzhou'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:100,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'康佳'</span></span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="string">'10002'</span>:&#123;</span><br><span class="line"></span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10002'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'手机'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:2999,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'深圳'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:99,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'华为'</span></span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="string">'10003'</span>:&#123;</span><br><span class="line"></span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10003'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'洗衣机'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:2000,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'青岛'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:50,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'海尔'</span></span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line">        </span><br><span class="line">        <span class="string">'10004'</span>:&#123;</span><br><span class="line"></span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10004'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'冰箱'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:2500,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'青岛'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:70,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'海尔'</span></span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line">        </span><br><span class="line">        <span class="string">'10005'</span>:&#123;</span><br><span class="line"></span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10005'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'空调'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:2700,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'大连'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:115,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'格力'</span></span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'序号      商品名称'</span>)</span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> goods_dic:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'&#123;0&#125;       &#123;1&#125;'</span>.format(key, goods_dic[key]))</span><br><span class="line"></span><br><span class="line">    <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">    商品菜单项</span></span><br><span class="line"><span class="string">    1、输入商品编码，显示商品名称</span></span><br><span class="line"><span class="string">    2、添加商品，输入新商品的编码和对应名称</span></span><br><span class="line"><span class="string">    3、下架商品，根据商品编号进行删除</span></span><br><span class="line"><span class="string">    4、修改商品，根据商品编号进行修改</span></span><br><span class="line"><span class="string">    '</span><span class="string">''</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'*'</span>*30)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'1、输入商品序号，查询商品信息'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'2、添加商品信息'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'3、下架商品'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'4、修改商品信息'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'5、购买商品'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'6、退出'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'*'</span>*30)</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        msg = int(input(<span class="string">'请输入菜单选项：'</span>))</span><br><span class="line">        <span class="keyword">if</span> 1 == msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号：'</span>)</span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'序号      商品名称'</span>)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'&#123;0&#125;       &#123;1&#125;'</span>.format(gno, goods_dic[gno]))</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'商品详细信息'</span>)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'&#123;0&#125;'</span>.format(goods[gno]))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span> (<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span> 2 == msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号：'</span>)</span><br><span class="line">            gname = input(<span class="string">'请输入商品名称：'</span>)</span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                goods[gno] = &#123;&#125;</span><br><span class="line">                goods_dic[gno] = gname</span><br><span class="line">                goods[gno][<span class="string">'id'</span>] = gno</span><br><span class="line">                goods[gno][<span class="string">'name'</span>] = gname</span><br><span class="line">                a = int(input(<span class="string">'请输入商品单价：'</span>))</span><br><span class="line">                b = input(<span class="string">'请输入商品产地：'</span>)</span><br><span class="line">                c = int(input(<span class="string">'请输入商品数量：'</span>))</span><br><span class="line">                d = input(<span class="string">'请输入商品品牌：'</span>)</span><br><span class="line">                goods[gno][<span class="string">'price'</span>] = a</span><br><span class="line">                goods[gno][<span class="string">'address'</span>] = b</span><br><span class="line">                goods[gno][<span class="string">'num'</span>] = c</span><br><span class="line">                goods[gno][<span class="string">'brand'</span>] = d</span><br><span class="line">                <span class="built_in">print</span>(goods_dic)</span><br><span class="line">                <span class="built_in">print</span>(goods[gno])</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span> 3 == msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号：'</span>)</span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                del goods_dic[gno]</span><br><span class="line">                del goods[gno]</span><br><span class="line">                <span class="built_in">print</span> (goods_dic)</span><br><span class="line">                <span class="built_in">print</span> (goods)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span>  </span><br><span class="line">        <span class="keyword">elif</span> 4 == msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号：'</span>)       </span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                gname = input(<span class="string">'请输入商品名称：'</span>)</span><br><span class="line">                a = int(input(<span class="string">'请输入商品单价：'</span>))</span><br><span class="line">                b = int(input(<span class="string">'请输入商品数量：'</span>))</span><br><span class="line">                goods_dic[gno] = gname</span><br><span class="line">                goods[gno][<span class="string">'name'</span>] = gname</span><br><span class="line">                goods[gno][<span class="string">'price'</span>] = a</span><br><span class="line">                goods[gno][<span class="string">'num'</span>] = b</span><br><span class="line">                <span class="built_in">print</span> (goods_dic)</span><br><span class="line">                <span class="built_in">print</span>(goods[gno])</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">            <span class="keyword">elif</span> gno not <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span> 5 ==msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号'</span>)</span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                num1 = int(input(<span class="string">'请输入购买数量：'</span>))</span><br><span class="line">                <span class="keyword">if</span> num1 &lt;= goods[gno][<span class="string">'num'</span>]and num1 &gt; 0:</span><br><span class="line">                    a = goods[gno][<span class="string">'price'</span>]</span><br><span class="line">                    b = goods[gno][<span class="string">'price'</span>]*num1</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">'序号   商品名 数量  单价  总价'</span>)</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">'&#123;0&#125;    &#123;1&#125;    &#123;2&#125;  &#123;3&#125;元  &#123;4&#125;元'</span>.format(gno,goods_dic[gno],num1,a,b))</span><br><span class="line">                    <span class="built_in">continue</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">'库存不足，请重新选择商品'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span> 6 == msg:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'你输入有误，请重新输入！'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 产生随机数：</span></span><br><span class="line">    产生一个简单的随机数列</span><br><span class="line"></span><br><span class="line">    import random</span><br><span class="line">    lis = [random.randrange(10,20) <span class="keyword">for</span> x <span class="keyword">in</span> range(20)]</span><br><span class="line">    lis1 = [random.randrange(10,20) <span class="keyword">for</span> x <span class="keyword">in</span> range(20)]</span><br><span class="line">    set1 = <span class="built_in">set</span>(lis)</span><br><span class="line">    set2 = <span class="built_in">set</span>(lis1)</span><br><span class="line">    set4 = set1 ^ set2</span><br><span class="line">    set3 = set1&amp;set2</span><br><span class="line">    <span class="built_in">print</span>(lis)</span><br><span class="line">    <span class="built_in">print</span>(lis1)</span><br><span class="line">    <span class="built_in">print</span>(set1)</span><br><span class="line">    <span class="built_in">print</span>(len(set1))</span><br><span class="line">    <span class="built_in">print</span>(set2)</span><br><span class="line">    <span class="built_in">print</span>(len(set2))</span><br><span class="line">    <span class="built_in">print</span>(set4)</span><br><span class="line">    <span class="built_in">print</span>(len(set4))</span><br><span class="line">    <span class="built_in">print</span>(set3)</span><br><span class="line">    <span class="built_in">print</span>(len(set3))</span><br></pre></td></tr></table></figure>
 
-函数格式：rjust(int) /ljust(int)/center()
-说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用参数中规定的空格数来对齐
-2）文本文件的输入输出
-文本文件的操作步骤：
-1、打开文件
-函数格式：open(file,mode,buffering,encoding)
-返回值：返回一个文件对象，用来对文件进行操作。
-说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。
-2、操作文件
-1）写文件
-函数格式：write(str)
-返回值：返回所写入文件的字符串中的字符数。
-说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件是，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。
-函数格式：writelines(sequence)
-返回值：无
-说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。
-2）读文件
-函数格式：read([size])
-返回值：返回按字节逐一读取的数据。
-说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。
+###  医院挂号：
+模拟医院挂号
+```bash
+def gene(n):
+    i = 1000
 
-函数格式：readline()
-返回值：返回读取的一行字符串
-说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。
+    while True:        
+        if &apos;A&apos; == n:
+            no = n + str(i)
+            yield no          
+            i +=1
+        elif &apos;B&apos; == n:
+            no = n + str(i)
+            yield no 
+            i +=1
+        elif &apos;C&apos; == n:
+            no = n + str(i)
+            yield no
+            i +=1 
+        else:
+            pass
+f = gene(&apos;A&apos;)
+f = gene(&apos;B&apos;)
+f = gene(&apos;C&apos;)
+while True:
+        n = input(&apos;请输入诊室号：&apos;)
+        m = input(&apos;请输入就诊名字：&apos;)
+        if &apos;A&apos; == n:
+            #f = gene(n)
+            print(&apos;请稍等，{0}的就诊序号是：{1}科室{2}&apos;.format(m,n,next(f)))
+        elif &apos;B&apos; == n:
+            #f = gene(n)
+            print(&apos;请稍等，{0}的就诊序号是：{1}科室{2}&apos;.format(n,next(f)))
+        elif &apos;C&apos; == n:
+            #f = gene(n)
+            print(&apos;请稍等，{0}的就诊序号是：{1}科室{2}&apos;.format(n,next(f)))
+</code></pre><h3 id="博客园登录："><a href="#博客园登录：" class="headerlink" title="博客园登录："></a>博客园登录：</h3><pre><code>简单的登录程序，仅供参考
 
-函数格式：readlines()
-返回值：返回一个包含多个字符串的列表。
-说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。
-
-3、关闭文件
-函数格式：close()
-返回值：无
-说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。
-
-4、json格式处理
-在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。
-1）将嵌套列表或字典转为json格式数据
-import json
-item = json.dumps(list/dict)
-file.writelines(item)
-
-json.dump(list, file)
-2)将文件中的列表或字典json字符串读取出来
-f= open(file,mode)
-json.load(f)
-</code></pre><h3 id="文件及路径操作函数"><a href="#文件及路径操作函数" class="headerlink" title="文件及路径操作函数"></a>文件及路径操作函数</h3><pre><code>1）isfile()与isdir() （os.path模块）
-函数格式：os.path.isfile(file)
-返回值：bool
-说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False
-isdir()
-函数格式：os.path.isdir(path)
-返回值：bool
-说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False
-
-2）创建路径 mkdir()、删除路径removedirs() (os模块)
-函数格式：os.mkdir(path)
-删除文件 remove() （os模块）
-判断文件/目录是否存在 exists()
-返回指定路径下，所有子路径 listdir()
-返回当前路径 getcwd()
-返回文件大小 getsize()
-重命名 rename()
-替换 replace()
-注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。
-其使用的前提为：需要先创建一个path对象，然后对其进行操作。
-p = Path(&apos;c:\pythoncode\etc&apos;)
+import time
+time1 = time.strftime(&apos;%Y-%m-%d&apos;,time.localtime())
+bank = {&apos;张三&apos;:&apos;147&apos;,&apos;李四&apos;:&apos;258&apos;,&apos;王五&apos;:&apos;369&apos;}
+print(&apos;*&apos;*20)
+print(&apos;欢迎来到博客园首页&apos;)
+print(&apos;1:请登录&apos;)
+print(&apos;2:请注册&apos;)
+print(&apos;3:文章页面&apos;)
+print(&apos;4:日记页面&apos;)
+print(&apos;5:评论页面&apos;)
+print(&apos;6:收藏页面&apos;)
+print(&apos;7:注销&apos;)
+print(&apos;8:退出程序&apos;)
+print(&apos;*&apos;*20)
+dic = dict()
+while True:
+    choose = int(input(&apos;请输入你的选择：&apos;))
+    if choose == 1:
+        i = 2
+        while i &gt;=0:
+            name = input(&apos;请输入名字：&apos;)
+            password = input(&apos;请输入密码：&apos;)
+            if name in bank.keys() and password == bank[name]:
+                dic[name] = password
+                print(&apos;{0}:{1}访问了博客乐园&apos;.format(name,time1))
+                break
+            else:
+                if i &gt; 0:
+                    print(&apos;输入用户名或密码错误，你还有{0}次机会&apos;.format(i))
+                else:
+                    print(&apos;三次机会已使用完毕，请联系工作人员&apos;)
+                    exit()
+                i = i - 1
+    elif choose == 2:
+        while True:
+            name = input(&apos;请输入名字：&apos;)
+            password = input(&apos;请输入密码：&apos;)            
+            if name in bank.keys():
+                print(&apos;输入用户名重复，请重新输入&apos;)
+                continue
+            else:
+                bank[name] = password
+                dic[name] = password
+                print(&apos;注册成功，并已登录&apos;)
+                break
+    elif choose == 3:
+        if len(dic) != 0:
+            print(&apos;欢迎{0}用户访问、评论、文章页面内容&apos;.format(name))
+        else:
+            print(&apos;你没有登录，请登录或注册&apos;)
+    elif choose == 4:
+        if len(dic) != 0:
+            print(&apos;欢迎{0}用户访问、评论、日记页面内容&apos;.format(name))
+        else:
+            print(&apos;你没有登录，请登录或注册&apos;)
+    elif choose == 5:
+        if len(dic) != 0:
+            print(&apos;欢迎{0}用户访问、评论、收藏页面内容&apos;.format(name))
+        else:
+            print(&apos;你没有登录，请登录或注册&apos;)
+    elif choose == 6:
+        if len(dic) != 0:
+            print(&apos;欢迎{0}用户访问评论页面内容&apos;.format(name))
+        else:
+            print(&apos;你没有登录，请登录或注册&apos;)
+    elif choose == 7:
+        dic.clear()
+        print(&apos;已注销用户&apos;)
+    elif choose == 8:
+        print(&apos;已退出程序&apos;)
+        exit()
 </code></pre>
       
 
@@ -332,7 +374,7 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/hello-world3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/hello-world1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +388,18 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
   
 <nav id="article-nav">
   
-    <a href="/2018/08/05/hello-world4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/29/hello-world3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          文件部分总结
+          文件函数格式部分
         
       </div>
     </a>
   
   
-    <a href="/2018/07/29/hello-world1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">练习例题</div>
+    <a href="/2018/07/22/hello-world2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">函数部分的总结</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件函数格式部分 | 小丑的技术博客</title>
+  <title>Archives | 小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
-<meta name="keywords" content="python、爬虫、web开发">
-<meta property="og:type" content="article">
-<meta property="og:title" content="文件函数格式部分">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/hello-world3/index.html">
+  <meta name="keywords" content="python、爬虫、web开发">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小丑的技术博客">
+<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
-<meta property="og:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-08T16:00:41.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件函数格式部分">
-<meta name="twitter:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta name="twitter:title" content="小丑的技术博客">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -161,235 +157,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world3" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      文件函数格式部分
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/22/hello-world2/" class="archive-article-date">
+  	<time datetime="2018-07-22T07:21:30.553Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/22/hello-world2/">函数部分的总结</a>
     </h1>
   
 
-        
-        <a href="/2018/07/29/hello-world3/" class="archive-article-date">
-  	<time datetime="2018-07-29T07:57:04.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="文件输入输出（IO）"><a href="#文件输入输出（IO）" class="headerlink" title="文件输入输出（IO）"></a>文件输入输出（IO）</h3><pre><code>1）格式化函数
-repr()
-函数格式：repr(Object)
-返回值：返回一个字符串类型的数据
-说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。
+        <div class="article-info info-on-right">
+          
+          
 
-函数格式：rjust(int) /ljust(int)/center()
-说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用参数中规定的空格数来对齐
-2）文本文件的输入输出
-文本文件的操作步骤：
-1、打开文件
-函数格式：open(file,mode,buffering,encoding)
-返回值：返回一个文件对象，用来对文件进行操作。
-说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。
-2、操作文件
-1）写文件
-函数格式：write(str)
-返回值：返回所写入文件的字符串中的字符数。
-说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件是，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。
-函数格式：writelines(sequence)
-返回值：无
-说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。
-2）读文件
-函数格式：read([size])
-返回值：返回按字节逐一读取的数据。
-说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。
-
-函数格式：readline()
-返回值：返回读取的一行字符串
-说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。
-
-函数格式：readlines()
-返回值：返回一个包含多个字符串的列表。
-说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。
-
-3、关闭文件
-函数格式：close()
-返回值：无
-说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。
-
-4、json格式处理
-在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。
-1）将嵌套列表或字典转为json格式数据
-import json
-item = json.dumps(list/dict)
-file.writelines(item)
-
-json.dump(list, file)
-2)将文件中的列表或字典json字符串读取出来
-f= open(file,mode)
-json.load(f)
-</code></pre><h3 id="文件及路径操作函数"><a href="#文件及路径操作函数" class="headerlink" title="文件及路径操作函数"></a>文件及路径操作函数</h3><pre><code>1）isfile()与isdir() （os.path模块）
-函数格式：os.path.isfile(file)
-返回值：bool
-说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False
-isdir()
-函数格式：os.path.isdir(path)
-返回值：bool
-说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False
-
-2）创建路径 mkdir()、删除路径removedirs() (os模块)
-函数格式：os.mkdir(path)
-删除文件 remove() （os模块）
-判断文件/目录是否存在 exists()
-返回指定路径下，所有子路径 listdir()
-返回当前路径 getcwd()
-返回文件大小 getsize()
-重命名 rename()
-替换 replace()
-注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。
-其使用的前提为：需要先创建一个path对象，然后对其进行操作。
-p = Path(&apos;c:\pythoncode\etc&apos;)
-</code></pre>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/hello-world3/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2018/08/05/hello-world4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          文件部分总结
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2018/07/29/hello-world1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">练习例题</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/09/hello-world/" class="archive-article-date">
+  	<time datetime="2018-07-09T12:20:39.688Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/09/hello-world/">Hello friends</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -416,8 +256,8 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

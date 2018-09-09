@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件函数格式部分 | 小丑的技术博客</title>
+  <title>MySQL数据库总结 | 小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+  <meta name="description" content="数据库语言分类数据库定义语言   DDL（create database/table，drop database/table，alter database/table） 数据库操纵语言   DML(insert、delete、update、select) 数据库控制语言   DCL（grant、revoke） 注意，数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销 。 数据">
 <meta name="keywords" content="python、爬虫、web开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件函数格式部分">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/hello-world3/index.html">
+<meta property="og:title" content="MySQL数据库总结">
+<meta property="og:url" content="http://yoursite.com/2018/09/09/mydql/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
-<meta property="og:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta property="og:description" content="数据库语言分类数据库定义语言   DDL（create database/table，drop database/table，alter database/table） 数据库操纵语言   DML(insert、delete、update、select) 数据库控制语言   DCL（grant、revoke） 注意，数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销 。 数据">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-08T16:00:41.298Z">
+<meta property="og:updated_time" content="2018-09-08T16:24:41.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件函数格式部分">
-<meta name="twitter:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta name="twitter:title" content="MySQL数据库总结">
+<meta name="twitter:description" content="数据库语言分类数据库定义语言   DDL（create database/table，drop database/table，alter database/table） 数据库操纵语言   DML(insert、delete、update、select) 数据库控制语言   DCL（grant、revoke） 注意，数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销 。 数据">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -161,98 +161,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mydql" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文件函数格式部分
+      MySQL数据库总结
     </h1>
   
 
         
-        <a href="/2018/07/29/hello-world3/" class="archive-article-date">
-  	<time datetime="2018-07-29T07:57:04.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+        <a href="/2018/09/09/mydql/" class="archive-article-date">
+  	<time datetime="2018-09-08T16:13:29.309Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="文件输入输出（IO）"><a href="#文件输入输出（IO）" class="headerlink" title="文件输入输出（IO）"></a>文件输入输出（IO）</h3><pre><code>1）格式化函数
-repr()
-函数格式：repr(Object)
-返回值：返回一个字符串类型的数据
-说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。
+        <h2 id="数据库语言"><a href="#数据库语言" class="headerlink" title="数据库语言"></a>数据库语言</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><pre><code>数据库定义语言   DDL（create database/table，drop database/table，alter database/table）
+数据库操纵语言   DML(insert、delete、update、select)
+数据库控制语言   DCL（grant、revoke）
+注意，数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销 。
+</code></pre><h3 id="数据定义语言"><a href="#数据定义语言" class="headerlink" title="数据定义语言"></a>数据定义语言</h3><pre><code>1）、创建数据库
+create database 数据库名；
+2）、删除数据库
+drop database 数据库名；
+3）、打开数据库
+use 数据库名；
+4）创建数据表
+create table 表名(列名 数据类型(长度),列名 数据类型（长度）,......) default charset=utf8
+注意，如果创建表的时候，没有指定字符集，那么该表将默认采用其所在数据库的字符集。通常我们建议指定缺省的字符集。
+5)、查看数据表的字符集情况
+show variables like &apos;character%&apos;;
+6）查看表结构
+desc 表名
 
-函数格式：rjust(int) /ljust(int)/center()
-说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用参数中规定的空格数来对齐
-2）文本文件的输入输出
-文本文件的操作步骤：
-1、打开文件
-函数格式：open(file,mode,buffering,encoding)
-返回值：返回一个文件对象，用来对文件进行操作。
-说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。
-2、操作文件
-1）写文件
-函数格式：write(str)
-返回值：返回所写入文件的字符串中的字符数。
-说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件是，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。
-函数格式：writelines(sequence)
-返回值：无
-说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。
-2）读文件
-函数格式：read([size])
-返回值：返回按字节逐一读取的数据。
-说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。
+7）、数据库字段类型
+字符类型：
+char(长度)：定长的字符类型，一旦声明了长度，即使定义的字段数据不能达到最大长度，也会按照最大长度进行所占字节的分配。取值范围：0-255
+varchar(长度)： 变长的字符类型，声明长度后，如果字段数据的长度达不到最大长度，则会根据实际长度给出数据的长度。取值范围：0-2^16-1
+数值类型：
+int(长度)：给出指定的字段数据长度。如果没有明确指定长度，则采用默认长度11。所占字节4个字节。
 
-函数格式：readline()
-返回值：返回读取的一行字符串
-说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。
+日期类型：
+date：日期类型的字段，在定义时不需要指定长度。格式为YYYY-MM-DD
+time：日期类型的字段，格式HH:MM:SS
+datatime：日期类型的字段，格式YYYY-MM-DD HH:MM:SS
+布尔型：
+bool:布尔类型的字段，在定义时采用0代表假，1代表真。
+实际在mysql数据库中，bool类型等同于数值型的tinyint(1)
 
-函数格式：readlines()
-返回值：返回一个包含多个字符串的列表。
-说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。
+8)、修改表结构
+alter table 表名 [add/modify/change/drop] 字段名 [数据类型]
+添加字段：
+alter table tablename add 字段名 数据类型；
+添加字段，位于表中的最后一列。
+alter table tablename drop 字段名
+删除一列，如果列中有数据，则全部被删除且不可恢复。
+alter talbe tablename modify 字段名 数据类型
+修改指定字段的数据类型及长度。
+alter table tablename change oldcolumn newcolumn 数据类型
+修改指定字段的名字
+9）、修改表名
+rename table 旧表名 to 新表名
+</code></pre><h3 id="数据操作语言"><a href="#数据操作语言" class="headerlink" title="数据操作语言"></a>数据操作语言</h3><pre><code>1）数据类型间的默认转换
+字符串=&gt;日期型
+如果字段数据类型定义为日期型，例如：date（YYYY-MM-DD），如果我们队该字段插入数据时，采用&apos;2018-08-23&apos;的字符串格式进行数据插入，mysql会自动将字符串转为日期型。
 
-3、关闭文件
-函数格式：close()
-返回值：无
-说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。
+字符串=&gt;数值型
+当字段数据类型为字符型时，但具体值为数值，我们使用该字段的值与数值进行运算，那么得到的结果为数值型。
+同时，如果字段类型定义为数值型，我们可以将数值型字符串插入到指定的字段中。
+如果，字段类型为字符型，其中由字符与数字混合组成（只要不是纯数字构成的字符串），此时与数值进行算数运算，那么该字段内容被转换为0来进行处理。
+2）运算符
+算数运算符
+比较运算符
+逻辑运算符
+位运算符
+3）插入数据
+标准格式：
+insert into 表名（字段1，字段2，字段3，....） values(字段1值，字段2值，字段3值，...)
+insert into persons(pno,pname,age,hire_date,salary) values(&apos;10001&apos;,&apos;tom&apos;,21,&apos;2018-03-12&apos;,3459);
+通常，我们在声明表名的时候将需要插入数据的字段名一起进行声明，有利于提高插入的效率。同时如果有些字段值为null，可以在实际插入的时候省略。另外，字段值只需要与字段名称对应即可，不需要按照表中实际字段的位置进行填写。
 
-4、json格式处理
-在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。
-1）将嵌套列表或字典转为json格式数据
-import json
-item = json.dumps(list/dict)
-file.writelines(item)
+insert into 表名 values(字段1值，字段2值，字段3值，...)
+这种写法，需要我们在values的后面，按照表中各个字段的实际顺序进行一一对应的填写。同时，如果某个字段的值为null，也必须将null值进行标明。
 
-json.dump(list, file)
-2)将文件中的列表或字典json字符串读取出来
-f= open(file,mode)
-json.load(f)
-</code></pre><h3 id="文件及路径操作函数"><a href="#文件及路径操作函数" class="headerlink" title="文件及路径操作函数"></a>文件及路径操作函数</h3><pre><code>1）isfile()与isdir() （os.path模块）
-函数格式：os.path.isfile(file)
-返回值：bool
-说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False
-isdir()
-函数格式：os.path.isdir(path)
-返回值：bool
-说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False
+插入多条语句：
 
-2）创建路径 mkdir()、删除路径removedirs() (os模块)
-函数格式：os.mkdir(path)
-删除文件 remove() （os模块）
-判断文件/目录是否存在 exists()
-返回指定路径下，所有子路径 listdir()
-返回当前路径 getcwd()
-返回文件大小 getsize()
-重命名 rename()
-替换 replace()
-注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。
-其使用的前提为：需要先创建一个path对象，然后对其进行操作。
-p = Path(&apos;c:\pythoncode\etc&apos;)
+insert into 表名（字段名） values(字段值1,...，字段值n)，(字段值1,...，字段值n)
+一次性插入多条数据
+
+insert into person_bak(pno,pname,age,hire_date,salary) select * from persons;
+将指定表的查询结果，作为要插入到目标表中的数据，进行插入。要求是目标表结构与指定表的结构相同。
+4）、更新数据
+格式：
+update 表名 set 字段1=新值，字段2=新值，...，字段n=新值 where 条件
+进行更新操作时，一定要进行条件的约束，如果该语句没有条件子句的话，就表示对全表进行更新操作。
+5）、删除数据
+delete from 表名 where 条件
+进行删除操作时，一定要添加条件，如果没有条件子句，就意味着删除全表内容。
+6）、数据操作的撤销和提交
+mysql数据库默认模式为自动提交：autocommit=on
+我们如果需要对mysql进行撤销和提交操作，需要先将默认的自动提交模式取消，设置为off
+即：set autocommit=off
+当我们进行增删改操作时，如果执行rollback操作，那么该操作就会被撤销；
+如果执行commit操作，那么该操作就会持久化到数据库中。
+commit
+rollback
+</code></pre><h3 id="数据库函数"><a href="#数据库函数" class="headerlink" title="数据库函数"></a>数据库函数</h3><pre><code>1、字符串函数
+length(字段)：返回该字段字符串的实际长度。
+trim(字段)：将字符串左右两端的空格去除。
+repeat(字段,n)：将字段中的字符串重复n次
+replace(s,s1,s2)：使用s2替换字段s中的s1
+substring(s,n,len):对字符串s的第n个位置开始，截取长度为len的子字符串。注意，此处字符串的字符位置从1开始。
+2、数值函数
+ceil()：返回数值的上限（只入不舍）
+floor()：返回数值的下限（只舍不入）
+mod(x,y)：返回两个数的余数
+round(x,[y])：对x进行四舍五入操作，如果声明了y,则保留到小数点后y位
+truncate(x,y)：对x进行截断操作，保留小数位y位
+3、日期函数
+curdate():当前日期年月日
+curtime():当期时间时分秒
+now():当前的时间 年月日 时分秒
+year():返回当前的年份
+month()：返回当前的月份
+dayofmonth()：返回当前的天数
+date_format():格式化指定字段的日期
+adddate(d，时间间隔):将指定的日期增加或减少对应的时间。
+4、系统函数
+user():返回当前登录数据库的用户名
+database():返回当前登录的数据库名
+</code></pre><h3 id="数据控制语言"><a href="#数据控制语言" class="headerlink" title="数据控制语言"></a>数据控制语言</h3><pre><code>1）创建用户
+create user 用户名 identified by 密码
+2）授予用户权限
+grant 权限 on 数据库 to 用户名
+grant all privileges on mydb.* to &apos;pythondb&apos;@&apos;localhost&apos;;
+此处，将mydb数据库的所有权限都授予pythondb用户
+同时，在授予权限时，可以选择授予不同的权限，如：查询、删除、修改、新增、修改表、创建表、删除表等等。
+3）撤销用户权限
+revoke 权限 on 数据库 from 用户名
+revoke all privileges on mydb.* from &apos;pythondb&apos;@&apos;localhost&apos;;
+将mydb数据库上的所有权限，从pythondb用户收回
+4）删除用户
+drop user 用户名
+drop user &apos;pythondb&apos;@&apos;localhost&apos;;
+</code></pre><h3 id="删除表数据"><a href="#删除表数据" class="headerlink" title="删除表数据"></a>删除表数据</h3><pre><code>delete
+truncate
+这两种方法都可以实现对表数据的删除，但是在实际操作中，他们的删除原理是不同的。
+delete属于DML语句，所有的删除操作都是可以被撤销的。也就是意味着，进行的删除操作并没有真正对数据库的记录进行持久化删除，而且在数据库服务器中仍然保留了其记录数据的缓存，一旦执行rollback，就可以将已删除的内容进行恢复。
+truncate删除数据，实际上是进行的表的截断操作，在删除记录的同时将这些记录在数据库服务器中的缓存同时进行删除。此操作不可撤销
+</code></pre><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><pre><code>背景：银行转账过程中，如果发生了意外，需要使用事务行处理。
+A账户有余额1000元，向余额为200元的B 账号进行转账500元，由于发生了某些故障，造成A账号在转账过程中出此案了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元.
+不使用事务产生的问题：
+1、    当A 账户进行转账扣款时，发生错误。B账号并么有收到转账金额500元。而A账号已经提示完成扣款。
+2、    当A 账号进行转账发生错误，未成功扣款，而B账号提示收到转账金额500元。
+我们称上述的情况产生的数据为脏数据（未清洗de数据）。
+使用事务处理的具体操作：
+1、    关闭MySQL自动提交功能。 set autocommit= off 或者 0；
+2、    开始事务：start transaction  / begin
+3、    执行相应的sql操作
+4、    提交或回滚: commit  rollback
+5、    将MySQL自动：set autocommit =1;
+概念：
+在MySQL中事务主要用于处理数据量大，复杂度高的数据。只有定义了InnoDB引擎的数据库才支持事务。事务处理可以用来维护数据库的完整性，保证SQL操作要么全完成，要么全不执行。
+
+事务满足四个特性: ACID
+A：原子性。一个事物中的所有操纵，会作为一个整体来看待，在执行时如果有一个操作没有成功，那么所有操作都将被滚。回到事务开始前的状态。
+C:一致性。在事务开始之前和事务结束之后，数据库的完整性没有被破坏，说明写入的资料符合数据库的所有设置的规则，包括数据的精度。
+I:隔离性：数据库允许同时并发多个事务，并且同时对数据库进行读写操作，隔离性可以保证防止多个事务并发执行时由于交叉执行而导致数据的不一致。
+事务的隔离分为：读未提交、读提交、可重复读、串行化
+D：持久性。事务处理结束后，对数据的修改时永久佛如，即存储在数据库中。
+
+MySQL数据库中myisam与innodb的区别
+1、    MyISAM是非事务安全型的，而InnoDB是事务安全型的。
+2、    MyISAM是锁支持到表级，而InnoDB支持行级。
+3、    MyISAM是支持全文检索，而InnoDB是不利于全文检索的。
+4、    MyISAM表保存为文件形式的，有利于跨平台时进行数据转移，而InnoDB比MyISAM更安全，可以保证表中数据不丢失的情况下，切换非事务到事务标
+5、    如果在实际应用中，需要执行大量的select查询，那么MyISAM时优先选择的。
+如果需要执行大量的增删改操作，那么InnoDB是优先选择的，可以提高多用户并发操作的性能。
+通常，我们在实现构建数据库服务器时，采用读写分离的方式，即设置一台读服务器，一台写服务器，同时俩台服务器进行数据同步
 </code></pre>
       
 
@@ -332,7 +423,7 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/hello-world3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/09/mydql/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +437,18 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
   
 <nav id="article-nav">
   
-    <a href="/2018/08/05/hello-world4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/09/mysql-find/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          文件部分总结
+          MySQL数据库查询总结
         
       </div>
     </a>
   
   
-    <a href="/2018/07/29/hello-world1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">练习例题</div>
+    <a href="/2018/09/08/spider/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">爬虫部分总结</div>
       <i class="icon-circle-right"></i>
     </a>
   

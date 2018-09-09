@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件函数格式部分 | 小丑的技术博客</title>
+  <title>MySQL数据库查询总结 | 小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+  <meta name="description" content="查询单表查询查询语句的格式  select 字段1，字段2，字段3，....，字段n         6 from 表名                 1 where 条件子句            2 group by 分组子句         3 having 条件子句           4 order by 排序子句         5 limit 分页子句  例如：select * f">
 <meta name="keywords" content="python、爬虫、web开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件函数格式部分">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/hello-world3/index.html">
+<meta property="og:title" content="MySQL数据库查询总结">
+<meta property="og:url" content="http://yoursite.com/2018/09/09/mysql-find/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
-<meta property="og:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta property="og:description" content="查询单表查询查询语句的格式  select 字段1，字段2，字段3，....，字段n         6 from 表名                 1 where 条件子句            2 group by 分组子句         3 having 条件子句           4 order by 排序子句         5 limit 分页子句  例如：select * f">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-08T16:00:41.298Z">
+<meta property="og:updated_time" content="2018-09-08T16:25:01.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件函数格式部分">
-<meta name="twitter:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta name="twitter:title" content="MySQL数据库查询总结">
+<meta name="twitter:description" content="查询单表查询查询语句的格式  select 字段1，字段2，字段3，....，字段n         6 from 表名                 1 where 条件子句            2 group by 分组子句         3 having 条件子句           4 order by 排序子句         5 limit 分页子句  例如：select * f">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -161,98 +161,146 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mysql-find" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文件函数格式部分
+      MySQL数据库查询总结
     </h1>
   
 
         
-        <a href="/2018/07/29/hello-world3/" class="archive-article-date">
-  	<time datetime="2018-07-29T07:57:04.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+        <a href="/2018/09/09/mysql-find/" class="archive-article-date">
+  	<time datetime="2018-09-08T16:19:01.155Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="文件输入输出（IO）"><a href="#文件输入输出（IO）" class="headerlink" title="文件输入输出（IO）"></a>文件输入输出（IO）</h3><pre><code>1）格式化函数
-repr()
-函数格式：repr(Object)
-返回值：返回一个字符串类型的数据
-说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。
+        <h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h3><pre><code>查询语句的格式
 
-函数格式：rjust(int) /ljust(int)/center()
-说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用参数中规定的空格数来对齐
-2）文本文件的输入输出
-文本文件的操作步骤：
-1、打开文件
-函数格式：open(file,mode,buffering,encoding)
-返回值：返回一个文件对象，用来对文件进行操作。
-说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。
-2、操作文件
-1）写文件
-函数格式：write(str)
-返回值：返回所写入文件的字符串中的字符数。
-说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件是，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。
-函数格式：writelines(sequence)
-返回值：无
-说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。
-2）读文件
-函数格式：read([size])
-返回值：返回按字节逐一读取的数据。
-说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。
+select 字段1，字段2，字段3，....，字段n         6
+from 表名                 1
+where 条件子句            2
+group by 分组子句         3
+having 条件子句           4
+order by 排序子句         5
+limit 分页子句
 
-函数格式：readline()
-返回值：返回读取的一行字符串
-说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。
+例如：select * from person
+该语句中，*代表了表中所有的字段，但是我们日常开发中，不允许这样使用。一定要明确的标出需要查询的相关字段名。这有有利于在查询时减少数据库在查询表时不必要的字段检索。
 
-函数格式：readlines()
-返回值：返回一个包含多个字符串的列表。
-说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。
+关系运算与逻辑运算
+逻辑与 and
+select pno, pname, age, hire_date, salary from persons where hire_date&gt;=&apos;2018-03-01&apos; and hire_date&lt;=&apos;2018-04-30&apos;;
+等价于
+select pno, pname, age, hire_date, salary from persons where hire_date between &apos;2018-03-01&apos; and &apos;2018-04-30&apos;;
+第二种写法的效率会更优。因为采用了关系表达式，使用一次比较实现条件。
 
-3、关闭文件
-函数格式：close()
-返回值：无
-说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。
+逻辑或 or
+select pno, pname, age, hire_date, salary from persons where salary=3459 or salary = 3400;
+等价于
+select pno, pname, age, hire_date, salary from persons where salary in(3459,3400);
 
-4、json格式处理
-在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。
-1）将嵌套列表或字典转为json格式数据
-import json
-item = json.dumps(list/dict)
-file.writelines(item)
+逻辑非 not
+select pno, pname, age, hire_date, salary from persons where hire_date NOT between &apos;2018-03-01&apos; and &apos;2018-04-30&apos;;
 
-json.dump(list, file)
-2)将文件中的列表或字典json字符串读取出来
-f= open(file,mode)
-json.load(f)
-</code></pre><h3 id="文件及路径操作函数"><a href="#文件及路径操作函数" class="headerlink" title="文件及路径操作函数"></a>文件及路径操作函数</h3><pre><code>1）isfile()与isdir() （os.path模块）
-函数格式：os.path.isfile(file)
-返回值：bool
-说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False
-isdir()
-函数格式：os.path.isdir(path)
-返回值：bool
-说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False
+排序子句：order by（排序子句一定要放在所有子句之后）
+sql中排序分为升序与降序，默认情况下为升序，如果要使用降序采用desc关键字。
+select pno, pname, age, hire_date, salary from persons order by salary desc;
+注意，如果出现多个排序条件时，表示为先按照第一个排序条件进行排序，如果出现相同的排序字段内容时，再按照第二个排序条件进行排序，依次类推。多个排序条件之间，用,号隔开。
+select pno, pname, age, hire_date, salary from persons order by salary desc, hire_date;
 
-2）创建路径 mkdir()、删除路径removedirs() (os模块)
-函数格式：os.mkdir(path)
-删除文件 remove() （os模块）
-判断文件/目录是否存在 exists()
-返回指定路径下，所有子路径 listdir()
-返回当前路径 getcwd()
-返回文件大小 getsize()
-重命名 rename()
-替换 replace()
-注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。
-其使用的前提为：需要先创建一个path对象，然后对其进行操作。
-p = Path(&apos;c:\pythoncode\etc&apos;)
+
+分组子句：group by
+如果SQL中使用了分组子句，那么在select子句里面，只能使用分组字段或者是统计函数。例如：
+select age,count(age) from persons group by age;
+注意：通常情况下分组子句会结合统计函数一起使用。
+
+having条件子句
+having子句通常是配合group子句一起使用，having将统计函数作为其条件字段。
+select age,count(age) from persons group by age having count(age)&gt;1;
+
+limit子句：分页子句
+limit 开始的行号（第一行为0）,显示几条记录
+select * from persons limit 0,1;
+
+distinct去重：
+去除指定字段中的重复内容，只保留一个。
+select distinct salary from persons;
+
+列表名与表别名
+列别名：给指定的列，起别名。可以使用as关键字。
+select 列名 [as] 别名 from 表名
+例如：
+select pno as &apos;编号&apos; from persons;
+表别名：给指定的表，起别名。使用as关键字修饰。
+
+
+统计函数：
+count():统计个数
+max()：求最大值
+min()：求最小值
+avg()：求平均值
+sum()：求和
+注意，在使用统计函数时，如果没有配合group by子句使用，那么在select中只能输出统计函数的值，不能输出其他字段。例如：
+select max(salary) from persons;
+其中，max、min、avg、sum只能统计数据类型是数值型的字段，如果该字段值为null，那么统计函数将忽略该内容。我们可以通过ifnull(字段，替换值)，将null值转换为我们指定的值，进而参加相关的统计运算。
+select avg(ifnull(salary,0)) from persons;
+
+模糊查询：like
+我们通常在查询时，如果条件内容不是非常明确的情况下，我们会使用like关键字进行模糊查询。通常会使用%、_来配合，其中%代表了0到n个字符，_代表了1个字符。
+select * from persons where pname like &apos;_i%&apos;;查找名字第二位是i的人员信息
+select * from persons where pname like &apos;%i%&apos;;查找名字中有i的人员信息
+</code></pre><h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><pre><code>1、查询分类
+内连接（等值连接）
+inner join 
+select e.empno,e.ename,e.sal,e.deptno,d.dname from emp e inner join dept d on e.deptno=d.deptno where e.sal&gt;2000;
+等价于
+select e.empno,e.ename,e.sal,e.deptno,d.dname from emp e, dept d where e.deptno=d.deptno and e.sal&gt;2000;
+
+外连接
+分为左外连接与右外连接
+left join on
+right join on
+何时使用外连接？
+当进行两个表连接查询时，其中一方有不匹配记录，如果进行等值连接这些记录将不会被查询检索，如果我们需要查询时将匹配记录以及不匹配记录都查询出来，就需要使用外连接。那么不匹配记录存在的表位于连接语句的左侧，就使用左外连接，如果出现在右侧就使用右外连接。
+例如：其中dept表中有不匹配的记录，deptno=40的记录。
+左外连接
+select e.empno,e.ename,d.deptno,d.dname from  dept d left join emp e on e.deptno=d.deptno;
+右外连接
+select e.empno,e.ename,d.deptno,d.dname from emp e right join dept d on e.deptno=d.deptno;
+
+子查询
+概念：将一个SQL查询语句的返回结果，作为另外一个查询语句的条件来使用。
+分为单行子查询与多行子查询
+单行子查询：作为条件返回的查询语句，其返回结果为一行记录。
+多行子查询：作为条件返回的查询语句，其返回结果为多行记录。
+子查询通常放在where条件子句中进行使用。但有时我们也可以将子查询作为虚表，放在from子句后面使用。但是这种使用方法，必须给子查询一个别名。例如：
+select * from (select * from emp) as e;
+</code></pre><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><pre><code>行变列
+select name,max(case course when &apos;math&apos; then score else 0 end) &apos;数学&apos;,max(case course when &apos;english&apos; then score else 0 end) &apos;英语&apos;,max(case course when &apos;chinese&apos; then score else 0 end ) &apos;语文&apos; from grade group by name;
+Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(20) | YES  |     | NULL    |                |
+| course | varchar(10) | YES  |     | NULL    |                |
+| score  | int(3)      | YES  |     | NULL    |
+列变行
+select name,&apos;math&apos; course,math_score as score from grade2 union select name,&apos;english&apos; course,en_score as score from grade2 union select name,&apos;chinese&apos; course,cn_score as score from grade2 order by name,course;
+------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(10) | YES  |     | NULL    |                |
+| math_score | int(3)      | YES  |     | NULL    |                |
+| en_score   | int(3)      | YES  |     | NULL    |                |
+| cn_score   | int(3)      | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
 </code></pre>
       
 
@@ -332,7 +380,7 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/hello-world3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/09/mysql-find/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +394,9 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
   
 <nav id="article-nav">
   
-    <a href="/2018/08/05/hello-world4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          文件部分总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/29/hello-world1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">练习例题</div>
+    <a href="/2018/09/09/mydql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL数据库总结</div>
       <i class="icon-circle-right"></i>
     </a>
   

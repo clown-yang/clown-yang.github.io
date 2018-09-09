@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件函数格式部分 | 小丑的技术博客</title>
+  <title>爬虫部分总结 | 小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+  <meta name="description" content="网络原理1、HTTP与HTTPS的区别 HTTP：我们称为超文本传输协议，主要用来实现从网络传输超文本到本地浏览器，实现高效且准确的超文本传送。目前HTTP的版本为1.1 HTTPS：我们认为就是以安全为目标的HTTP通道，即在HTTP协议的基础上加入了SSL层，简称HTTPS。 SSL的主要作用分为以下两部分： 第一、为HTTP传输文件提供安全的传输通道 第二、确认网站的真实性，通过HTTPS访">
 <meta name="keywords" content="python、爬虫、web开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件函数格式部分">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/hello-world3/index.html">
+<meta property="og:title" content="爬虫部分总结">
+<meta property="og:url" content="http://yoursite.com/2018/09/08/spider/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
-<meta property="og:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta property="og:description" content="网络原理1、HTTP与HTTPS的区别 HTTP：我们称为超文本传输协议，主要用来实现从网络传输超文本到本地浏览器，实现高效且准确的超文本传送。目前HTTP的版本为1.1 HTTPS：我们认为就是以安全为目标的HTTP通道，即在HTTP协议的基础上加入了SSL层，简称HTTPS。 SSL的主要作用分为以下两部分： 第一、为HTTP传输文件提供安全的传输通道 第二、确认网站的真实性，通过HTTPS访">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-08T16:00:41.298Z">
+<meta property="og:updated_time" content="2018-09-08T16:22:26.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件函数格式部分">
-<meta name="twitter:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta name="twitter:title" content="爬虫部分总结">
+<meta name="twitter:description" content="网络原理1、HTTP与HTTPS的区别 HTTP：我们称为超文本传输协议，主要用来实现从网络传输超文本到本地浏览器，实现高效且准确的超文本传送。目前HTTP的版本为1.1 HTTPS：我们认为就是以安全为目标的HTTP通道，即在HTTP协议的基础上加入了SSL层，简称HTTPS。 SSL的主要作用分为以下两部分： 第一、为HTTP传输文件提供安全的传输通道 第二、确认网站的真实性，通过HTTPS访">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -161,98 +161,279 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-spider" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文件函数格式部分
+      爬虫部分总结
     </h1>
   
 
         
-        <a href="/2018/07/29/hello-world3/" class="archive-article-date">
-  	<time datetime="2018-07-29T07:57:04.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+        <a href="/2018/09/08/spider/" class="archive-article-date">
+  	<time datetime="2018-09-08T15:47:42.511Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="文件输入输出（IO）"><a href="#文件输入输出（IO）" class="headerlink" title="文件输入输出（IO）"></a>文件输入输出（IO）</h3><pre><code>1）格式化函数
-repr()
-函数格式：repr(Object)
-返回值：返回一个字符串类型的数据
-说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。
+        <h3 id="网络原理"><a href="#网络原理" class="headerlink" title="网络原理"></a>网络原理</h3><pre><code>1、HTTP与HTTPS的区别
+HTTP：我们称为超文本传输协议，主要用来实现从网络传输超文本到本地浏览器，实现高效且准确的超文本传送。目前HTTP的版本为1.1
+HTTPS：我们认为就是以安全为目标的HTTP通道，即在HTTP协议的基础上加入了SSL层，简称HTTPS。
+SSL的主要作用分为以下两部分：
+第一、为HTTP传输文件提供安全的传输通道
+第二、确认网站的真实性，通过HTTPS访问的网站都需要获取到CA认证。
 
-函数格式：rjust(int) /ljust(int)/center()
-说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用参数中规定的空格数来对齐
-2）文本文件的输入输出
-文本文件的操作步骤：
-1、打开文件
-函数格式：open(file,mode,buffering,encoding)
-返回值：返回一个文件对象，用来对文件进行操作。
-说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。
-2、操作文件
-1）写文件
-函数格式：write(str)
-返回值：返回所写入文件的字符串中的字符数。
-说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件是，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。
-函数格式：writelines(sequence)
-返回值：无
-说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。
-2）读文件
-函数格式：read([size])
-返回值：返回按字节逐一读取的数据。
-说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。
+2、网络七层模型（了解）
+从下到上的顺序
+物理层
+数据链路层
+网络层
+传输层（TCP、UDP）
+会话层
+表示层
+应用层（HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP）
 
-函数格式：readline()
-返回值：返回读取的一行字符串
-说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。
+3、HTTP的请求机制
+第一，由客户端（浏览器）发出请求
+第二，通过网络传输，到指定的服务器地址
+第三，服务器接收相关请求，并进行解析
+第四，服务器将最终的结果响应回客户端
+第五，客户端接收到服务器响应后，通过浏览器解析，最终将内容进行展现
 
-函数格式：readlines()
-返回值：返回一个包含多个字符串的列表。
-说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。
+4、客户端访问服务器，发出请求，有四部分构成
+第一，请求方法（request method），默认为get方式。只有在表单提交和文件上传时为post方法。
+第二，请求网址（request url），即在浏览器中输入的网路地址。
+第三，请求头（request header），用来标识为一个浏览器正常的访问
+第四，请求体（request body），用来传输到服务器端的相关数据
 
-3、关闭文件
-函数格式：close()
-返回值：无
-说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。
 
-4、json格式处理
-在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。
-1）将嵌套列表或字典转为json格式数据
-import json
-item = json.dumps(list/dict)
-file.writelines(item)
+5、请求方法中get与post的区别
+第一、使用get方式提交请求时，相关数据会作为url的参数被一起进行提交，我们可以直接在地址栏中观察到相关数据。而采用post方式请求的url不会包含这些数据，而是直接通过表单提交到服务器。
+第二、get方式提交请求，对于提交的数据大小不能大于1024字节，而post方式提交数据，没有大小的限制。
+总之，如果提交的信息比较敏感或者字节较大时，需要使用post方式；如果只是普通的请求使用get方式。
 
-json.dump(list, file)
-2)将文件中的列表或字典json字符串读取出来
-f= open(file,mode)
-json.load(f)
-</code></pre><h3 id="文件及路径操作函数"><a href="#文件及路径操作函数" class="headerlink" title="文件及路径操作函数"></a>文件及路径操作函数</h3><pre><code>1）isfile()与isdir() （os.path模块）
-函数格式：os.path.isfile(file)
-返回值：bool
-说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False
-isdir()
-函数格式：os.path.isdir(path)
-返回值：bool
-说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False
+二、HTML网页结构
+1、HTML基本构成
+HTML有三个标签来构成基本结构：
+&lt;html&gt;:作为HTML文件的根标签，所有的页面中的标签和内容都要在HTML标签的范围内。
+&lt;head&gt;：作为HTML文件的头部标签，相关页面的信息、编码、引导外部的CSS文件和JS文件，都需要放置在head标签中。
+&lt;body&gt;：body标签中的内容，就是我们爬虫需要解析的主体。所有需要在页面上展现的内容，都会放置在该标签中。
+2、常见的HTML标签
+1）h1...h6：标题标签，用来显示标题，h1最大，h6最小。
+2）&lt;p&gt;：段落标签。用来对文本内容进行分段。
+3）&lt;a&gt;：链接标签。用来跳转到指定的网址。
+&lt;a target=&apos;&apos; href=&apos;URL&apos;&gt;链接地址&lt;/a&gt;
+其中参数target，_self:在自身的窗口重新打开指定的网址
+_blank：在一个新窗口中打开指定的网址
+4）&lt;img&gt;：图片标签。用来载入指定位置的图片，通常可以接收的图片类型：JPG、png、gif、bmp
+&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;
+其中：src：指定图片的具体位置
+    alt：其中的内容，作为图片无法载入时，显示的内容。
+5）表格标签：table、tr、th、td
+&lt;table&gt;：表格标签，所有表格中的行和单元格内容都必须放置在内部。
+&lt;tr&gt;:表格行，代表表格一行
+&lt;th&gt;:表格头，代表表格的标题行
+&lt;td&gt;：表格单元格，代表表格中的每个单元内容
+6）列表
+有序列表：
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+无序列表:
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+自定义列表：
+&lt;dl&gt;
+&lt;dt&gt;
+    &lt;dd&gt;&lt;/dd&gt;
+&lt;/dt&gt;
+&lt;/dl&gt;
+7)div与span
+div：块级元素，用来实现页面布局。自身没有任何效果
+span:内联元素，用做文本容器。
+8）表单
+&lt;form name=&quot;表单名&quot; action=&quot;URL&quot; method=&quot;get/post&quot;&gt;
+默认情况，如果没有声明method属性，缺省值为get
+&lt;input type=&quot;&quot;&gt;
+输入标签，type属性：
+text:文本框
+password：密码框
+checkbox：复选框
+radio：单选框
+submit：提交按钮
+reset：重置按钮
+button：按钮
+file:文件上传
+&lt;textarea cols=&quot;列数&quot; rows=&quot;行数&quot;&gt;：文件区标签
+</code></pre><h3 id="网络爬虫—urllib库"><a href="#网络爬虫—urllib库" class="headerlink" title="网络爬虫—urllib库"></a>网络爬虫—urllib库</h3><pre><code>1、urllib库的基本使用
+import urllib.request
+函数格式：urllib.request.openurl(url, data, timeout)
+参数说明：
+url：指定的请求网址
+data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。
+timeout：指定连接url的超时时间，单位为秒。
+response = urllib.request.openurl()函数返回一个HTTPResponse对象
+我们可以使用response对象中的相关方法：
+read()读取响应体中的内容
+status/getcode()返回响应码
+reason 返回响应信息的内容
+info()返回响应头信息
+geturl()返回请求的url地址
+2、Request请求对象
 
-2）创建路径 mkdir()、删除路径removedirs() (os模块)
-函数格式：os.mkdir(path)
-删除文件 remove() （os模块）
-判断文件/目录是否存在 exists()
-返回指定路径下，所有子路径 listdir()
-返回当前路径 getcwd()
-返回文件大小 getsize()
-重命名 rename()
-替换 replace()
-注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。
-其使用的前提为：需要先创建一个path对象，然后对其进行操作。
-p = Path(&apos;c:\pythoncode\etc&apos;)
+req = urllib.request.Request(url,data,headers,method)
+参数说明：
+url：指定的请求网址
+data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。
+headers：请求对象的头信息，用来将一个爬虫伪装成一个普通的浏览器请求，主要设置user-agent
+method：请求的方式，默认为get，可以设置为get或post
+3、urllib.error
+在urllib库中有三个error对象
+HTTPError：HTTP访问异常
+URLError：url地址异常
+ContentTooShortError：文件大小异常
+注意，HTTPError是URLError的子类。
+HTTPError，只有一个属性reason
+URLError，有code，reason，headers三个属性。
+4、urllib.robotparser
+作用：用来解析指定网站的robots.txt文件。用来分析哪些内容是允许抓取，哪些内容是不允许的。
+四、requests库
+1、常用方法
+1）函数格式：requests.get(url,[param], **kvw)
+参数说明:
+url：指定爬取的网络地址
+param：需要传递的参数，参数格式：字典或字节流
+返回值：response对象
+属性：
+status_code:状态码
+headers:头信息
+text：抓取到的页面内容
+encoding：页面的编码格式（从headers获取到）
+apparent_encoding：页面的编码格式（从网页内容中获取到）
+content：二进制形式的信息
+注意：text属性返回的页面信息，是根据encoding来显示的。所以我们在使用requests抓取页面信息时，将encoding属性进行设置，通常设为utf-8。
+
+get()函数代表了发出一个request请求，而requests.get()表示返回一个response对象
+
+2）
+requests.request(&apos;GET&apos;,url, **kvw)
+requests.request(&apos;HEAD&apos;,url, **kvw)
+requests.request(&apos;POST&apos;,url, **kvw)
+requests.request(&apos;PUT&apos;,url, **kvw)
+requests.request(&apos;PATCH&apos;,url, **kvw)
+requests.request(&apos;DELETE&apos;,url, **kvw)
+**kvw:控制访问的参数，为可选项
+params:字典或字节流，作为参数添加到url中（get方法使用）
+data：字典、字节流或文件对象（post方法使用）
+json：JSON格式数据，作为request的内容
+headers：字典，HTTP头信息
+cookies：字典或cookie jar，存在于request的cookie中
+auth：元组，支持HTTP认证
+files：字典类型，传输文件
+timeout：设定超时时间，秒为单位
+stream：True/False，默认为True。获取内容立即下载。
+cert：本地SSL整数路径
+verfiy：True/False，默认为True。认证SSL开关
+allow_redirects：True/False,默认为True，重定向开发
+</code></pre><h3 id="beautiful-soup库"><a href="#beautiful-soup库" class="headerlink" title="beautiful soup库"></a>beautiful soup库</h3><pre><code>1、常用格式
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(content, &apos;html.parser&apos;)
+参数说明：
+content：使用requests或其他方式，发出请求后获取到的服务器响应内容，通常应该为HTML格式。
+html.parser:HTML4格式解析器
+2、常用的属性
+标签自身属性：
+tag：标签，例如soup.tag可以将指定的标签以及内部的内容返回
+name：标签名，例如：soup.tag.name返回指定标签的名字
+attrs：标签属性，在HTML中一个标签可以有0到N个标签，因此标签属性为字典类型，例如：soup.tag.attrs[&apos;class&apos;]
+string：标签内的文本内容，例如：soup.tag.string
+标签树的属性：
+contents:例如：soup.tag.contents,将指定的标签名内所有的标签都以列表形式返回。
+children：例如：soup.tag.children，将指定的标签中所有的子标签内容，都以迭代器形式返回，进行遍历查询。
+descendants：例如：soup.tag.descendants,将指定的标签中所有的子标签、孙标签都以迭代器形式返回，进行遍历查询。
+注意：BeautifulSoup对象，作为标签树的根节点，即HTML节点
+3、常用方法
+1）函数格式：soup.find(name,attrs)
+参数说明：
+name：标签名
+attrs：标签中的属性值（属性=‘值’）
+返回值：返回查找到第一个符合条件的标签以及内部元素
+
+2）函数格式：soup.find_all(name,attrs)
+函数参数与上面find()相同
+返回值：返回符合条件的所有的标签，以列表形式返回。
+
+4、bs4的遍历模式
+在BeautifulSoup中，有三种遍历模式：
+1）下行遍历
+children、descendants、contents
+find()、find_all()
+2）上行遍历
+parent、parents
+find_parent()、find_parents()
+3）平行遍历
+next_sibling、next_siblings
+previous_sibling、previous_siblings
+find_next_sibling()、find_next_siblings()
+find_previous_siblings()、find_previous_sibling()
+</code></pre><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><pre><code>1、正则表达式的概念
+正则表达式就是使用一些特定的表达式，来表示符合其规范的字符串。
+2、常用操作符
+^:^ab,代表着必须是ab开头，[^ab]代表不能是a或b开头
+$:表示字符串结尾，放在正则表达式的结尾
+[]：代表了值域的范围，例如：[0-9][a-z]
+{}：代表了字符出现的次数,例如：{n}代表了出现n次，{n,m}代表出现了n到m次
+*:代表了字符出现0-n次
++：代表了字符出现1-n次
+？：代表了字符出现0-1次
+3、常用方法
+1）search()：会在指定的字符串中查找，是否有匹配正则表达式的内容
+函数格式：search(pattern, str)
+参数说明：
+pattern：正则表达式
+str：字符串
+返回值：match对象，可以通过match.group(0)返回匹配正则表达式的内容
+2）match():会从字符串的开始进行匹配
+函数格式：match(pattern, str) 
+返回值：match对象
+3）findall():会从指定的字符串中，匹配所有满足正则表达式的内容
+函数格式：findall(pattern,str)
+返回值：返回所有匹配的内容，以列表形式。
+4）split():根据字符串匹配正则表达式的情况来切分
+函数格式：split(pattern, str, maxsplit)
+maxsplit：最大切分次数，剩余部分将作为一个整体输出
+返回值：将切分后的字符串，以列表形式返回
+5）finditer():根据字符串匹配正则表达式，返回一个迭代对象，其中的每一个对象都是match对象
+函数格式：finditer(pattern,str)
+返回值：返回迭代对象，其中每个对象都是match类型
+
+6）sub():根据正则表达式，将指定的字符串内容替换
+函数格式：sub(pattern, repl, string, count)
+参数说明：
+repl：替换匹配字符串的字符串
+count：匹配的最大次数
+返回值：返回替换后的字符串
+7）compile():生成正则表达式对象
+函数格式：compile(pattern)
+返回值：返回一个正则表达式对象
+4、match对象
+1）match对象属性
+string：待匹配的字符串
+pos：匹配文本的开始位置
+endpos：匹配文件的结束位置
+re：正则表达式
+2）match方法
+group(0)：获得匹配后的字符串
+start()：返回文本开始的位置
+end()：返回文本结束的位置
+span()：返回文本开始，结束的位置，以元组的形式返回
 </code></pre>
       
 
@@ -332,7 +513,7 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/hello-world3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/08/spider/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +527,18 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
   
 <nav id="article-nav">
   
-    <a href="/2018/08/05/hello-world4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/09/mydql/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          文件部分总结
+          MySQL数据库总结
         
       </div>
     </a>
   
   
-    <a href="/2018/07/29/hello-world1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">练习例题</div>
+    <a href="/2018/09/06/readme/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MongoDB数据库部分</div>
       <i class="icon-circle-right"></i>
     </a>
   

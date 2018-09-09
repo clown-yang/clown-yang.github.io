@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>文件函数格式部分 | 小丑的技术博客</title>
+  <title>MongoDB数据库部分 | 小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+  <meta name="description" content="###sql vs nosql    SQL:     关系型数据库     数据被储存在表中     适用于每条记录（数据）具有相同的属性     存储数据需要预定义     添加数据必须修改表结构     ACID事物支持  NOSQL:        非关系型数据库     可以储存JSON，键值对     灵活设置表结构     混合存储数据模型（不影响其他数据）     支持ACID事物">
 <meta name="keywords" content="python、爬虫、web开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件函数格式部分">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/hello-world3/index.html">
+<meta property="og:title" content="MongoDB数据库部分">
+<meta property="og:url" content="http://yoursite.com/2018/09/06/readme/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
-<meta property="og:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta property="og:description" content="###sql vs nosql    SQL:     关系型数据库     数据被储存在表中     适用于每条记录（数据）具有相同的属性     存储数据需要预定义     添加数据必须修改表结构     ACID事物支持  NOSQL:        非关系型数据库     可以储存JSON，键值对     灵活设置表结构     混合存储数据模型（不影响其他数据）     支持ACID事物">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-08T16:00:41.298Z">
+<meta property="og:updated_time" content="2018-09-08T16:31:23.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件函数格式部分">
-<meta name="twitter:description" content="文件输入输出（IO）1）格式化函数 repr() 函数格式：repr(Object) 返回值：返回一个字符串类型的数据 说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。  函数格式：rjust(int) /ljust(int)/center() 说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用">
+<meta name="twitter:title" content="MongoDB数据库部分">
+<meta name="twitter:description" content="###sql vs nosql    SQL:     关系型数据库     数据被储存在表中     适用于每条记录（数据）具有相同的属性     存储数据需要预定义     添加数据必须修改表结构     ACID事物支持  NOSQL:        非关系型数据库     可以储存JSON，键值对     灵活设置表结构     混合存储数据模型（不影响其他数据）     支持ACID事物">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -161,98 +161,143 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-readme" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      文件函数格式部分
+      MongoDB数据库部分
     </h1>
   
 
         
-        <a href="/2018/07/29/hello-world3/" class="archive-article-date">
-  	<time datetime="2018-07-29T07:57:04.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+        <a href="/2018/09/06/readme/" class="archive-article-date">
+  	<time datetime="2018-09-06T03:54:59.024Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="文件输入输出（IO）"><a href="#文件输入输出（IO）" class="headerlink" title="文件输入输出（IO）"></a>文件输入输出（IO）</h3><pre><code>1）格式化函数
-repr()
-函数格式：repr(Object)
-返回值：返回一个字符串类型的数据
-说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。
+        <p>###sql vs nosql<br>    SQL:</p>
+<pre><code>    关系型数据库
+    数据被储存在表中
+    适用于每条记录（数据）具有相同的属性
+    存储数据需要预定义
+    添加数据必须修改表结构
+    ACID事物支持
 
-函数格式：rjust(int) /ljust(int)/center()
-说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用参数中规定的空格数来对齐
-2）文本文件的输入输出
-文本文件的操作步骤：
-1、打开文件
-函数格式：open(file,mode,buffering,encoding)
-返回值：返回一个文件对象，用来对文件进行操作。
-说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。
-2、操作文件
-1）写文件
-函数格式：write(str)
-返回值：返回所写入文件的字符串中的字符数。
-说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件是，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。
-函数格式：writelines(sequence)
-返回值：无
-说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。
-2）读文件
-函数格式：read([size])
-返回值：返回按字节逐一读取的数据。
-说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。
+NOSQL:  
 
-函数格式：readline()
-返回值：返回读取的一行字符串
-说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。
+    非关系型数据库
+    可以储存JSON，键值对
+    灵活设置表结构
+    混合存储数据模型（不影响其他数据）
+    支持ACID事物
+    一致性可以改变
+    横向扩展
 
-函数格式：readlines()
-返回值：返回一个包含多个字符串的列表。
-说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。
+NoSQL:分布式数据管理系统
+MySQL:传统数据库（关系型）
+MongoDB:一个分布式文件存储数据库，由C++语言编写的开源项目，一个NoSQL中，功能最丰富、最像关系数据库的产品。
+•    MongoDB适用场景
+•    网站动态数据，需要实时的插入，更新与查询。
+•    可以做高性能的持久化缓存层。
+•    存储大尺寸，低价值的数据。
+•    高伸缩性的集群场景。
+•    文档化结构的数据存储及查询。
+</code></pre><h3 id="Git-bash中的MongoDB操作命令"><a href="#Git-bash中的MongoDB操作命令" class="headerlink" title="Git bash中的MongoDB操作命令"></a>Git bash中的MongoDB操作命令</h3><pre><code>如果出现连接不上，首先使用 管理员运行net start mongodb
+Winpty  mongo :启动  (因为这个版本是liuns与window的结合体，因为我们现在使用的操作系统是windows，所以在liuns操作windonws 需要加这个命令)
+Ls : 查看文件
+Clear：清屏
+Use ： 选中与新建 ，如果存在就选中，否则就新建。
+Db 全局数据库对象 ：查看当前数据库 
+Show  dbs：查看库
+Db.stats(): 查看库当前的状态
+Db.getMongo() : 查看当前连接的服务器地址以及端口号
+操作：
+1、Use 库
+2、db.createCollection(“pyuser”)：创建一个表
+3、show collections :查看表
+4、post={&quot;name&quot;:&quot;pony ma&quot;,
+... &quot;age&quot;:45,
+... &quot;sex&quot;:&quot;M&quot;,
+... &quot;marry&quot;:ture,
+... &quot;date&quot;:new Date()}     ：添加数据   （json形式，敲完逗号回车。）
+5、db.pyuser.insert(post)  :将数据添加到表中 
+6、db.pyuser.find()       :查看数据
+7、db.pyuser.find().pretty()  ：查看格式化数据
+Db.py06db,dataSize :查看库的
+db.pyuser.distinct(&apos;name&apos;)  :去重
+</code></pre><h3 id="基本语句的使用"><a href="#基本语句的使用" class="headerlink" title="基本语句的使用"></a>基本语句的使用</h3><pre><code>lt  小于
+lte小于等于
+gt 大于
+gte 大于等于
 
-3、关闭文件
-函数格式：close()
-返回值：无
-说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。
+db.pyuser.find({age:45})
+{ &quot;_id&quot; : ObjectId(&quot;5b907e56e85e3345d9db8e35&quot;), &quot;name&quot; : &quot;pony ma&quot;, &quot;age&quot; : 4
+5, &quot;sex&quot; : &quot;M&quot;, &quot;marry&quot; : true, &quot;date&quot; : ISODate(&quot;2018-09-06T01:09:10.527Z&quot;)
+}                         #查询括号里面写条件
 
-4、json格式处理
-在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。
-1）将嵌套列表或字典转为json格式数据
-import json
-item = json.dumps(list/dict)
-file.writelines(item)
+db.pyuser.find({age:{$gt:40}}).pretty()  #年龄大于40  （格式化输出）
 
-json.dump(list, file)
-2)将文件中的列表或字典json字符串读取出来
-f= open(file,mode)
-json.load(f)
-</code></pre><h3 id="文件及路径操作函数"><a href="#文件及路径操作函数" class="headerlink" title="文件及路径操作函数"></a>文件及路径操作函数</h3><pre><code>1）isfile()与isdir() （os.path模块）
-函数格式：os.path.isfile(file)
-返回值：bool
-说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False
-isdir()
-函数格式：os.path.isdir(path)
-返回值：bool
-说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False
+db.pyuser.find({age:{$lt:40}}).pretty() #年龄小于40
 
-2）创建路径 mkdir()、删除路径removedirs() (os模块)
-函数格式：os.mkdir(path)
-删除文件 remove() （os模块）
-判断文件/目录是否存在 exists()
-返回指定路径下，所有子路径 listdir()
-返回当前路径 getcwd()
-返回文件大小 getsize()
-重命名 rename()
-替换 replace()
-注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。
-其使用的前提为：需要先创建一个path对象，然后对其进行操作。
-p = Path(&apos;c:\pythoncode\etc&apos;)
+db.pyuser.find({age:{$lt:50,$gt:30}}).pretty()#逗号表示并且
+
+db.pyuser.find({name:/^p/}).pretty() 以开头来查寻
+
+db.pyuser.find({},{name:1}) { }查询条件 查询ID，和名字，1是True
+
+db.pyuser.find({},{name:1,age:1}) 查询名字和年龄
+
+db.pyuser.find().limit(5) 前五条
+
+db.pyuser.find().skip(3) 跳过3条
+
+db.pyuser.find({$or:[{age:45},{age:50}]}) or或的意思
+
+db.pyuser.count() 当前数据库的数据个数
+
+db.pyuser.totalIndexSize() 当前下标最大值
+
+db.pyuser.find({age:45}).count() 对满足条件的数据进行计数
+
+db.py01tab.drop()删除表
+
+db.grade_3.find().sort({name:1}) 排序升
+db.grade_3.find().sort({name:-1}) 降
+
+db.createCollection(&apos;py01tab&apos;,{capped:true,size:1024,max:3})限制表的数据数量和大小
+
+save 和insert 在字段中不含id功能一样，增加数据。如果存在id则，insert有id属性，在该表中有该id对应的数据，会报错，错误是duplicate，save有id属性时则是修改该id的属性。共同点，多个数据插入时从第二个数据开始不起作用，不能插入
+db.py02tab.update({name:&apos;Jack&apos;},{$set:{name:&quot;Jack Ma&quot;}})默认只修改第一条
+
+db.py02tab.update({name:&apos;IG.wxz&apos;},{$set:{name:&quot;IG.wjl&quot;}},false,true)#修改多条
+
+db.grade_3.find({age:{$in:[6,8]}})在【6,8】里边
+
+db.grade_3.find({age:{$nin:[6,8]}})不在【6,8】里边
+
+db.grade_3.find({age:{$ne:10}},{age:1}).sort({age:1}).pretty() 不等于
+
+db.students.createIndex({name:1}) 建立索引
+
+db.students.createIndex({age:-1},{unique:true}) 建立联合索引
+
+db.students.getIndexes() 查看索引
+
+db.students.dropIndexes() 删除索引，只会删除自定义的索引，系统自带的不会删除
+
+db.students.find({name:&apos;test10000&apos;}).explain(&apos;executionStats&apos;)查看程序运行时间
+</code></pre><h3 id="mongodb-术语"><a href="#mongodb-术语" class="headerlink" title="mongodb 术语"></a>mongodb 术语</h3><pre><code>1、文档（document）相当于传统数据库模型的行，但比行复杂（数据信息）
+2、集合（collection），在mongodb表示一组文档，类似表，集合是没有用模式
+没有模式就是可以混合插入数据类型结构
+3、数据库（database）
+update(查询条件，要更新的数据，是否插入数据，是否全部更新)
+是否插入数据的意思，如果不存在update的记录（数据），是否要插入集合中，默认是FALSE，不插入，True表示插入
 </code></pre>
       
 
@@ -332,7 +377,7 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/hello-world3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/06/readme/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +391,18 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
   
 <nav id="article-nav">
   
-    <a href="/2018/08/05/hello-world4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/08/spider/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          文件部分总结
+          爬虫部分总结
         
       </div>
     </a>
   
   
-    <a href="/2018/07/29/hello-world1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">练习例题</div>
+    <a href="/2018/08/19/clown/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面向对象部分总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
