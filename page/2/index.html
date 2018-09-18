@@ -159,132 +159,32 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/demo03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/22/hello-world2/">函数部分的总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/22/hello-world2/" class="archive-article-date">
-  	<time datetime="2018-07-22T07:21:30.553Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-22</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h3><pre><code>1、函数的定义
-函数的格式：
-def 函数名([参数列表]):
-    执行代码
-其中，函数名的命名方式与变量名的要求相同，即只能是数字、字符、下划线三者构成，同时不能由数字开头。
-另外，函数的参数根据情况，可以有参，也可以无参。同时，参数的个数，可以是1到N个。最后，调用函数时，一定要保证该函数已经被定义。调用的函数名与定义的函数名一致。
-2、函数的调用
-函数在外部调用时，直接写函数名以及函数参数即可，不需要将函数体写出来。同时，函数是否有返回值，由其函数体最后一句代码是否为return来决定的。如果由return语句，那么就意味着该函数有返回值，如果没有返回值就意味着返回值为None。
-注意：函数使用return作为返回值语句，该命令通常放在函数的最后一句，保证函数相关的代码都执行完毕后才返回，如果后面还有其他程序，则不会被执行。
-
-3、函数的参数
-概念：函数在定义时声明的参数，我们称为形参（形式参数）。形参的作用，主要是用来表明参数顺序、类型和个数。并不代表具体内容。
-我们在调用函数的时候，根据形参的规定（顺序、类型、个数），传递进来实际的内容。我们称为实参。
-例如：
-def display(name,age):   # 定义函数时声明的形参：name,age
-    print(name,age)
-
-display(&apos;tom&apos;,22)        #调用函数时实际传递的参数值：tom, 22
-1）必须的参数
-我们在函数定义时，显示声明在函数的参数列表中的参数，这些参数一旦被声明，函数在调用时，必须按照所声明的顺序、个数和数据类型，来传递实际的参数内容。
-2）关键字参数
-我们在定义函数时，声明了函数的参数后，在调用函数时我们不仅传递实际的参数内容，同时还将参数名字与之对应，这样保证传递进来的参数如果没有按照函数定义时规定的顺序，也能够正确传递进来。
-3)默认参数
-我们在定义函数时，声明函数的参数，同时可以给这些参数进行赋值，在调用该函数时，如果没有给对应参数传递实参，那么python会默认使用定义函数时所声明的默认参数值。
-4）可变参数
-普通可变参数：我们在定义函数时，因为参数过多或者不确定具体参数列表的个数，我们还可以采用可变参数来实现。可变参数表示从0到N个参数，采用*参数名
-注意，此时可变参数类型，为tuple元组类型。
-关键字可变参数：我们在定义函数时，通过使用**参数名，来表示0到N个参数，在外部调用函数时，将这些可变参数组装成一个字典。
-例如：
-
-特殊用法：*
-在函数定义中，如果单独使用一个*号，意味着该*后面的参数，为关键字参数声明时必须使用的名字。在调用该函数时，关键字参数的名字要与函数定义中*号后面的参数名称一致。例如：
-def person(name, password, *, city, sex):
-    print(&apos;用户名{0}，密码{1}，其他内容{2}{3}&apos;.format(name, password, city, sex))
-
-4、局部变量与全局变量
-1）Python中，函数在调用的时候Python才会给函数一个内存地址，用来执行函数内部的相关代码。
-2)Python程序在运行时，首先会将程序最外部的变量载入内容，并给其分配相关的内存空间。我们成这种变量为全局变量。
-3）函数中声明的变量，只有在函数被执行时，才会被分配内存空间进行执行。我们成这种变量为局部变量。
-4）Python程序执行的过程中，执行函数时首先会检查其函数内部的局部变量是否存在，如果存在就调用它，如果不存在就从外部全局变量中进行调用，如果仍然没有发现相关内容，则报错。
-5）globals()与locals()
-在Python中，通过globals()观察全局作用域中内容，包括：内置函数、自定义函数、全局变量；通过locals()观察局部作用域中的内容，包括：局部变量，嵌套函数（内部函数）inner 
-6）当函数中出现嵌套情况时，最内层函数执行调用变量，会采用“就近原则”即先查找自身范围内的变量，如果没有找到，则向上查找，直到程序最外部结束。
-
-7）global与nonlocal
-global用来修饰局部变量时，表示该变量将作为全局变量来使用。即不仅在函数中可以被调用，同时在文件最外部也可以被调用。
-nonlocal用来修饰嵌套函数内部的变量，对父级作用域（外层函数）中的变量进行引用和修改，那么从该层(包括父级)以下都将调用该变量的值。注意，该关键字只能影响其直接父级函数。
-使用global关键字修饰的变量之前可以并不存在
-而使用nonlocal关键字修饰的变量在嵌套作用域中必须已经存在。
-
-总结：在函数中定义的变量，我们成为局部变量。包括在函数内部定义的变量、作为参数传递进来的变量。局部变量起作用的范围，我们称为局部作用域。因为Python在调用局部变量时，需要给它分配内存地址，我们称为这个地址为局部命名空间。
-在文件最外层定义的变量，我们成为全局变量，可以在文件中的任意位置进行调用。全局变量起作用的范围，我们称为全局作用域。Python在载入文件时，就需要给全局变量分配内存地址，这个地址我们称为全局命名空间。
-
-Python运行时处理变量的步骤：
-1、从Python解释器开始执行之后，就在内存中开辟里一个空间，每当遇到一个变量的时候，就把变量名和值之间对应的关系记录下来，但是当遇到函数定义的时候，解释器只是象征性的将函数名读入内存，表示知道这个函数存在了，至于函数内部的变量和逻辑，解释器根本不关心。
-2、函数执行时，函数中的变量会储存在新开辟出来的内存中，函数中的变量只能在函数内部使用，并且会随着函数执行完毕，这块内存中的所有内容也会被清空
-</code></pre><h3 id="函数嵌套"><a href="#函数嵌套" class="headerlink" title="函数嵌套"></a>函数嵌套</h3><pre><code>根据Python中，对函数的载入和调用特点。我们可以清楚看到，当Python运行相关文件时，如果遇到函数时，会先将其名字载入到内存中（即为函数名指定一个内存地址）。因此我们在使用函数名时，可以有以下三种情况：
-1）将函数名赋值给变量
-例如：
-def f1():
-print(&apos;ok&apos;)
-
-a = f1
-这是变量a中的值就是f1()函数名的内存地址。
-2）将函数名作为容器的元素
-def f1():
-print(&apos;ok&apos;)
-ls = [1,2,f1]
-注意，此时存入到列表ls中的f1，它的值仍然是该函数名对应的内存地址
-3）将函数名作为另外一个函数的参数，进行传递
-def f1():
-print(&apos;ok&apos;)
-
-def f2(x):
-x()
-f2(f1)
-
-通过对例子的观察，我们发现闭包函数的写法有如下特点：
-1、闭包函数作为内部函数，嵌套在外部函数中
-2、闭包函数会作为外部函数的返回值，进行返回。返回闭包函数时，只返回函数名，不带括号。
-3、外部调用时，首先要执行外部函数，然后将结果赋值给一个变量，此时该变量对应了闭包函数。
-4、我们可以通过__closure__内部函数可以观察到，闭包函数的存在。前提是，闭包函数要与外部函数进行数据传递或调用。
-总结：闭包使用的数据，必须是本身定义或外部函数中定义的相关变量，通常需要调用外部函数的数据，形成一个封闭的函数结构。不能与外部数据（全局变量）发生交流。
-2）闭包的应用—装饰器
-1、概念：装饰器本身仍然是一个函数。是我们队闭包应用的一种具体实现。
-2、作用：装饰器可以在不改变函数本身功能的情况下，为函数添加额外的功能。诸如：日志、测试、性能检测等。装饰器同样也是返回一个函数对象。
-</code></pre><h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><pre><code>1）匿名函数
-使用lambda关键字进行修饰，没有显式声明函数的名字。格式如下：
-lambda 参数：表达式（返回值）
-注意，在使用匿名函数时，因为其自身的情况限制，匿名函数并不能执行比较复杂的业务逻辑，即函数内的代码不能过多。lambda本身是一个表达式
-2）map函数（映射函数）
-函数格式：map(func,iterable)
-返回值：map 对象（迭代器）
-说明：map函数主要作用是，将指定函数与序列中的元素进行映射，并完成函数中功能的批量操作，返回值为一个迭代器。我们可以使用for循环或next()函数进行遍历。通常情况下，如果映射的函数较为简单，我们就不单独声明函数，而是采用匿名函数来实现，这样也能提高运行效率。
-3）reduce函数（归纳函数）
-函数格式：reduce(func,iterator)
-返回值：返回函数计算结果，具体类型根据函数的返回值来定
-说明：reduce函数中的func，一定要设为两个参数，用来接收迭代器返回的值。操作顺序为首先接收第一、第二个值，进行运算；运算结果再与第三个值进行运行，以此类推，直到迭代器迭代完全部数据。
-4）filter函数（过滤函数）
-函数格式：filter(func,iterable)
-返回值：返回一个迭代器
-说明：过滤函数与映射函数类似，都需要将函数作用于序列中的每个元素，根据函数判断True或False，返回相关元素。
-8、递归
-递归概念：就是使用自身函数对自身进行调用，每调用一次将当前次的运行结果保存到函数的堆栈中，以副本形式保存，一直到最后完成全部调用。然后逐一向外将当期函数的结果返回并退出到其调用的位置。
-在Python中，通常推荐使用迭代，递归本身对内存的消耗和运行效率低下的问题较少使用。
-</code></pre>
+        <!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>外部样式</title>
+    <!--CSS使用方式，1.行内样式，2.页内样式 3.外部样式
+    没有绝对的优先级
+    正常情况下 哪一种方式 离所设置元素最近 谁样式优先
+    一般情况下 行内样式 优先级比其他两种高
+    -->
+    <link rel="stylesheet" href="demo03.css">
+    <style>
+        div{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:purple;margin: 0 auto">这是个容器</div>
+</body>
+</html>
       
 
       
@@ -296,7 +196,7 @@ lambda 参数：表达式（返回值）
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/22/hello-world2/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/demo03/">展开全文 >></a>
         </p>
       
 
@@ -326,937 +226,774 @@ lambda 参数：表达式（返回值）
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/demo03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        @charset "UTF-8";
+div{
+    width: 400px;
+    height: 200px;
+    /*!优先级最高*/
+    background-color: red!important;
+    color: white;
+}
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/demo03/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CCS/CSS使用方式/demo02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>页内样式</title>
+    <!--声名一个css样式-->
+    <style>
+        img{
+            width: 300px;
+        }
+
+        div{
+            background:url("https://www.baidu.com/img/bd_logo1.png");
+            background-size: 200px;
+            height: 600px;
+            border:2px solid red;
+            background-repeat: no-repeat ;
+            background-position: center center;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://www.baidu.com/img/bd_logo1.png" alt="百度">
+    <img src="https://www.baidu.com/img/bd_logo1.png" alt="百度">
+    <div></div>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/demo02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CCS/CSS使用方式/demo01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>行内样式</title>
+</head>
+<body>
+    <!--css 层叠样式表，用来网页布局和美化
+    在页面中使用css 有三种样式：
+    1.行内样式 是将css设置 放在元素内部进行美化，通过元素标签的属性 style 属性进行设置
+    style 属性的值是一个字符串。字符串中的内容将就是对当前指定元素的样式设置
+    内容而格式，key：value;key:value key，key1表示要设置元素样式的属性，属性就是外观
+
+    2.页内样式
+    3.外部样式
+    -->
+    <div style="font-size: 20px;color:darkmagenta;background-color:greenyellow;width:400px;height:300px">这是个容器标签，用来包裹其他内容，也叫超级标签</div>
+    <p style="font-size: 20px;background-color: red;">这是一个段落标签</p>
+    <span>这是文本标签</span>
+    <b>这是一个粗体文本标签</b>
+    <a href="http://www.baidu.com" style="width:300px ;height:400px;background-color:red;" target="_blank" rel="noopener">百度一下，就知道</a>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/demo01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CCS/CSS04盒模型/demo04" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右布局 左右固定 中间自适应</title>
+</head>
+<body>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .wrapper{
+            background-color: #333;
+            height: 100%;
+            min-width: 1024px;
+        }
+
+        .left{
+            background-color: red;
+            width: 200px;
+            height: 100%;
+            float: left;
+        }
+
+        .middle{
+            background-color: yellow;
+            height: 100%;
+            margin-right: 210px;
+            margin-left: 210px;
+
+        }
+
+        .right{
+            background-color: blue;
+            width: 200px;
+            height: 100%;
+            float: right;
+        }
+
+    </style>
+    <div class="wrapper">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="middle"></div>
+    </div>
+
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS04盒模型/demo04/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CCS/CSS04盒模型/demo03" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动布局中的左中右</title>
+    <!--左右布局：左边固定，右边自适应
+    右边固定，左边自适应
+    左中右：左右固定，中间自适应
+
+
+    -->
+</head>
+<body>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        .wrapper{
+            height: 100%;
+            background-color: #666;
+            overflow: hidden;
+        }
+        .wrapper>.left{
+            width: 200px;
+            height: 100%;
+            background-color: red;
+            float:left;
+        }
+
+        .wrapper>.right{
+            height: 100%;
+            background-color: blue;
+            margin-left: 210px;
+        }
+        /*html,body{*/
+            /*height: 100%;*/
+        /*}*/
+        /*.wrapper{*/
+            /*height: 100%;*/
+            /*background-color: #666;*/
+        /*}*/
+        /*.wrapper>.right{*/
+            /*width: 200px;*/
+            /*height: 100%;*/
+            /*background-color: blue;*/
+            /*float: right;*/
+        /*}*/
+
+        /*.wrapper>.left{*/
+            /*height: 100%;*/
+            /*background-color: red;*/
+            /*margin-right: 210px;*/
+        /*}*/
+    </style>
+    <div class="wrapper">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS04盒模型/demo03/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CCS/CSS04盒模型/demo02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面布局之一 浮动布局</title>
+</head>
+<body>
+    <!--左右布局-->
+    <style>
+        .wrapper{
+            background-color: red;
+            /*overflow: hidden;*/
+            min-width: 1024px;
+        }
+
+        .left{
+            background-color: greenyellow;
+            width: 200px;
+            height: 300px;
+            /*float:left;*/
+        }
+
+        .right{
+            background-color: palegoldenrod;
+            width: 400px;
+            height: 300px;
+            float:right;
+        }
+    </style>
+    <div class="wrapper">
+        <div class="right"></div>
+        <div class="left"></div>
+    </div>
+    <div style="clear: both"></div>
+    <p style="background-color:blue;">这是浮动带来的副作用</p>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS04盒模型/demo02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-CCS/CSS04盒模型/demo01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒模型</title>
+</head>
+<body>
+
+    <!--1.盒模型的概念
+    为了更好的布局html页面，w3c 将每一个元素都抽象一个一个盒子模型，能够描述大小和属性，引入盒子概念
+    2.盒模型的类型
+    2.1、标准盒模型
+
+    2.2、IE盒模型
+
+    3、盒模型的组成部分：
+
+    content 内容
+
+    padding 内边距
+
+    border 边框
+
+    margin 外边距
+
+    -->
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 30px;
+            height: 300px;
+            background-color: #333;
+            color: #eeeeee;
+            margin-left: 100px;
+            padding-left: 100px;
+            margin-top: 100px;
+        }
+        .wrapper{
+            background-color: red;
+        }
+        span{
+            border:8px solid black ;
+            display: inline-block;
+            margin: 100px;
+            padding: 100px;
+            background-color: bisque;
+        }
+
+    </style>
+    <div class="content">这是一个典型的盒模型</div>
+    <p>这是一个段落标签</p>
+    <div class="wrapper">
+        <span>lalalsksld</span>
+        <span style="margin-left: 200px">dfdghjhdffgbyh</span>
+    </div>
+
+    <!--溢出-->
+    <style>
+        .chars{
+            background-color: greenyellow;
+            color: black;
+            width: 100px;
+            /*overflow: hidden;!*去除多的部分*!*/
+            /*overflow: auto;!*游览器自己处理*!*/
+            overflow-x: scroll;/*不论是否溢出都有滚动条*/
+        }
+    </style>
+    <div class="chars">
+        123345678910123456789101111111111111111111111234567890987654321098765432
+    </div>
+
+    <!--元素的可见性-->
+    <style>
+        .nav-header{
+            height: 100px;
+            background-color: blue;
+            /*visibility: hidden;*/
+            display: none;
+            /*visibility: collapse;*//*隐藏表的行和列*/
+        }
+
+        .nav-footer{
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+
+    <div style="border: 10px black solid ">
+        <div class="nav-header">
+
+        </div>
+        <div class="nav-footer">
+
+        </div>
+    </div>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS04盒模型/demo01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql-find" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/09/hello-world/">基础语法</a>
+      <a class="article-title" href="/2018/09/09/mysql-find/">MySQL数据库查询总结</a>
     </h1>
   
 
         
-        <a href="/2018/07/09/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-09T12:20:39.688Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
+        <a href="/2018/09/09/mysql-find/" class="archive-article-date">
+  	<time datetime="2018-09-08T16:19:01.155Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一篇"><a href="#第一篇" class="headerlink" title="第一篇"></a>第一篇</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><pre><code>Clown-yang introduction
-我是一个喜欢python的技术狂，在这里每天分享一些基础的，深的，关于python的技术知识，由浅入深的进行写出，希望大家喜欢。这是第一篇文章，我们不过多的描述python的知识，在最后附上一个简单的判断性程序，请大家多多留言，给予评价。
+        <h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h3><pre><code>查询语句的格式
 
-import math
-print(&apos;***************************&apos;)
-print(&apos;1 选择英雄   &apos;)
-print(&apos;2 退出&apos;)
-print(&apos;***************************&apos;)
-number = int(input(&apos;请输入选择:&apos;))
-if number == 1:
-    user = input (&apos;请选择角色：&apos;) 
-    kills = input (&apos;请输入技能：&apos;)
-    kills_time = 0 #总攻击次数
-    num = 0 #技能值所能承受的次数
-    bloss = 10000 #bloss的值
-    if user ==&apos;赵云&apos;:
-        if kills ==&apos;物理攻击&apos;:
-            kills_time = math.ceil(bloss/80) # 物理攻击的次数
-        elif kills ==&apos;技能攻击&apos;:
-            kills_time = math.ceil(bloss /120) # 技能攻击的次数
-        elif kills ==&apos;混合技能&apos;:
-            num = int(500/50)
-            kills_time1 = (num*120)
-            kills_time2 = math.ceil((bloss - kills_time1)/80)
-            kills_time = num + kills_time2
-    elif user ==&apos;刘备&apos;:
-        if kills ==&apos;物理攻击&apos;:
-            kills_time = math.ceil(bloss/50)
-        elif kills ==&apos;技能攻击&apos;:
-            kills_time =math.ceil(bloss/100)
-        elif kills ==&apos;混合技能&apos;:
-            num = int(350/80)
-            kills_time1 = (num*100)
-            kills_time2 = math.ceil((bloss - kills_time1)/50)
-            kills_time = num + kills_time2
-    elif user ==&apos;李白&apos;:
-        if kills == &apos;物理攻击&apos;:
-            kills_time = math.ceil(bloss/80)
-        elif kills ==&apos;技能攻击&apos;:
-            kills_time =math.ceil(bloss/200)
-        elif kills ==&apos;混合技能&apos;:
-            num = int(400/100)
-            kills_time1 = (num*200)
-            kills_time2 = math.ceil((bloss - kills_time1)/80)
-            kills_time = num + kills_time2
-    else:
-        print(&apos;选择错误，请重新选择角色&apos;)
-        exit()
-    print(&apos;攻击所需要{0}次数&apos;.format(kills_time)) 
-elif number == 2:
-    exit()
-else:
-    print(&apos;输入错误，请重新输入&apos;)
-</code></pre><h2 id="第二篇"><a href="#第二篇" class="headerlink" title="第二篇"></a>第二篇</h2><h3 id="python基础，基础语法-一"><a href="#python基础，基础语法-一" class="headerlink" title="python基础，基础语法 一"></a>python基础，基础语法 一</h3><pre><code>1、编码：
-在开发过程，对应不同的语言使用不同的字符编码。
-英文    最初的后英文用，ISO-8859-1
-中文    中文分为简体中文和繁体中文gbk或gb2312
-目前Python为了统一编码格式，在3.0以上的版本使用了utf-8编码中文和英文共用的编码
-2、print()函数
-语法格式：print(value,...,sep=&apos; &apos;,end=&apos;\n&apos;)
-其中，value代表我们要输出的内容，可以是字符串，可以是数值等内容
-sep代表输出多个值之间的间隔符，默认使用空格隔开。我们可以重新定义间隔符，比如采用：#、，等
-end代表输出语句的结束标识，默认使用了换行，我们可以重新定义其他内容，其输出的内容将不再进行换行操作。
-3、print()函数的基本使用
-print()常用输出方式：
-print(&apos;hello &apos;)、print(123456)等
-参数格式输出
-%s：代表了字符串内容，其中
-print(&apos;welcome %s&apos;%Beijing)=&gt;welcome Beijing
-print(&apos;welcome %10.3s&apos;%Beijing)=&gt;welcome       Bei,输出结果为10个字符其中包含字符串Beijing中前三个，其余用空格填充
-%d：代表了整数内容，其中
-print(&apos;price %d&apos;%10)=&gt;price 10
-print(&apos;price %d&apos;%10.5) =&gt; price 10
-print(&apos;price %3d&apos;%10000)=&gt; price 10000
-注意这里面的3d表示输出一个宽度为3个单元的数值，如果数值长度小于三，那么数值靠右对齐。
--3d表示，数值反向对齐（靠左对齐）
-%f：代表了浮点数内容(注意，在Python中浮点数是一个近似值，所以结果也是近似)
-print(&apos;price %f&apos;%10.2)=&gt;10.200000
-print(&apos;price %.1f&apos;%10.2) =&gt; 10.2
-print(&apos;prince %.1f&apos;%10.58) = &gt;10.6 当取一位小数位的时候，将小数位第二位进行舍入操作，但是Python的中间值不是5，导致当小数位第二位是5时，直接被舍去
-print(&apos;%5.1f&apos;%10.3) =&gt; 10.3
-输出一个宽度为5的单位，其中整数3位，小数部分1位，小数点占一位
-4、格式化输出
-在Python3.0之后，推荐使用{0}来代替前期的%d,%s,%f等一系列的格式化参数，采用了字符串的format函数进行处理。写法如下：
-print(&apos;welcome {0}同学，加入{1}班级&apos;.format(&apos;tom&apos;,&apos;Python3班&apos;))
-其中{0}，{1}分别映射format()中的&apos;tom&apos;和&apos;Python3班&apos;，如果前面占位符中的索引值变化，那么他们映射的值也随之变化
-</code></pre><h3 id="基础语法-二"><a href="#基础语法-二" class="headerlink" title="基础语法 二"></a>基础语法 二</h3><pre><code>1、变量
-1）变量的声明：在Python没有变量类型，直接进行变量的声明，比如：i = 10
-2)变量的赋值：在python中，有两种赋值方式
-第一种，单个变量赋值  name = &apos;tom&apos;
-第二种，多个变量同时赋值  name, age, sex = &apos;tom&apos;， 23， &apos;男&apos;
+select 字段1，字段2，字段3，....，字段n         6
+from 表名                 1
+where 条件子句            2
+group by 分组子句         3
+having 条件子句           4
+order by 排序子句         5
+limit 分页子句
 
-变量在内存中的存在情况
-1）python中的变量，在声明和赋值时，不仅声明了变量的名字同时还为这个变量指向了内存中的地址，该地址用来存储变量的值。
-2）python中整数、字符串、浮点数等其本身都属于常量，所以当赋值给一个变量时，如：
-i = 10意味着将10这个常量在内存中的地址指向，因此，i = 10 ，j = 10 使用id(i),id(j）我们法向他们的id是相同的。
-因为，他们的值10在内存中的地址时相同的。
+例如：select * from person
+该语句中，*代表了表中所有的字段，但是我们日常开发中，不允许这样使用。一定要明确的标出需要查询的相关字段名。这有有利于在查询时减少数据库在查询表时不必要的字段检索。
 
-3）变量与内存地址
-当我们声明一个变量时，对其进行赋值。实际上就是将变量值所在的内存地址，赋值给该变量。也就是说这个变量指向其值所在的内存地址。
-当我们改变变量的值的时候，说白了就是将变量指向的内存地址进行变化。
-举例：我们日常购买商品，快递员通过你的邮寄地址将快递送到你本人手里。可以理解为，快递员拥有指向你这个变量的地址，通过地址，将快递商品赋值给你。
-4）变量与常量
-变量：我们认为其内容是临时结果，可变的。供后续的程序代码进行调用。
-常量：我们认为其内容是不变的，或者在程序运行的过程中也不发生改变。
-在Python中，我们通过大写变量名，来表明这是一个常量，比如：CARDID = &apos;12048377293&apos;
-5)变量命名规则
-首先，Python中的变量命名，必须由字母、数字或下划线三者组成，不能有其他的字符出现
-其次，变量名的首个字符，必须是字母或下划线
-然后，Python中的关键字不能作为变量名来使用，常用的关键字诸如：if,for,is,none等等。
-Python是严格区分大小写的语言，其中A = 10 ，a = 10。我们认为这是两个不同的变量
+关系运算与逻辑运算
+逻辑与 and
+select pno, pname, age, hire_date, salary from persons where hire_date&gt;=&apos;2018-03-01&apos; and hire_date&lt;=&apos;2018-04-30&apos;;
+等价于
+select pno, pname, age, hire_date, salary from persons where hire_date between &apos;2018-03-01&apos; and &apos;2018-04-30&apos;;
+第二种写法的效率会更优。因为采用了关系表达式，使用一次比较实现条件。
 
-2、基本数据类型
-1）常见的数据类型：
-整型    
-浮点型
-布尔型
-复数型
-字符串型
-我们工作中常用到整型、字符串
-2）整型
-我们通常根据计算机中数据编码格式，将整型分为：二进制、八进制、十进制、十六进制四种类型。
-进制间的转换
-二进制转十进制：bin(int)=&gt;将十进制转为二进制   int(bin)=&gt;将二进制转为十进制
-八进制转十进制：oct(int)=&gt;将十进制转为八进制   int(oct)=&gt;将八进制转为十进制
-十六进制转十进制： hex(int)=&gt;将十进制转为十六进制，int(hex)=&gt;将十六进制转为十进制
+逻辑或 or
+select pno, pname, age, hire_date, salary from persons where salary=3459 or salary = 3400;
+等价于
+select pno, pname, age, hire_date, salary from persons where salary in(3459,3400);
 
-3）运算符
-第一，算术运算符：+、-、*、/
-在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.
-%：两数进行求余运算，如果分子大于分母，得余数；如果分子小于分母，直接得分子。注意：只有分子除尽分母时，结果才返回0
-//：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。
-**：A**B 数A连续相乘B次，也可以说数A 的B次幂
-补充：
-1、对于数值运算的四舍五入操作
-math包中的floor()和ceil()函数
-import math
-math.floor(3/2) =&gt;1   等同于 3//2    只舍不入
-math.ceil(3/2) =&gt;2    此处，只要有小数位就进位，不管小数部分是否大于等于5  只入不舍
-round()函数进行四舍五入操作，round(数值[,保留小数位数])
-round(1.5)=&gt;2  
-round(1.2)=&gt;1
-round(1,4,1)=&gt;1.4  意味着保留小数点后一位
-2、求幂运算
-pow(2,3) =&gt;8 等同于2**3
-3、求绝对值
-abs(-10) =&gt; 10
-4、求两数相除的商与余数
-divmod(5,3) =&gt;(1,2)    类似5%3=&gt;2
-5、运算符
-i = 10 
-i = i + 5  等同于  i+=5
-i = i - 5  等同于  i-=5
-i = i * 5  等同于  i*=5
-i = i / 5  等同于  i/=5
-i = i//5   等同于  i//=5
-i = i ** 2 等同于  i**=2
-i = i % 3  等同于  i%=3
+逻辑非 not
+select pno, pname, age, hire_date, salary from persons where hire_date NOT between &apos;2018-03-01&apos; and &apos;2018-04-30&apos;;
 
-4)布尔型
-1、python中布尔型分为True和False两种，但是在实际操作中我们也可以将其与1和0等同。
-2、布尔型常用在逻辑运算和判断条件中，作为结果来使用。但是也可以参与算术运算，当进行算术运算时，True作为1、False作为0参与运算。
-3、a = True     a + 1 =&gt; 2
-b = False b + 1 =&gt;1
-a + b =&gt; 1
-注意：通常我们在python，不能将布尔型参与算术运算的。布尔型一般参加比较运算或逻辑运算，其返回值还是布尔型。
-布尔型求非： not
-not a =&gt; False
-not b =&gt; True
+排序子句：order by（排序子句一定要放在所有子句之后）
+sql中排序分为升序与降序，默认情况下为升序，如果要使用降序采用desc关键字。
+select pno, pname, age, hire_date, salary from persons order by salary desc;
+注意，如果出现多个排序条件时，表示为先按照第一个排序条件进行排序，如果出现相同的排序字段内容时，再按照第二个排序条件进行排序，依次类推。多个排序条件之间，用,号隔开。
+select pno, pname, age, hire_date, salary from persons order by salary desc, hire_date;
 
-5)精确的十进制
-在python中，我们通过阅读官方文档了解到，浮点数是一种近似值的表示，因此直接使用浮点数时常常出现精度丢失或不匹配情况发生。
-python中提出了Decimal对象来进行解决，通过引入 import decimal生成一个decimal对象，将浮点数转换为decimal类型，可以支持完成对应的算术运算。例如：
 
-from decimal import Decimal   # 引入decimal包中的Deciaml对象
-f1 = 12.4556
-f2 = 24.3
-c = Decimal.from_float(f1)    # 将浮点数转换为decimal对象
-a = Decimal(f1).quantize(Decimal(&apos;0.00&apos;)) #将浮点数转换为decimal对象，同时指定该数值的精度，保留小数点后两位，并自动完成四舍五入。
-b = Decimal(f2).quantize(Decimal(&apos;0.00&apos;))
-print((a*b).quantize(Decimal(&apos;0. 00&apos;)))
-</code></pre><h3 id="基础语法-三"><a href="#基础语法-三" class="headerlink" title="基础语法 三"></a>基础语法 三</h3><pre><code>一、字符串
-1、字符串声明，可以使用&apos;&apos;也可以使用&quot;&quot;，他们都可以表示字符串内容。
-2、比较运算符：&gt;、&lt;、==、!=、&gt;=、&lt;=
-他们的返回值为布尔型，即True或False
-字符串进行比较时，采用对应位置的逐字母进行比较，首先将字母转成ASCII码，然后根据码值进行比较大小。如果一旦出现一方的字母码值大于另一方，就结束比较。
-提示：在键盘上，所有的字符的ASCII码值都小于a,b,c.....这些字母的码值
-只有这四个字符的ASCII码值大于字母z的码值：&apos;{&apos;、&apos;|&apos;、&apos;}&apos;、&apos;~&apos;，它们的码值从123-126
-3、我们使用input()，允许进行交互式输入，默认input()输入的值类型为str字符串类型。
-4、字符串常用的方法
-1）find() 查找
-函数格式：str.find(子字符串[,开始索引位，结束索引位])
-返回值：如果查找成功，则返回所查找内容在字符串中的索引位置，如果没有找到，返回-1.
-注意：如果所查找的内容中，有多个相同的字母，只会返回第一个字母所在的索引位。比如：
-str1 = &apos;hello&apos;
-str1.find(&apos;ll&apos;) =&gt; 2  该例中，&apos;ll&apos;在字符串中出现了两次，但只会返回第一次出现的索引位置。
-为什么查找时，没有找到目标字符串的情况下会返回-1。其实，在find操作中，会对字符串进行扫描从字符串的索引位0开始，一直到字符串结尾，如果在字符串最后一位没有找到匹配的内容，将指向字符串结束符(EOF)，该结束符为-1。所以找不到时，find返回值为-1.
-更多用法：
-string1 = &apos;apple,banana,apple,apple&apos;
-&gt;&gt;&gt; string1.find(&apos;apple&apos;)
-0
-&gt;&gt;&gt; string1.find(&apos;apple&apos;,5)
-13
-&gt;&gt;&gt; string1.find(&apos;apple&apos;,7,20)
-13
-&gt;&gt;&gt; string1.find(&apos;apple&apos;,14,20)
--1
-&gt;&gt;&gt; string1.find(&apos;apple&apos;,14,24)
-19
+分组子句：group by
+如果SQL中使用了分组子句，那么在select子句里面，只能使用分组字段或者是统计函数。例如：
+select age,count(age) from persons group by age;
+注意：通常情况下分组子句会结合统计函数一起使用。
 
-对比：
-index() 返回指定字符的索引位
-函数格式：index(子字符串[,开始索引位，结束索引位])
-返回值：如果找到指定的字符串，则返回其索引位；如果找不到就报错ValueError
+having条件子句
+having子句通常是配合group子句一起使用，having将统计函数作为其条件字段。
+select age,count(age) from persons group by age having count(age)&gt;1;
 
-find()与index()函数的区别
-第一，两者在执行结果时类似的，如果找到指定的字符就会返回其索引位
-第二，find()如果找不到指定的字符时，返回-1；而index()找不到指定的字符，raise ValueError.
-第三，从效率上来讲，index的查询速度要优于find,因为在python中对于像字符串这样的有序数据类型，会产生一个索引对象来自动维护其序列，find()函数不管是否有这样的序列，都需要在字符串本身进行逐一查找，而index()会通过这个索引对象的映射方式，来快速找到对应的索引位。
-2）split() 拆分字符串
-函数格式：str.split([分隔符])
-返回值：根据指定的分隔符，对字符串进行拆分，返回一个列表；如果不指定分隔符，那么会将整个字符串，作为列表的一个元素。例如：
-string1 = &apos;tv,pc,notebook,phone&apos;
-&gt;&gt;&gt; string1.split(&apos;,&apos;)
-[&apos;tv&apos;, &apos;pc&apos;, &apos;notebook&apos;, &apos;phone&apos;]
-&gt;&gt;&gt; string1.split()
-[&apos;tv,pc,notebook,phone&apos;]
-注意：split中的分隔符，我们根据字符串中的实际情况而定。如果使用了不正确的分隔符，str.split(&apos;错误分隔符&apos;)操作结果str.split(),会将整个字符串作为列表的一个元素。
-3）strip() 字符串左右两端去除指定字符（默认情况，去除空格）
-函数格式：str.strip([指定字符])
-返回值：根据指定的字符，对字符串进行两端去除其内容，返回一个新的字符串。如果字符串中间有空格或指定字符，那么该函数不起作用。如果指定的字符在字符串左右两端不存在，那么将返回字符串本身。
+limit子句：分页子句
+limit 开始的行号（第一行为0）,显示几条记录
+select * from persons limit 0,1;
+
+distinct去重：
+去除指定字段中的重复内容，只保留一个。
+select distinct salary from persons;
+
+列表名与表别名
+列别名：给指定的列，起别名。可以使用as关键字。
+select 列名 [as] 别名 from 表名
 例如：
-缺省情况
-string1 = &apos;  hello world  &apos;
-&gt;&gt;&gt; string1.strip()
-&apos;hello world&apos;
-&gt;&gt;&gt; print(string1)
-hello world  
-
-指定字符
-string1 = &apos;awelcom to zhengzhoua&apos;
-&gt;&gt;&gt; string1.strip(&apos;a&apos;)
-&apos;welcom to zhengzhou&apos;
-注意：
-1）字符串类型，一旦被声明赋值后，其内容是不可被改变的，如果需要改变原字符串变量的值，必须对其进行重新赋值。
-2）如果指定字符内容为一个字符序列，那么意味着使用strip去除左右两端指定字符时，只要符合字符序列中的某一位，就进行去除
-string1 = &apos; awelcom to zhengzhouab&apos;
-&gt;&gt;&gt; string1.strip(&apos; ab&apos;)
-&apos;welcom to zhengzhou&apos;
-
-4）replace()替换函数
-函数格式：str.replace(old,new[,max])
-返回值：将指定字符串（old）替换为新字符串（new）,最大可以替换max次。替换完成后，返回一个新字符串。
-注意：此处的max参数，主要用来指定替换的次数，如果该参数缺省，表示替换里面所有符合条件的字符串。
-例如：
-string1 = &apos;honor,oppo,vivo,apple,oppo,oppo&apos;
-&gt;&gt;&gt; old_str = &apos;oppo&apos;
-&gt;&gt;&gt; new_str = &apos;xiaomi&apos;
-&gt;&gt;&gt; string1.replace(old_str, new_str)     # 替换所有的oppo
-&apos;honor,xiaomi,vivo,apple,xiaomi,xiaomi&apos;
-&gt;&gt;&gt; string1.replace(old_str, new_str,2)   #替换指定次数，即两处oppo
-&apos;honor,xiaomi,vivo,apple,xiaomi,oppo&apos;
-
-5）isalnum()、isalpha()、isdigit()
-函数格式：str.isalnum()    判断字符串内容，是否有数字或字母组成
-        str.isalpha()    判断字符串内容，是否由字母组成
-        str.isdigit()    判断字符串内容，是否由数字组成
-返回值：如果符合条件，返回True；如果不符合，返回False。
-
-6）[] 字符串运算符
-使用方法：str[索引位] =&gt; 返回指定索引位的字符，
-索引位有两种表示方式：
-string1 = hello world
-第一种：string1[0] =&gt; h    到string1[10] =&gt; d
-第二种：string1[-1] =&gt; d   到string1[-11] =&gt; h
-切片操作:
-格式：str[start,end,step]
-start：代表切片开始的索引位
-end: 代表切片结束的索引位（但是不会输出该索引位指向的字符）
-step：代表每隔次几个字符个数截取一个
-
-string1 = hello world
-string1[0:3] =&gt; hel   从索引位为0的字符开始，到索引位3结束，但不包括索引位3所指向的字符。
-string1[2:4] =&gt; ll
-string1[0:-1] =&gt; hello worl 
-string1[0:8:2] =&gt; hlow
-
-str1[:]  =&gt; &apos;hello world&apos; 等于将字符串进行复制
-str1[:5] =&gt; &apos;hello&apos;       如果没有标明开始索引位，默认从0开始
-str1[::] =&gt; &apos;hello world&apos;  等同于str1[:]
-
-使用步长，实现字符串反转
-string1[-1::-1]  =&gt;dlrow olleh    从索引位-1开始，一直到字符串结束，反向输出字符
-但是下列操作，会返回一个空字符串：
-string1[-1:4]  =&gt; &apos;&apos;
-string1[-1:-5] =&gt; &apos;&apos;
-
-7）连接符与重复操作符
-+：在字符串中使用时，作为连接两个字符串，并返回一个新字符串的作用来使用。
-*：重复操作指定的次数，即将字符串重复输出N次。返回一个新字符串。
-注意：在重复操作中，必须遵循：字符串*正整数这样的格式，如果数值不是正整数，其结果返回一个空字符串，如果不是数值类型，程序报错。
-8）in运算符
-用来检测指定的内容，是否在字符串中，如果存在则返回True，反之返回False
-例如:
-string1 = &apos;hello world&apos;
-&gt;&gt;&gt; substr = &apos;e&apos;
-&gt;&gt;&gt; substr in string1
-True
-&gt;&gt;&gt; substr = &apos;ll&apos;
-&gt;&gt;&gt; substr in string1
-True
-substr = &apos;wr&apos;
-&gt;&gt;&gt; substr in string1
-False
-</code></pre><h3 id="基础语法-四"><a href="#基础语法-四" class="headerlink" title="基础语法 四"></a>基础语法 四</h3><pre><code>1、控制语句
-1）条件语句
-单判断：
-if 条件:
-代码
-双分支：
-if 条件：
-代码
-else:
-代码
-
-多分支：
-if 条件：
-代码
-elif 条件：
-代码
-elif 条件：
-代码
-i = 5
-j = 8
-k = 6
-h = 9
-if i &gt; j and i &gt; k and i &gt; h:
-    print (&apos;i is big value %d&apos;%i)
-elif j &gt; i and j &gt; k and j &gt; h:
-    print (&apos;j is big value %d&apos;%j)
-elif k &gt; i and k &gt; j and k &gt; h:
-    print (&apos;k is big value %d&apos;%k)
-else:
-    print (&apos;h is big value %d&apos;%h)
-
-...
-else:
-代码
-
-2）逻辑运算符： and、or、not
-and:左右两端都是布尔型，其结果也为布尔型。当左右两端的值都为True，其结果才为True，有一方为False，其结果一定为False。
-or:左右两端都是布尔型，其结果也为布尔型。当左右两端的值有一方为True时，其结果就为True，只有在双方都为False时，其结果才为False。
-not：属于单目运算，其结果也是布尔型。其作用就是求反，如果变量为True，结果为False，如果为False，其结果为True。
-逻辑运算、比较运算常用在条件中使用。同时，这两种运算符经常配合使用。
-
-3）循环控制语句
-for循环
-第一种：（推荐）
-for 变量 in 集合：
-    代码
-说明：这种循环方式，我们称为快速迭代循环，能够对集合数据进行遍历。
-注意：这种方式只能用在集合数据上，比如：字符串、列表、元组、字典等内容。
-例如：
-string1 = &apos;hello world&apos;
-for item in string1:
-    print(item)
-h
-e
-l
-l
-o
-
-w
-o
-r
-l
-d
-第二种：传统式，配合range()函数使用。通过range()函数指定了循环的范围。
-for i range(循环次数):
-    代码
-
-说明：这种循环方式，采用指定循环次数，对目标集合进行遍历。其做法主要是让循环与集合的下标同步，在循环次数时一同取出集合指定下标的对应值。
-range()函数：
-函数格式：
-range(stop) :缺省情况下，表示从0开始，循环n次
-range(star,stop[,step])
-其中，star：循环开始的值，stop：循环次数，step：循环步长。注意此处循环，会根据stop中的值循环规定的次数，但是显示时会从start位置开始。
-例如：
-for i in range(3,10):
-    print(i,end=&apos; &apos;)
-3 4 5 6 7 8 9 
-for i in range(5,10):
-    print(i,end=&apos; &apos;)
-5 6 7 8 9 
-range(1,10)  
-
-for循环的常用方式：嵌套
-for i in range(次数):
-
-    for j in range(次数):
-
-注意：在这种嵌套表示的过程中，变量的位置尤为重要，通用原则为：如果变量的值需要通过外层循环来获取或生成，那么我们可以将其设为全局变量，即与外层循环for同等级的变量，如果变量需要在内层循环中生成或获取，我们通常会在外循环中声明，即与内循环同级。
-while循环
-格式：while 条件：
-        代码
-str = &apos;*****&apos;
-num = 0
-while True:
-    if num &lt;10:
-        print(str,end=&apos;\n&apos;)
-        num += 1
-        continue
-    else:
-        break
-break与continue
-break：当满足指定条件时，break表示中断（中止）此循环，如果循环外部还有其他代码则继续向下执行。
-continue：当满足指定条件时，continue表示结束本次循环，开始下一次循环。注意continue并没有退出循环。
-同时，这两个关键字都是必须配合循环语句来使用，不能单独用在其他地方，比如：if
-for i in range (1,10):
-    for A in range (1,i+1):
-        print (A,end = &apos;&apos;)
-    print (end = &apos;\n&apos;)
-</code></pre><h3 id="基础语法五"><a href="#基础语法五" class="headerlink" title="基础语法五"></a>基础语法五</h3><pre><code>一、组合数据类型
-1）List列表
-1、概念：List数据，首先它可以存储各种数据类型，比如：数值、字符串、布尔型等等；其次，列表中的元素可以随时进行删除、修改、增加，其长度随之变化；同时，列表也是有序的，我们同样可以使用循环对其进行遍历。
-二、声明与赋值
-1、声明列表同时进行赋值
-list1 = [1,2,3,4,5]
-list2 = [&apos;one&apos;,&apos;two&apos;,&apos;three&apos;]
-list3 = [1,&apos;two&apos;,3,&apos;four&apos;]
-我们通过观察，可以发现列表是有序的。那么通过for  in  方式可以对其进行快速遍历
-比如：
-for item in list1:
-    print(item,end=&apos; &apos;)
-1 2 3 4 5
-2、声明一个空列表，后续进行添加元素
-list1 = list()   此时，python会生成一个空列表,即：[]
-注意，生成的这个空列表中没有任何值，它的长度为0
-3、列表的操作
-1）增加元素
-第一种，使用append()函数，在列表的尾部追加一个新元素。
-函数格式：list.append(元素)
-返回值：列表长度+1
-list1.append(6)
-[1, 2, 3, 4, 5, 6]
-注意，该方法添加元素都是在列表的尾部。
-第二种，使用extend()函数，在列表尾部，追加一个子列表内容
-函数格式：list.extend(子列表)
-返回值：列表长度+n
-sublist = [7,8,9]
-list1.extend(sublist)
-[1, 2, 3, 4, 5, 6, 7, 8, 9]
-第三种，使用“+”运算符，连接两个列表，其结果会生成一个新的列表。同时原来两个列表不变。
-例如：
-sublist
-[7, 8, 9]
-&gt;&gt;&gt; list3
-[1, 2, 3, 4, 5]
-&gt;&gt;&gt; list3+sublist
-[1, 2, 3, 4, 5, 7, 8, 9]
-&gt;&gt;&gt; list3
-[1, 2, 3, 4, 5]
-&gt;&gt;&gt; sublist
-[7, 8, 9]
-第四种，使用insert()函数，对列表指定位置进行插入操作。
-函数格式：list.insert(idx，元素),其中：idx代表要插入的索引位
-返回值：列表长度+1
-list1.insert(4,&apos;four&apos;)
-[1, 2, 3, 4, &apos;four&apos;, 5, 6, 7, 8, 9]
-注意：插入指定的索引位后，原索引位所在的元素下标+1
-我们在实际使用的时候，通常会利用append或extend来实现元素的追加，而少用insert进行元素的插入。因为在频繁的插入操作，需要耗费大量的内存来维护列表的索引关系。
-2）修改元素
-通过索引位，找到指定的列表元素，重新对其进行赋值即可完成修改操作。
-例如：
-list1=&gt;[1, 2, 3]
-list1[2] = 5
-[1, 2, 5]
-3)删除元素
-第一种，remove()移除在列表中指定的元素
-函数格式：list.remove(元素)
-返回值：移除元素后的列表，长度-1
-第二种，pop()有两种使用模式
-list.pop()：默认模式，从列表的尾部弹出一个元素
-返回值：返回所弹出的元素本身。如果列表已经为空，执行pop()程序会报错提示：列表为空。
-list.pop(idx):idx指定的下表索引位置。
-此处pop()与remove()类似，但是区别在于pop()会将移除的元素返回。
-第三种，使用del删除指定的列表片段或列表本身
-del list[idx]        删除指定索引位对应的元素
-del list             删除整个列表，同时释放该列表所占用的内存空间
-del list[star:end]   删除指定的列表片段
+select pno as &apos;编号&apos; from persons;
+表别名：给指定的表，起别名。使用as关键字修饰。
 
 
-del与clear()的区别
-del list VS list.clear()
-1、del 可以将列表的内容进行删除，同时将列表所占内存进行释放。
-2、clear()只是将列表中的内容进行清空，原列表内容为空。
+统计函数：
+count():统计个数
+max()：求最大值
+min()：求最小值
+avg()：求平均值
+sum()：求和
+注意，在使用统计函数时，如果没有配合group by子句使用，那么在select中只能输出统计函数的值，不能输出其他字段。例如：
+select max(salary) from persons;
+其中，max、min、avg、sum只能统计数据类型是数值型的字段，如果该字段值为null，那么统计函数将忽略该内容。我们可以通过ifnull(字段，替换值)，将null值转换为我们指定的值，进而参加相关的统计运算。
+select avg(ifnull(salary,0)) from persons;
 
-+与*运算符
-在列表中我们使用+运算符，可以将两个列表进行连接，生成一个新的列表。
-比如：list1 = [1,2,3]  list2 = [4,5,6]  list1+list2=&gt;[1,2,3,4,5,6]
-使用*运算符，可以将目标列表的内容重复N次，并生成一个新的列表。
-比如：list1 = [1,2,3] list1*2=&gt;[1,2,3,1,2,3]
+模糊查询：like
+我们通常在查询时，如果条件内容不是非常明确的情况下，我们会使用like关键字进行模糊查询。通常会使用%、_来配合，其中%代表了0到n个字符，_代表了1个字符。
+select * from persons where pname like &apos;_i%&apos;;查找名字第二位是i的人员信息
+select * from persons where pname like &apos;%i%&apos;;查找名字中有i的人员信息
+</code></pre><h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><pre><code>1、查询分类
+内连接（等值连接）
+inner join 
+select e.empno,e.ename,e.sal,e.deptno,d.dname from emp e inner join dept d on e.deptno=d.deptno where e.sal&gt;2000;
+等价于
+select e.empno,e.ename,e.sal,e.deptno,d.dname from emp e, dept d where e.deptno=d.deptno and e.sal&gt;2000;
 
-max()与min()
-函数格式：max(list)、min(list)
-返回值：返回该列表中最大值或最小值。
-注意：该函数在使用时，必须要求所统计的列表中元素的数据类型要一致。不支持多数据类型，数值型根据数值本身大小取值，字符串类型根据字母的ASCII码值取值，布尔值根据对应的1、0取值。
+外连接
+分为左外连接与右外连接
+left join on
+right join on
+何时使用外连接？
+当进行两个表连接查询时，其中一方有不匹配记录，如果进行等值连接这些记录将不会被查询检索，如果我们需要查询时将匹配记录以及不匹配记录都查询出来，就需要使用外连接。那么不匹配记录存在的表位于连接语句的左侧，就使用左外连接，如果出现在右侧就使用右外连接。
+例如：其中dept表中有不匹配的记录，deptno=40的记录。
+左外连接
+select e.empno,e.ename,d.deptno,d.dname from  dept d left join emp e on e.deptno=d.deptno;
+右外连接
+select e.empno,e.ename,d.deptno,d.dname from emp e right join dept d on e.deptno=d.deptno;
 
-sum()
-函数格式：sum(list)
-返回值：将列表中所用的数值进行求和运算，返回结果。注意，该函数只能用于数值型列表。
-sort()排序
-函数格式：list.sort()、list.sort(reverse=True)
-返回值：默认情况下，将原列表中元素按照升序进行排序,
-如果设置了反转参数为True，那么将原列表中的元素按照降序排列
-
-sorted()排序
-函数格式：sorted(list)、sorted(list,reverse=True)
-返回值：默认情况下，将原列表中元素按照升序进行排序,
-如果设置了反转参数为True，那么将原列表中的元素按照降序排列
-注意：上面两种排序函数，其中第一个属于列表自身的排序方法，而第二种属于python内置的排序方法，也就是说第二种可以应用在包括列表在内多种集合排序。
-
-count()计数函数
-函数格式：list.count(元素)
-返回值：返回指定元素在列表中出现的次数
-
-in 关键字
-判断指定的元素是否在列表中存在，如果存在返回True，否在返回False
-
-index()检索函数
-函数格式：list.index(元素)
-返回值：返回该元素在列表中的索引位置，如果不存在报错。
-
-常用数据类型的转换
-字符串转为整型：int(str)
-函数格式：int(str)
-返回值：将字符型数值转为整数
-int(&apos;3&apos;) =&gt; 3
-字符串转为浮点型:float(str)
-函数格式：float(str)
-返回值：将字符型浮点数转为浮点数
-float(&apos;2.4&apos;) =&gt; 2.4
-数值转为字符串：str(int)、str(float)
-函数格式：str(int)、str(float)
-返回值：将整数或浮点数，转为字符型数值
-str(2) =&gt; &apos;2 &apos;    str(2.4) =&gt; &apos;2.4&apos;
-字符串转为列表：list(str)
-函数格式：list(str)
-返回值：将指定的字符串，按照元素顺序逐一转为列表
-string1 = &apos;hello world&apos;
-list1 = list(string1)
-
-列表比较运算符操作
-相当于列表使用普通的比较运算符
-import operator
-operator.ge()         大于等于   &gt;=
-operator.gt()         大于       &gt;
-operator.eq()       等于         ==
-operator.ne()        不等于      !=
-operator.le()           小于等于 &lt;=
-operator.lt()          小于      &lt;
-格式：operator.ge(列表1,列表2)
-返回值：如果符合条件，返回True，反之，返回False
-
-
-[&apos;h&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;, &apos; &apos;, &apos;w&apos;, &apos;o&apos;, &apos;r&apos;, &apos;l&apos;, &apos;d&apos;]
-拆分字符串：str.split(分隔符)
-函数格式：str.split(分隔符)
-返回值：将字符串，根据指定的分隔符，转换为列表
-string1 = &quot;锅包肉 肠粉 毛血旺 宫保鸡丁&quot;
-list2 = string1.split(&apos; &apos;)
-
-[&apos;锅包肉&apos;, &apos;肠粉&apos;, &apos;毛血旺&apos;, &apos;宫保鸡丁&apos;]
-列表转为字符串：&apos;分隔符&apos;.join(list)
-函数格式:&apos;分隔符&apos;.join(list)
-返回值：将指定的列表中的元素，通过分隔符进行连接，转换为字符串
-list2 = [&apos;锅包肉&apos;, &apos;肠粉&apos;, &apos;毛血旺&apos;, &apos;宫保鸡丁&apos;]
-&apos; &apos;.join(list2)
-&apos;锅包肉 肠粉 毛血旺 宫保鸡丁&apos;
-
-冒泡排序
-list1 = [80,100,67,1,34,10]
-
-for m in range(len(list1)):
-    for n in range(m+1,len(list1)):
-        first = list1[m]
-        second = list1[n]
-        if first &lt; second:
-            list1[m] = list1[n]
-            list1[n] = first
-print(list1)
-
-
-2)Tuple元组
-1、元组的概念：元组是值的有序序列，里面可以存储各种数据类型的元素。但是元组一旦被赋值后，其内容就不可被改变。
-2、声明与赋值
-第一种，tup = a,b,c,d
-第二种，tup = (a,b,c,d) 推荐使用该种声明方式。
-第三种，tup = tuple() 声明一个空的元组对象
-注意：元组在赋值时，且元素只有一个时，具体情况如下：
-tuple1 = (1,)或tuple1 = 1,一定要在元素后面加上一个,号，与普通变量赋值进行区分。
-3、常用操作
-+、*、in、遍历等等，参考列表。
-4、元组与列表转换
-元组转为列表：
-tuple1 = (1,2,3)
-list1 = list(tuple1)
-列表转为元组
-list1 = [1,2,3]
-tuple1 = tuple(list1)
-</code></pre><h3 id="基础语法六"><a href="#基础语法六" class="headerlink" title="基础语法六"></a>基础语法六</h3><pre><code>一、字典数据类型
-1、字典类型的基本概念
-字典数据类型，由key=value结构构成的。也就是说字典类型中的每个元素都是有两部分构成，中间使用：连接。其中，key和value的可以是任意数据类型的内容。
-2、字典对象的生成
-第一种、dic = {1:&apos;one&apos;,2:&apos;two&apos;,3:&apos;three&apos;}，两边使用一对{}来界定。
-第二种、dic = dict() 生成一个空字典。
-第三种、dic = dict({1:&apos;one&apos;,2:&apos;two&apos;,3:&apos;three&apos;})
-
-注意：字典中的key是唯一的，如果在生成时命名了多个同名的key，那么实际上字典会使用最后一次命名的key来覆盖前面的同名内容。
-同时，字典在赋值时，允许其value或key为空。
-3、字典的特性
-首先、字典中的元素时根据每对键值对中的key来决定的，通过相应的哈希算法来决定他们对应的value的存储地址，因此字典时无序的。
-其次，字典中的key，可以是数值、字符串、元组等构成，注意这些内容都是不可改变的。同时，字典中的key都是唯一的。
-然后，字典中的value需用通过key来获取。
-4、字典的常用操作
-1）字典的新增和修改
-dic = {1:&apos;one&apos;,2:&apos;two&apos;,3:&apos;three&apos;}
-&gt;&gt;&gt; dic[4] = &apos;four&apos;
-{1: &apos;one&apos;, 2: &apos;two&apos;, 3: &apos;three&apos;, 4: &apos;four&apos;}
-如果字典中不存在指定的key，则对该字典实现元素的新增
-{1: &apos;one&apos;, 2: &apos;two&apos;, 3: &apos;three&apos;, 4: &apos;four&apos;, 5: &apos;fiv&apos;}
-dic[5] = &apos;five&apos;
-{1: &apos;one&apos;, 2: &apos;two&apos;, 3: &apos;three&apos;, 4: &apos;four&apos;, 5: &apos;five&apos;}
-如果字典中存在指定的key，那么对key对应的value进行修改
-2）字典的删除
-第一种，使用del进行字典内容的删除
-del dic[key]    删除指定可以对应的value内容
-del dic         删除整个字典，并释放其所占内存
-第二种，使用pop()函数，删除指定key对应的value内容
-函数格式：dict.pop(key)  ，其中参数为字典中的key值
-返回值：返回所删除key对应的value内容
-第三种，使用clear()函数，清空字典中所有内容
-函数格式：dict.clear()
-返回值：清空字典内容，返回一个空字典
-第四种：popitem()，删除字典中的键值对
-函数格式：dict.popitem()
-返回值：会在字典尾部，弹出键值对并删除，将删除的键值对按照元组类型返回
-
-
-3）检索字典
-第一、查询指定的value,通过指定的key找到对应的value
-dic[1] = &gt; &apos;one&apos;
-第二、遍历字典
-for key in dic:
-    dic[key]
-
-&apos;one&apos;
-&apos;two&apos;
-&apos;three&apos;
-&apos;four&apos;
-&apos;five
-4）字典与列表、元组的转换
-列表转成字典
-list1 = [[1,&apos;one&apos;],[2,&apos;two&apos;],[3,&apos;three&apos;]]
-或
-list1 = [(1,&apos;one&apos;),(2,&apos;two&apos;),(3,&apos;three&apos;)]
-dic = dict(list1)
-{1: &apos;one&apos;, 2: &apos;two&apos;, 3: &apos;three&apos;}
-元组转成字典
-tup = ((1,&apos;one&apos;),(2,&apos;two&apos;),(3,&apos;three&apos;))
-dic = dict(tup)
-{1: &apos;one&apos;, 2: &apos;two&apos;, 3: &apos;three&apos;}
-注意：不管是元组还是列表，其作为key的那个值必须是不可变数据类型。
-同时，我们对字典进行新增和修改时，其key可以使用True或False，但是要注意在使用他们时字典会首先对已有的key进行比对，如果有重复的则进行修改（True==1，False==0）
-
-使用zip()函数生成字典
-函数格式：zip(iter1,iter2,....)
-返回值：返回一个zip对象
-我们通过zip函数，指定对应的元组，分别来作为字典的key和 value，生成zip对象转成字典数据。
-例如：
-dict(zip((&apos;id&apos;,&apos;name&apos;,&apos;city&apos;),(1,&apos;hhp&apos;,&apos;zhengzhou&apos;)))
-
-5）常用函数
-1、keys(),获得字典所有的key值集合
-函数格式：dict.keys()
-返回值：dict_keys 类型，实际内容为一个list列表。
-
-dic = {1:&apos;one&apos;,2:&apos;two&apos;,3:&apos;three&apos;}
-for key in dic.keys():
-    print(key,dic[key]) 
-2、values(),获得字典中所有的value值的集合
-函数格式：dict.values()
-返回值：dict_values类型，实际内容为一个list列表
-3、items(),获得字典中所有key=value键值对的集合
-函数格式：dict.items()
-返回值：dict_items类型，实际内容为一个包含元组的list列表
-dic = {1:&apos;one&apos;,2:&apos;two&apos;,3:&apos;three&apos;}
-dic.items()
-
-dict_items([(1, &apos;one&apos;), (2, &apos;two&apos;), (3, &apos;three&apos;)])
-4、get()，获得字典中指定key对应的value内容
-函数格式：dict.get(key)
-返回值：返回指定key对应的value，如果没有找到则不返回任何内容即返回None。例如：
-dic.get(5) == None       
-True
-5、setdefault()，返回指定key对应的内容，如果这个key不存在，那么就进行新增
-函数格式：dict.setdefault(key[,value]),其中key为键值，如果该key在字典中已经存在，那么不需要填写value参数；如果key值在字典中不存在，需要value参数。
-返回值：如果key值存在，返回该key对应的value内容；如果key不存在，则进行新增返回新增的value内容。
-6、update(),将新字典中的key=value内容，添加到原有字典尾部，如果新字典内容中有key值与原字典的key值相同，那么就覆盖key值对应的原有value。
-函数格式：old_dict.update(new_dict)
-返回值：将新字典中的内容，添加到原有字典的尾部。
-dic = {1:&apos;麻辣米线&apos;,2:&apos;麻辣烫&apos;,3:&apos;凉皮&apos;,4:&apos;刀削面&apos;,5:&apos;兰州拉面&apos;}
-dic2 = {&apos;one&apos;:&apos;美式咖啡&apos;,&apos;two&apos;:&apos;拿铁&apos;,&apos;three&apos;:&apos;卡布基诺&apos;,5:&apos;甜甜圈&apos;}
-dic.update(dic2)
-{1: &apos;麻辣米线&apos;, 2: &apos;麻辣烫&apos;, 3: &apos;凉皮&apos;, 4: &apos;刀削面&apos;, 5: &apos;甜甜圈&apos;, &apos;one&apos;: &apos;美式咖啡&apos;, &apos;two&apos;: &apos;拿铁&apos;, &apos;three&apos;: &apos;卡布基诺&apos;}
-7、fromkeys(),通过指定的key集合，生成一个新字典，其value值缺省为None
-函数格式：dict.fromkeys(iter1[,value]) 其中iter1为可迭代化集合，比如：列表、元组；value可以是任意数据类型。
-返回值：返回一个新字典，其中key为我们在参数中使用的iter1集合，值都为None或者指定的value。比如：
-dic3 = dict({&apos;a&apos;:&apos;one&apos;,&apos;b&apos;:&apos;two&apos;,&apos;c&apos;:&apos;three&apos;})
-a = dic3.fromkeys([1,2,3])
-{1: None, 2: None, 3: None}
-
-
-dic3 = dict({&apos;a&apos;:&apos;one&apos;,&apos;b&apos;:&apos;two&apos;,&apos;c&apos;:&apos;three&apos;})
-a = dic3.fromkeys([1,2,3],[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;])
-{1: [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 2: [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;], 3: [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]}
-讨论：
-列表的可迭代化
-当生成一个空列表时，因为列表中没有值，所以python并没有相应的内存地址分配给这个列表变量，当该列表添加元素后，python会自动给该列表扩充内存地址，那么地址都是依次连续的在内存中进行排列。
-</code></pre><h3 id="基础语法七"><a href="#基础语法七" class="headerlink" title="基础语法七"></a>基础语法七</h3><pre><code>一、集合数据类型 set
-1、集合的概念：集合set是一个无序的数据集合，可以存储各种数据类型的元素，同时可以对集合中的元素进行新增、删除等操作，因此集合的长度是可变的。并且集合是不允许有重复元素，如果出现重复元素，除去第一个元素之外，都会被集合所忽略
-注意：set是无序的，即存储元素到set的顺序与这些元素输出的顺序无关。set仍然是采用哈希算法，对这些元素进行存储的。
-2、集合的声明与赋值
-1）set1 = {1,2,3}   生成一个集合
-2）set1 = set({1,2,3})
-3)set1 = set()  生成一个空集合，请注意集合只能通过set()函数来生成空集合，而不是通过set1 = {},这个表达式会生成一个空字典。
-3、数据类型转换
-字符串转成集合
-string = &apos;hello&apos;
-set1 = set(string)
-
-{&apos;l&apos;, &apos;o&apos;, &apos;h&apos;, &apos;e&apos;}
-列表转成集合
-list1 = [1,2,3]
-set1 = set(list1)
-
-{1, 2, 3}
-元组转成集合
-tup = (1,2,3)
-set1 = set(tup)
-{1, 2, 3}
-4、集合的操作
-1）元素的增加 add()
-函数格式：set.add(元素)
-返回值：无返回值
-结果：集合元素增加一个
-例如：
-set1=&gt;{1, 2, 3}
-set1.add(4)
-
-{1, 2, 3, 4}
-2）元素的删除
-第一、remove()
-函数格式：set.remove(元素)
-返回值：无返回值
-结果：集合指定的元素被删除
-set  =&gt; {1, 2, 3, 4, 5}
-
-set1.remove(5)
-{1, 2, 3, 4}
-第二、discard()
-函数格式：set.discard(元素)
-返回值：无返回值
-结果：集合中指定的元素被删除
-
-set  =&gt; {1, 2, 3, 4, 5}
-
-set1.discard(5)
-{1, 2, 3, 4}
-注意：上面两个方法，如果删除一个不存在的元素，其中remove()会报错，而discar()无反应
-第三、clear() 清空集合中所有的元素
-函数格式：set.clear()
-返回值：无返回值
-结果：清空集合中所有的元素
-set.clear()
-第四、del命令 删除集合，并释放其所占内存资源
-del set
-5、集合运算
-1）并集运算 (|)或union()
-两个集合进行并集运算，即将两个集合中的元素都合并到一个新的集合中，重复的元素只出现一次。
-例如：
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-set2 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;en&apos;}
-set1 | set2 =&gt; {&apos;jp&apos;, &apos;tw&apos;, &apos;fr&apos;, &apos;zh&apos;, &apos;en&apos;}
-或者
-set1.union(set2)
-2）交集运算 （&amp;）或intersection()
-两个集合进行交集运算，即将两个集合中相同的元素合并到一个新的集合中。
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-set2 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;en&apos;}
-set1 &amp; set2 =&gt; {&apos;en&apos;}
-或者
-set1.intersection(set2)
-3)差集运算（-）或difference()
-两个集合进行差集运算，即运算符左边的集合，与运算右边的集合进行差运算，相当于使用左边集合去除与右边集合相同的元素。
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-set2 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;en&apos;}
-set1 - set2 =&gt; {&apos;zh&apos;, &apos;tw&apos;}
-或者
-set1.difference(set2)
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-set2 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;en&apos;}
-set2 - set1 =&gt; {&apos;jp&apos;, &apos;fr&apos;}
-或者
-set2.difference(set1)
-4)对称差运算（^）或者symmetric_difference()
-两个集合进行对称差运算，即两个集合中除去相同元素，其他所有元素重新归并到一个新集合中。
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-set2 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;en&apos;}
-set2 ^ set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;,&apos;jp&apos;, &apos;fr&apos;}
-set1.symmetric_difference(set2)
-5)子集与超集（父集）
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-subset =&gt; {&apos;zh&apos;, &apos;tw&apos;}
-我们通过观察可以看到，subset中的内容，属于set1的一部分。因此，
-subset.issubset(set1) =&gt; True
-表示，subset是set1集合的一个子集合
-同理，我们也可以说，set1是subset的父集合
-set1.issuperset(subset) =&gt; True
-6、集合常用函数
-1）update()
-函数格式：set1.update(set2)
-返回值：无
-结果：我们将set2中的元素，添加到set1中，如果有相同的元素只保留一个。同时，该操作会修改set1的元素数量。
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-set2 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;en&apos;}
-set1.update(set2)
-set1 =&gt; {&apos;jp&apos;, &apos;tw&apos;, &apos;fr&apos;, &apos;zh&apos;, &apos;en&apos;}
-2)intersection_update()
-函数格式：set1.intersection_update(set2)
-返回值：无
-结果：我们使用set2中的元素，添加到set1中，其中，保留两个集合中相同的元素。其中，set1、set2中其他的元素被舍弃。
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-set2 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;en&apos;}
-set1.intersection_update(set2)
-set1 =&gt; {&apos;en&apos;}
-3）symmetric_difference_update()
-函数格式：symmetric_difference_update()
-返回值：无
-结果：我们使用set1与set2进行运算，只保留两者除去相同元素之外的元素。
-set1 =&gt; {&apos;zh&apos;, &apos;tw&apos;, &apos;en&apos;}
-set2 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;en&apos;}
-set1.symmetric_difference_update(set2)
-set1 =&gt; {&apos;jp&apos;, &apos;fr&apos;, &apos;zh&apos;, &apos;tw&apos;}
-</code></pre><h3 id="基础语法八"><a href="#基础语法八" class="headerlink" title="基础语法八"></a>基础语法八</h3><pre><code>一、补充 高级特性
-1、range()
-range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。
-2、列表推导式生成式
-格式：[表达式或函数  for x in 序列]
-含义：通过生成式中的循环，逐一产生x值，表达式使用X值进行相关运算。最终结果作为列表的元素。也就意味着，循环多少次，就会产生多少个相关元素。
-3、迭代器（Iterator）
-1）概念：迭代器访问元素，是从第一个元素开始，依次访问后续元素直到结束。其中迭代器只能向前不能回退。其包含两个方法iter()和next()。
-iter()用来创建一个迭代器，next()用来访问下一个元素。
-目前我们所学的字符串、列表、元组都可以创建迭代器，那么他们也是可迭代化的对象。
-迭代器两个步骤：
-1、当调用next()函数，会将迭代器当前位置状态进行改变
-2、会将下一个元素进行返回
-
-迭代器的延迟作用：迭代器生成的元素并不是在迭代器声明时，就准备好了的。通常时在调用迭代器需要提供该元素时生成的，也就是说只有在我们需要的时候迭代器才产生相关元素，不需要时并不会主动的生成相关元素。我们可以把迭代器看成一个容器，到我们需要时使用next()方法返回容器中的下一个值。
-迭代器实现了工厂模式的对象，它在你每次访问下一个值的时候给你返回。
-
-可迭代化（iterable）：表明相关的对象可以创建迭代器对象，同时他们自身都是可以进行for数据遍历的。我们可以使用isinstance()来判断对象是否为可迭代化
-
-from collections import Iterable
-string = &apos;hello&apos;
-print(isinstance(string, Iterable))  =&gt; True
-函数格式：isinstance(对象，类型)
-返回值：布尔值
-结果：如果指定的对象属于指定的类型，那么返回True，反之返回False
-
-enumerate()函数
-函数格式：enumerate(iterable)
-返回值：生成一个枚举对象
-例如：
-enum = enumberate([&apos;one&apos;,&apos;two&apos;,&apos;three&apos;])
-for i in enum:
-    print(i)
-
-(0, &apos;one&apos;)
-(1, &apos;two&apos;)
-(2, &apos;three&apos;)
-
-for i,value in enum:
-    print(i, value)
-
-0 one
-1 two
-2 three
-
-生成器
-1、创建方式
-第一种，使用列表推导式，将[]改为()，生成一个generator对象
-第二种，使用函数方式，采用yield关键字来实现
-2、使用
-生成器我们通常可以认为一种特殊的迭代器，但是它不需要像迭代器一样去实现__iter__,__next__方法。只需要使用yield关键字，该关键字可以在每次调用生成器函数时起到暂停作用，并将其值进行返回。同时还会记录当前运行值的状态。
-
-总结：迭代器和生成器
-1、容器是一系列的元素集合，str、list、set、dict对象都可以看作是容器，容器都可以进行迭代（即用在while或for循环），凡是这样的容器我们都称为可迭代化对象（Iterable）。
-2、可迭代化对象都实现了__iter__方法，该方法返回一个迭代器对象。
-3、迭代器都拥有一个状态字段，用于记录下次迭代返回值。它实现了__next__和__iter__方法，迭代器不会一次性把所有的元素都加载到内存中，而是在需要的时候才生成返回结果。
-4、生成器是一种特殊的迭代器，它的返回值不是通过return来返回的，而是通过yield来返回
+子查询
+概念：将一个SQL查询语句的返回结果，作为另外一个查询语句的条件来使用。
+分为单行子查询与多行子查询
+单行子查询：作为条件返回的查询语句，其返回结果为一行记录。
+多行子查询：作为条件返回的查询语句，其返回结果为多行记录。
+子查询通常放在where条件子句中进行使用。但有时我们也可以将子查询作为虚表，放在from子句后面使用。但是这种使用方法，必须给子查询一个别名。例如：
+select * from (select * from emp) as e;
+</code></pre><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><pre><code>行变列
+select name,max(case course when &apos;math&apos; then score else 0 end) &apos;数学&apos;,max(case course when &apos;english&apos; then score else 0 end) &apos;英语&apos;,max(case course when &apos;chinese&apos; then score else 0 end ) &apos;语文&apos; from grade group by name;
+Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| id     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(20) | YES  |     | NULL    |                |
+| course | varchar(10) | YES  |     | NULL    |                |
+| score  | int(3)      | YES  |     | NULL    |
+列变行
+select name,&apos;math&apos; course,math_score as score from grade2 union select name,&apos;english&apos; course,en_score as score from grade2 union select name,&apos;chinese&apos; course,cn_score as score from grade2 order by name,course;
+------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(10) | YES  |     | NULL    |                |
+| math_score | int(3)      | YES  |     | NULL    |                |
+| en_score   | int(3)      | YES  |     | NULL    |                |
+| cn_score   | int(3)      | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
 </code></pre>
       
 
@@ -1269,7 +1006,232 @@ for i,value in enum:
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/09/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/09/mysql-find/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mydql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/09/mydql/">MySQL数据库总结</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/09/mydql/" class="archive-article-date">
+  	<time datetime="2018-09-08T16:13:29.309Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据库语言"><a href="#数据库语言" class="headerlink" title="数据库语言"></a>数据库语言</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><pre><code>数据库定义语言   DDL（create database/table，drop database/table，alter database/table）
+数据库操纵语言   DML(insert、delete、update、select)
+数据库控制语言   DCL（grant、revoke）
+注意，数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销 。
+</code></pre><h3 id="数据定义语言"><a href="#数据定义语言" class="headerlink" title="数据定义语言"></a>数据定义语言</h3><pre><code>1）、创建数据库
+create database 数据库名；
+2）、删除数据库
+drop database 数据库名；
+3）、打开数据库
+use 数据库名；
+4）创建数据表
+create table 表名(列名 数据类型(长度),列名 数据类型（长度）,......) default charset=utf8
+注意，如果创建表的时候，没有指定字符集，那么该表将默认采用其所在数据库的字符集。通常我们建议指定缺省的字符集。
+5)、查看数据表的字符集情况
+show variables like &apos;character%&apos;;
+6）查看表结构
+desc 表名
+
+7）、数据库字段类型
+字符类型：
+char(长度)：定长的字符类型，一旦声明了长度，即使定义的字段数据不能达到最大长度，也会按照最大长度进行所占字节的分配。取值范围：0-255
+varchar(长度)： 变长的字符类型，声明长度后，如果字段数据的长度达不到最大长度，则会根据实际长度给出数据的长度。取值范围：0-2^16-1
+数值类型：
+int(长度)：给出指定的字段数据长度。如果没有明确指定长度，则采用默认长度11。所占字节4个字节。
+
+日期类型：
+date：日期类型的字段，在定义时不需要指定长度。格式为YYYY-MM-DD
+time：日期类型的字段，格式HH:MM:SS
+datatime：日期类型的字段，格式YYYY-MM-DD HH:MM:SS
+布尔型：
+bool:布尔类型的字段，在定义时采用0代表假，1代表真。
+实际在mysql数据库中，bool类型等同于数值型的tinyint(1)
+
+8)、修改表结构
+alter table 表名 [add/modify/change/drop] 字段名 [数据类型]
+添加字段：
+alter table tablename add 字段名 数据类型；
+添加字段，位于表中的最后一列。
+alter table tablename drop 字段名
+删除一列，如果列中有数据，则全部被删除且不可恢复。
+alter talbe tablename modify 字段名 数据类型
+修改指定字段的数据类型及长度。
+alter table tablename change oldcolumn newcolumn 数据类型
+修改指定字段的名字
+9）、修改表名
+rename table 旧表名 to 新表名
+</code></pre><h3 id="数据操作语言"><a href="#数据操作语言" class="headerlink" title="数据操作语言"></a>数据操作语言</h3><pre><code>1）数据类型间的默认转换
+字符串=&gt;日期型
+如果字段数据类型定义为日期型，例如：date（YYYY-MM-DD），如果我们队该字段插入数据时，采用&apos;2018-08-23&apos;的字符串格式进行数据插入，mysql会自动将字符串转为日期型。
+
+字符串=&gt;数值型
+当字段数据类型为字符型时，但具体值为数值，我们使用该字段的值与数值进行运算，那么得到的结果为数值型。
+同时，如果字段类型定义为数值型，我们可以将数值型字符串插入到指定的字段中。
+如果，字段类型为字符型，其中由字符与数字混合组成（只要不是纯数字构成的字符串），此时与数值进行算数运算，那么该字段内容被转换为0来进行处理。
+2）运算符
+算数运算符
+比较运算符
+逻辑运算符
+位运算符
+3）插入数据
+标准格式：
+insert into 表名（字段1，字段2，字段3，....） values(字段1值，字段2值，字段3值，...)
+insert into persons(pno,pname,age,hire_date,salary) values(&apos;10001&apos;,&apos;tom&apos;,21,&apos;2018-03-12&apos;,3459);
+通常，我们在声明表名的时候将需要插入数据的字段名一起进行声明，有利于提高插入的效率。同时如果有些字段值为null，可以在实际插入的时候省略。另外，字段值只需要与字段名称对应即可，不需要按照表中实际字段的位置进行填写。
+
+insert into 表名 values(字段1值，字段2值，字段3值，...)
+这种写法，需要我们在values的后面，按照表中各个字段的实际顺序进行一一对应的填写。同时，如果某个字段的值为null，也必须将null值进行标明。
+
+插入多条语句：
+
+insert into 表名（字段名） values(字段值1,...，字段值n)，(字段值1,...，字段值n)
+一次性插入多条数据
+
+insert into person_bak(pno,pname,age,hire_date,salary) select * from persons;
+将指定表的查询结果，作为要插入到目标表中的数据，进行插入。要求是目标表结构与指定表的结构相同。
+4）、更新数据
+格式：
+update 表名 set 字段1=新值，字段2=新值，...，字段n=新值 where 条件
+进行更新操作时，一定要进行条件的约束，如果该语句没有条件子句的话，就表示对全表进行更新操作。
+5）、删除数据
+delete from 表名 where 条件
+进行删除操作时，一定要添加条件，如果没有条件子句，就意味着删除全表内容。
+6）、数据操作的撤销和提交
+mysql数据库默认模式为自动提交：autocommit=on
+我们如果需要对mysql进行撤销和提交操作，需要先将默认的自动提交模式取消，设置为off
+即：set autocommit=off
+当我们进行增删改操作时，如果执行rollback操作，那么该操作就会被撤销；
+如果执行commit操作，那么该操作就会持久化到数据库中。
+commit
+rollback
+</code></pre><h3 id="数据库函数"><a href="#数据库函数" class="headerlink" title="数据库函数"></a>数据库函数</h3><pre><code>1、字符串函数
+length(字段)：返回该字段字符串的实际长度。
+trim(字段)：将字符串左右两端的空格去除。
+repeat(字段,n)：将字段中的字符串重复n次
+replace(s,s1,s2)：使用s2替换字段s中的s1
+substring(s,n,len):对字符串s的第n个位置开始，截取长度为len的子字符串。注意，此处字符串的字符位置从1开始。
+2、数值函数
+ceil()：返回数值的上限（只入不舍）
+floor()：返回数值的下限（只舍不入）
+mod(x,y)：返回两个数的余数
+round(x,[y])：对x进行四舍五入操作，如果声明了y,则保留到小数点后y位
+truncate(x,y)：对x进行截断操作，保留小数位y位
+3、日期函数
+curdate():当前日期年月日
+curtime():当期时间时分秒
+now():当前的时间 年月日 时分秒
+year():返回当前的年份
+month()：返回当前的月份
+dayofmonth()：返回当前的天数
+date_format():格式化指定字段的日期
+adddate(d，时间间隔):将指定的日期增加或减少对应的时间。
+4、系统函数
+user():返回当前登录数据库的用户名
+database():返回当前登录的数据库名
+</code></pre><h3 id="数据控制语言"><a href="#数据控制语言" class="headerlink" title="数据控制语言"></a>数据控制语言</h3><pre><code>1）创建用户
+create user 用户名 identified by 密码
+2）授予用户权限
+grant 权限 on 数据库 to 用户名
+grant all privileges on mydb.* to &apos;pythondb&apos;@&apos;localhost&apos;;
+此处，将mydb数据库的所有权限都授予pythondb用户
+同时，在授予权限时，可以选择授予不同的权限，如：查询、删除、修改、新增、修改表、创建表、删除表等等。
+3）撤销用户权限
+revoke 权限 on 数据库 from 用户名
+revoke all privileges on mydb.* from &apos;pythondb&apos;@&apos;localhost&apos;;
+将mydb数据库上的所有权限，从pythondb用户收回
+4）删除用户
+drop user 用户名
+drop user &apos;pythondb&apos;@&apos;localhost&apos;;
+</code></pre><h3 id="删除表数据"><a href="#删除表数据" class="headerlink" title="删除表数据"></a>删除表数据</h3><pre><code>delete
+truncate
+这两种方法都可以实现对表数据的删除，但是在实际操作中，他们的删除原理是不同的。
+delete属于DML语句，所有的删除操作都是可以被撤销的。也就是意味着，进行的删除操作并没有真正对数据库的记录进行持久化删除，而且在数据库服务器中仍然保留了其记录数据的缓存，一旦执行rollback，就可以将已删除的内容进行恢复。
+truncate删除数据，实际上是进行的表的截断操作，在删除记录的同时将这些记录在数据库服务器中的缓存同时进行删除。此操作不可撤销
+</code></pre><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><pre><code>背景：银行转账过程中，如果发生了意外，需要使用事务行处理。
+A账户有余额1000元，向余额为200元的B 账号进行转账500元，由于发生了某些故障，造成A账号在转账过程中出此案了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元.
+不使用事务产生的问题：
+1、    当A 账户进行转账扣款时，发生错误。B账号并么有收到转账金额500元。而A账号已经提示完成扣款。
+2、    当A 账号进行转账发生错误，未成功扣款，而B账号提示收到转账金额500元。
+我们称上述的情况产生的数据为脏数据（未清洗de数据）。
+使用事务处理的具体操作：
+1、    关闭MySQL自动提交功能。 set autocommit= off 或者 0；
+2、    开始事务：start transaction  / begin
+3、    执行相应的sql操作
+4、    提交或回滚: commit  rollback
+5、    将MySQL自动：set autocommit =1;
+概念：
+在MySQL中事务主要用于处理数据量大，复杂度高的数据。只有定义了InnoDB引擎的数据库才支持事务。事务处理可以用来维护数据库的完整性，保证SQL操作要么全完成，要么全不执行。
+
+事务满足四个特性: ACID
+A：原子性。一个事物中的所有操纵，会作为一个整体来看待，在执行时如果有一个操作没有成功，那么所有操作都将被滚。回到事务开始前的状态。
+C:一致性。在事务开始之前和事务结束之后，数据库的完整性没有被破坏，说明写入的资料符合数据库的所有设置的规则，包括数据的精度。
+I:隔离性：数据库允许同时并发多个事务，并且同时对数据库进行读写操作，隔离性可以保证防止多个事务并发执行时由于交叉执行而导致数据的不一致。
+事务的隔离分为：读未提交、读提交、可重复读、串行化
+D：持久性。事务处理结束后，对数据的修改时永久佛如，即存储在数据库中。
+
+MySQL数据库中myisam与innodb的区别
+1、    MyISAM是非事务安全型的，而InnoDB是事务安全型的。
+2、    MyISAM是锁支持到表级，而InnoDB支持行级。
+3、    MyISAM是支持全文检索，而InnoDB是不利于全文检索的。
+4、    MyISAM表保存为文件形式的，有利于跨平台时进行数据转移，而InnoDB比MyISAM更安全，可以保证表中数据不丢失的情况下，切换非事务到事务标
+5、    如果在实际应用中，需要执行大量的select查询，那么MyISAM时优先选择的。
+如果需要执行大量的增删改操作，那么InnoDB是优先选择的，可以提高多用户并发操作的性能。
+通常，我们在实现构建数据库服务器时，采用读写分离的方式，即设置一台读服务器，一台写服务器，同时俩台服务器进行数据同步
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/09/mydql/">展开全文 >></a>
         </p>
       
 
@@ -1301,7 +1263,7 @@ for i,value in enum:
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
