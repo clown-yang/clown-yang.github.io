@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 小丑的技术博客</title>
+  <title>小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、web开发">
-<meta property="og:type" content="website">
+  <meta name="description" content="选择器基本使用方式                   html,body{             padding: 0;             margin: 0;         }         /* 通用选择器*/         /**{*/             /*border: 1px solid red;*/         /*}*/">
+<meta name="keywords" content="python、爬虫、web开发">
+<meta property="og:type" content="article">
 <meta property="og:title" content="小丑的技术博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/CCS/CSS选择器/demo01/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
+<meta property="og:description" content="选择器基本使用方式                   html,body{             padding: 0;             margin: 0;         }         /* 通用选择器*/         /**{*/             /*border: 1px solid red;*/         /*}*/">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-12T01:38:23.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小丑的技术博客">
+<meta name="twitter:description" content="选择器基本使用方式                   html,body{             padding: 0;             margin: 0;         }         /* 通用选择器*/         /**{*/             /*border: 1px solid red;*/         /*}*/">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -157,235 +161,253 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CCS/CSS选择器/demo01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器基本使用方式</title>
+    <!--
+        CSS选择器 通过选择器定位到想要的设置样式的元素
+    -->
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+        /* 通用选择器*/
+        /**{*/
+            /*border: 1px solid red;*/
+        /*}*/
+        /* 基本选择器 */
+        /* 1.元素选择器，通过使用标签名作为选择器名称 注意一旦使用元素选择器就会选中该页面的所有元素*/
+        div{
+            color: white;
+            background-color: black;
+        }
+        p{
+            color: purple;
+        }
+        /*2. 类选择器*/
+        .class-one{
+            background-color: aquamarine;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+
+        /*p.class-one{*/
+            /*background-color: red;*/
+        /*}*/
+        .class-two{
+            background-color: pink;
+        }
+
+        /*3. id选择器*/
+        #id_one,#just_one{
+            font-size: 50px;
+        }
+        #menus{
+            background-color: #eee;
+        }
+        /* 去点*/
+        ul,ol{
+            list-style: none;
+        }
+        /*4. 后代选择器*/
+        #menus li{
+            height: 50px;
+            line-height: 50px;
+        }
+        /*5. 伪类选择器*/
+        a{
+            /*去元素下划线*/
+            text-decoration: none;
+        }
+        a:link,a:visited,a:hover,a:active{
+            color: black;
+            font-size: 20px;
+
+        }
+
+        /*#menus a:hover{*/
+            /*background-color: red;*/
+            /*color: white;*/
+            /*font-size: 40px;*/
+        /*}*/
+
+        /*6. 子代选择器*/
+        #menus >ul>li>a:hover{
+            background-color: red;
+            color: white;
+            font-size:40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>1234567890</div>
+    <div>sjdfkssdkbhsdfkh</div>
+    <p>段落</p>
+    <div class="class-one"> 这是个选择器为类选择器</div>
+    <p class="class-one class-two">这是一段落</p>
+    <div id="id_one">34533454</div>
+    <div id="just_one">gfdfdgf</div>
+
+    <div id="menus">
+        <a href="#">选项</a>
+        <ul>
+            <li><a href="#">第1项</a></li>
+            <li><a href="#">第2项</a></li>
+            <li><a href="#">第3项</a></li>
+            <li><a href="#">第4项</a></li>
+            <li><a href="#">第5项</a></li>
+            <li><a href="#">第6项</a></li>
+            <li><a href="#">第7项</a></li>
+            <li><a href="#">第8项</a></li>
+            <li><a href="#">第9项</a></li>
+            <li><a href="#">第10项</a></li>
+        </ul>
+    </div>
+    <ul>
+        <li>第1项</li>
+        <li>第2项</li>
+        <li>第3项</li>
+        <li>第4项</li>
+        <li>第5项</li>
+    </ul>
+</body>
+</html>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS选择器/demo01/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.539Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/18/CCS/CSS选择器/demo01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS标签类型/demo01/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.530Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS定位/demo01/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.521Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/18/CCS/CSS标签类型/demo01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my6/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my5/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.509Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my4/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.505Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my3/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.502Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my2/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my1/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.494Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.489Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -412,8 +434,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

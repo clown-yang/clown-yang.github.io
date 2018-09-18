@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 小丑的技术博客</title>
+  <title>小丑的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、web开发">
-<meta property="og:type" content="website">
+  <meta name="description" content="盒模型                      html,body{             margin: 0;             padding: 0;         }         .content{             width: 30px;             height: 300px;             background-co">
+<meta name="keywords" content="python、爬虫、web开发">
+<meta property="og:type" content="article">
 <meta property="og:title" content="小丑的技术博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/CCS/CSS04盒模型/demo01/index.html">
 <meta property="og:site_name" content="小丑的技术博客">
+<meta property="og:description" content="盒模型                      html,body{             margin: 0;             padding: 0;         }         .content{             width: 30px;             height: 300px;             background-co">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-12T03:22:10.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小丑的技术博客">
+<meta name="twitter:description" content="盒模型                      html,body{             margin: 0;             padding: 0;         }         .content{             width: 30px;             height: 300px;             background-co">
   
     <link rel="alternative" href="/atom.xml" title="小丑的技术博客" type="application/atom+xml">
   
@@ -157,235 +161,247 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CCS/CSS04盒模型/demo01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒模型</title>
+</head>
+<body>
+
+    <!--1.盒模型的概念
+    为了更好的布局html页面，w3c 将每一个元素都抽象一个一个盒子模型，能够描述大小和属性，引入盒子概念
+    2.盒模型的类型
+    2.1、标准盒模型
+
+    2.2、IE盒模型
+
+    3、盒模型的组成部分：
+
+    content 内容
+
+    padding 内边距
+
+    border 边框
+
+    margin 外边距
+
+    -->
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 30px;
+            height: 300px;
+            background-color: #333;
+            color: #eeeeee;
+            margin-left: 100px;
+            padding-left: 100px;
+            margin-top: 100px;
+        }
+        .wrapper{
+            background-color: red;
+        }
+        span{
+            border:8px solid black ;
+            display: inline-block;
+            margin: 100px;
+            padding: 100px;
+            background-color: bisque;
+        }
+
+    </style>
+    <div class="content">这是一个典型的盒模型</div>
+    <p>这是一个段落标签</p>
+    <div class="wrapper">
+        <span>lalalsksld</span>
+        <span style="margin-left: 200px">dfdghjhdffgbyh</span>
+    </div>
+
+    <!--溢出-->
+    <style>
+        .chars{
+            background-color: greenyellow;
+            color: black;
+            width: 100px;
+            /*overflow: hidden;!*去除多的部分*!*/
+            /*overflow: auto;!*游览器自己处理*!*/
+            overflow-x: scroll;/*不论是否溢出都有滚动条*/
+        }
+    </style>
+    <div class="chars">
+        123345678910123456789101111111111111111111111234567890987654321098765432
+    </div>
+
+    <!--元素的可见性-->
+    <style>
+        .nav-header{
+            height: 100px;
+            background-color: blue;
+            /*visibility: hidden;*/
+            display: none;
+            /*visibility: collapse;*//*隐藏表的行和列*/
+        }
+
+        .nav-footer{
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+
+    <div style="border: 10px black solid ">
+        <div class="nav-header">
+
+        </div>
+        <div class="nav-footer">
+
+        </div>
+    </div>
+</body>
+</html>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS选择器/demo01/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.539Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/18/CCS/CSS04盒模型/demo01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS标签类型/demo01/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.530Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS定位/demo01/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.521Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2018/09/18/CCS/CSS04盒模型/demo02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/09/mysql-find/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL数据库查询总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my6/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my5/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.509Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my4/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.505Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my3/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.502Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my2/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.497Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my1/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.494Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/CCS/CSS使用方式/my/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:24:38.489Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -412,8 +428,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

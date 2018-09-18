@@ -159,147 +159,126 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-mysql-find" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS选择器/demo01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/09/mysql-find/">MySQL数据库查询总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/09/mysql-find/" class="archive-article-date">
-  	<time datetime="2018-09-08T16:19:01.155Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-09</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h3><pre><code>查询语句的格式
+        <!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器基本使用方式</title>
+    <!--
+        CSS选择器 通过选择器定位到想要的设置样式的元素
+    -->
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+        /* 通用选择器*/
+        /**{*/
+            /*border: 1px solid red;*/
+        /*}*/
+        /* 基本选择器 */
+        /* 1.元素选择器，通过使用标签名作为选择器名称 注意一旦使用元素选择器就会选中该页面的所有元素*/
+        div{
+            color: white;
+            background-color: black;
+        }
+        p{
+            color: purple;
+        }
+        /*2. 类选择器*/
+        .class-one{
+            background-color: aquamarine;
+            font-size: 30px;
+            font-weight: bolder;
+        }
 
-select 字段1，字段2，字段3，....，字段n         6
-from 表名                 1
-where 条件子句            2
-group by 分组子句         3
-having 条件子句           4
-order by 排序子句         5
-limit 分页子句
+        /*p.class-one{*/
+            /*background-color: red;*/
+        /*}*/
+        .class-two{
+            background-color: pink;
+        }
 
-例如：select * from person
-该语句中，*代表了表中所有的字段，但是我们日常开发中，不允许这样使用。一定要明确的标出需要查询的相关字段名。这有有利于在查询时减少数据库在查询表时不必要的字段检索。
+        /*3. id选择器*/
+        #id_one,#just_one{
+            font-size: 50px;
+        }
+        #menus{
+            background-color: #eee;
+        }
+        /* 去点*/
+        ul,ol{
+            list-style: none;
+        }
+        /*4. 后代选择器*/
+        #menus li{
+            height: 50px;
+            line-height: 50px;
+        }
+        /*5. 伪类选择器*/
+        a{
+            /*去元素下划线*/
+            text-decoration: none;
+        }
+        a:link,a:visited,a:hover,a:active{
+            color: black;
+            font-size: 20px;
 
-关系运算与逻辑运算
-逻辑与 and
-select pno, pname, age, hire_date, salary from persons where hire_date&gt;=&apos;2018-03-01&apos; and hire_date&lt;=&apos;2018-04-30&apos;;
-等价于
-select pno, pname, age, hire_date, salary from persons where hire_date between &apos;2018-03-01&apos; and &apos;2018-04-30&apos;;
-第二种写法的效率会更优。因为采用了关系表达式，使用一次比较实现条件。
+        }
 
-逻辑或 or
-select pno, pname, age, hire_date, salary from persons where salary=3459 or salary = 3400;
-等价于
-select pno, pname, age, hire_date, salary from persons where salary in(3459,3400);
+        /*#menus a:hover{*/
+            /*background-color: red;*/
+            /*color: white;*/
+            /*font-size: 40px;*/
+        /*}*/
 
-逻辑非 not
-select pno, pname, age, hire_date, salary from persons where hire_date NOT between &apos;2018-03-01&apos; and &apos;2018-04-30&apos;;
+        /*6. 子代选择器*/
+        #menus >ul>li>a:hover{
+            background-color: red;
+            color: white;
+            font-size:40px;
+        }
 
-排序子句：order by（排序子句一定要放在所有子句之后）
-sql中排序分为升序与降序，默认情况下为升序，如果要使用降序采用desc关键字。
-select pno, pname, age, hire_date, salary from persons order by salary desc;
-注意，如果出现多个排序条件时，表示为先按照第一个排序条件进行排序，如果出现相同的排序字段内容时，再按照第二个排序条件进行排序，依次类推。多个排序条件之间，用,号隔开。
-select pno, pname, age, hire_date, salary from persons order by salary desc, hire_date;
+    </style>
+</head>
+<body>
+    <div>1234567890</div>
+    <div>sjdfkssdkbhsdfkh</div>
+    <p>段落</p>
+    <div class="class-one"> 这是个选择器为类选择器</div>
+    <p class="class-one class-two">这是一段落</p>
+    <div id="id_one">34533454</div>
+    <div id="just_one">gfdfdgf</div>
 
-
-分组子句：group by
-如果SQL中使用了分组子句，那么在select子句里面，只能使用分组字段或者是统计函数。例如：
-select age,count(age) from persons group by age;
-注意：通常情况下分组子句会结合统计函数一起使用。
-
-having条件子句
-having子句通常是配合group子句一起使用，having将统计函数作为其条件字段。
-select age,count(age) from persons group by age having count(age)&gt;1;
-
-limit子句：分页子句
-limit 开始的行号（第一行为0）,显示几条记录
-select * from persons limit 0,1;
-
-distinct去重：
-去除指定字段中的重复内容，只保留一个。
-select distinct salary from persons;
-
-列表名与表别名
-列别名：给指定的列，起别名。可以使用as关键字。
-select 列名 [as] 别名 from 表名
-例如：
-select pno as &apos;编号&apos; from persons;
-表别名：给指定的表，起别名。使用as关键字修饰。
-
-
-统计函数：
-count():统计个数
-max()：求最大值
-min()：求最小值
-avg()：求平均值
-sum()：求和
-注意，在使用统计函数时，如果没有配合group by子句使用，那么在select中只能输出统计函数的值，不能输出其他字段。例如：
-select max(salary) from persons;
-其中，max、min、avg、sum只能统计数据类型是数值型的字段，如果该字段值为null，那么统计函数将忽略该内容。我们可以通过ifnull(字段，替换值)，将null值转换为我们指定的值，进而参加相关的统计运算。
-select avg(ifnull(salary,0)) from persons;
-
-模糊查询：like
-我们通常在查询时，如果条件内容不是非常明确的情况下，我们会使用like关键字进行模糊查询。通常会使用%、_来配合，其中%代表了0到n个字符，_代表了1个字符。
-select * from persons where pname like &apos;_i%&apos;;查找名字第二位是i的人员信息
-select * from persons where pname like &apos;%i%&apos;;查找名字中有i的人员信息
-</code></pre><h3 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h3><pre><code>1、查询分类
-内连接（等值连接）
-inner join 
-select e.empno,e.ename,e.sal,e.deptno,d.dname from emp e inner join dept d on e.deptno=d.deptno where e.sal&gt;2000;
-等价于
-select e.empno,e.ename,e.sal,e.deptno,d.dname from emp e, dept d where e.deptno=d.deptno and e.sal&gt;2000;
-
-外连接
-分为左外连接与右外连接
-left join on
-right join on
-何时使用外连接？
-当进行两个表连接查询时，其中一方有不匹配记录，如果进行等值连接这些记录将不会被查询检索，如果我们需要查询时将匹配记录以及不匹配记录都查询出来，就需要使用外连接。那么不匹配记录存在的表位于连接语句的左侧，就使用左外连接，如果出现在右侧就使用右外连接。
-例如：其中dept表中有不匹配的记录，deptno=40的记录。
-左外连接
-select e.empno,e.ename,d.deptno,d.dname from  dept d left join emp e on e.deptno=d.deptno;
-右外连接
-select e.empno,e.ename,d.deptno,d.dname from emp e right join dept d on e.deptno=d.deptno;
-
-子查询
-概念：将一个SQL查询语句的返回结果，作为另外一个查询语句的条件来使用。
-分为单行子查询与多行子查询
-单行子查询：作为条件返回的查询语句，其返回结果为一行记录。
-多行子查询：作为条件返回的查询语句，其返回结果为多行记录。
-子查询通常放在where条件子句中进行使用。但有时我们也可以将子查询作为虚表，放在from子句后面使用。但是这种使用方法，必须给子查询一个别名。例如：
-select * from (select * from emp) as e;
-</code></pre><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><pre><code>行变列
-select name,max(case course when &apos;math&apos; then score else 0 end) &apos;数学&apos;,max(case course when &apos;english&apos; then score else 0 end) &apos;英语&apos;,max(case course when &apos;chinese&apos; then score else 0 end ) &apos;语文&apos; from grade group by name;
-Field  | Type        | Null | Key | Default | Extra          |
-+--------+-------------+------+-----+---------+----------------+
-| id     | int(11)     | NO   | PRI | NULL    | auto_increment |
-| name   | varchar(20) | YES  |     | NULL    |                |
-| course | varchar(10) | YES  |     | NULL    |                |
-| score  | int(3)      | YES  |     | NULL    |
-列变行
-select name,&apos;math&apos; course,math_score as score from grade2 union select name,&apos;english&apos; course,en_score as score from grade2 union select name,&apos;chinese&apos; course,cn_score as score from grade2 order by name,course;
-------------+-------------+------+-----+---------+----------------+
-| Field      | Type        | Null | Key | Default | Extra          |
-+------------+-------------+------+-----+---------+----------------+
-| id         | int(11)     | NO   | PRI | NULL    | auto_increment |
-| name       | varchar(10) | YES  |     | NULL    |                |
-| math_score | int(3)      | YES  |     | NULL    |                |
-| en_score   | int(3)      | YES  |     | NULL    |                |
-| cn_score   | int(3)      | YES  |     | NULL    |                |
-+------------+-------------+------+-----+---------+----------------+
-</code></pre>
+    <div id="menus">
+        <a href="#">选项</a>
+        <ul>
+            <li><a href="#">第1项</a></li>
+            <li><a href="#">第2项</a></li>
+            <li><a href="#">第3项</a></li>
+            <li><a href="#">第4项</a></li>
+            <li><a href="#">第5项</a></li>
+            <li><a href="#">第6项</a></li>
+            <li><a href="#">第7项</a></li>
+            <li><a href="#">第8项</a></li>
+            <li><a href="#">第9项</a></li>
+            <li><a href="#">第10项</a></li>
+        </ul>
+    </div>
+    <ul>
+        <li>第1项</li>
+        <li>第2项</li>
+        <li>第3项</li>
+        <li>第4项</li>
+        <li>第5项</li>
+    </ul>
+</body>
+</html>
       
 
       
@@ -311,7 +290,7 @@ select name,&apos;math&apos; course,math_score as score from grade2 union select
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/09/mysql-find/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS选择器/demo01/">展开全文 >></a>
         </p>
       
 
@@ -341,190 +320,86 @@ select name,&apos;math&apos; course,math_score as score from grade2 union select
 
 
   
-    <article id="post-mydql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS标签类型/demo01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/09/mydql/">MySQL数据库总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/09/mydql/" class="archive-article-date">
-  	<time datetime="2018-09-08T16:13:29.309Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-09</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="数据库语言"><a href="#数据库语言" class="headerlink" title="数据库语言"></a>数据库语言</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><pre><code>数据库定义语言   DDL（create database/table，drop database/table，alter database/table）
-数据库操纵语言   DML(insert、delete、update、select)
-数据库控制语言   DCL（grant、revoke）
-注意，数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销 。
-</code></pre><h3 id="数据定义语言"><a href="#数据定义语言" class="headerlink" title="数据定义语言"></a>数据定义语言</h3><pre><code>1）、创建数据库
-create database 数据库名；
-2）、删除数据库
-drop database 数据库名；
-3）、打开数据库
-use 数据库名；
-4）创建数据表
-create table 表名(列名 数据类型(长度),列名 数据类型（长度）,......) default charset=utf8
-注意，如果创建表的时候，没有指定字符集，那么该表将默认采用其所在数据库的字符集。通常我们建议指定缺省的字符集。
-5)、查看数据表的字符集情况
-show variables like &apos;character%&apos;;
-6）查看表结构
-desc 表名
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标签在页面上显示的视图样式</title>
+</head>
+<body>
+    <div style="color: greenyellow">这是一个块级元素，他在页面上的效果是独占一行，并设置宽高有效</div>
+    <span>这是一个文本元素，它是一个行内元素，他在页面显示的效果是在一行显示，并且设置宽高无效，它的高度和宽度都是根据自身内容来填充的</span>
+    <span style="color: red;width: 100px">在一行</span>
+    <p>这是一个块级元素，和div一样的显示效果，只不过有自身的样式，显示时有行间距</p>
+    <style>
+        input{
+            height: 30px;
+            /*text-indent 属性用来设置首行缩进*/
+            text-indent: 20px;
+        }
+    </style>
+    <input type="text" placeholder="输入用户名/邮箱/手机号">
+    <input type="text" placeholder="输入密码6~18">
+    <!--元素的显示类型是通过 display 属性进行控制
+    行内元素 默认的是display属性值是 inline
+    块级元素 默认的display 属性时block
+    行内块级元素 默认的 display 属性值是 inline-block
+    -->
+    <style>
+        .head{
+            color: lightslategray;
+            font-size: 30px;
+        }
+        div.head>span{
+            display: inline-block;
+            width: 33%;
+            /*font-size: 30px;*/
+        }
+    </style>
+    <div class="head">
+        <span>考试科目: 统一建模考试</span>
+        <span>时间: 100分钟</span>
+        <span>得分:</span>
+    </div>
+    <style>
+        /*去除ul，ol，前的点*/
+        ul,ol{
+            list-style: none;
+        }
+        /*去除a标签的下划线*/
+        a{
+            text-decoration: none;
+        }
+        /*对标签的四种属性进行设置*/
+        a:link,a:visited,a:hover,a:active{
+            color: cornflowerblue;
+            font-size: 20px;
+        }
+        /*li块级元素,成一行*/
+        .nav>ul>li{
+            display: inline-block;
+        }
+        /*去除多余的边框*/
+        html,body,ul{
+            margin: 0;
+            padding: 0;
+        }
 
-7）、数据库字段类型
-字符类型：
-char(长度)：定长的字符类型，一旦声明了长度，即使定义的字段数据不能达到最大长度，也会按照最大长度进行所占字节的分配。取值范围：0-255
-varchar(长度)： 变长的字符类型，声明长度后，如果字段数据的长度达不到最大长度，则会根据实际长度给出数据的长度。取值范围：0-2^16-1
-数值类型：
-int(长度)：给出指定的字段数据长度。如果没有明确指定长度，则采用默认长度11。所占字节4个字节。
-
-日期类型：
-date：日期类型的字段，在定义时不需要指定长度。格式为YYYY-MM-DD
-time：日期类型的字段，格式HH:MM:SS
-datatime：日期类型的字段，格式YYYY-MM-DD HH:MM:SS
-布尔型：
-bool:布尔类型的字段，在定义时采用0代表假，1代表真。
-实际在mysql数据库中，bool类型等同于数值型的tinyint(1)
-
-8)、修改表结构
-alter table 表名 [add/modify/change/drop] 字段名 [数据类型]
-添加字段：
-alter table tablename add 字段名 数据类型；
-添加字段，位于表中的最后一列。
-alter table tablename drop 字段名
-删除一列，如果列中有数据，则全部被删除且不可恢复。
-alter talbe tablename modify 字段名 数据类型
-修改指定字段的数据类型及长度。
-alter table tablename change oldcolumn newcolumn 数据类型
-修改指定字段的名字
-9）、修改表名
-rename table 旧表名 to 新表名
-</code></pre><h3 id="数据操作语言"><a href="#数据操作语言" class="headerlink" title="数据操作语言"></a>数据操作语言</h3><pre><code>1）数据类型间的默认转换
-字符串=&gt;日期型
-如果字段数据类型定义为日期型，例如：date（YYYY-MM-DD），如果我们队该字段插入数据时，采用&apos;2018-08-23&apos;的字符串格式进行数据插入，mysql会自动将字符串转为日期型。
-
-字符串=&gt;数值型
-当字段数据类型为字符型时，但具体值为数值，我们使用该字段的值与数值进行运算，那么得到的结果为数值型。
-同时，如果字段类型定义为数值型，我们可以将数值型字符串插入到指定的字段中。
-如果，字段类型为字符型，其中由字符与数字混合组成（只要不是纯数字构成的字符串），此时与数值进行算数运算，那么该字段内容被转换为0来进行处理。
-2）运算符
-算数运算符
-比较运算符
-逻辑运算符
-位运算符
-3）插入数据
-标准格式：
-insert into 表名（字段1，字段2，字段3，....） values(字段1值，字段2值，字段3值，...)
-insert into persons(pno,pname,age,hire_date,salary) values(&apos;10001&apos;,&apos;tom&apos;,21,&apos;2018-03-12&apos;,3459);
-通常，我们在声明表名的时候将需要插入数据的字段名一起进行声明，有利于提高插入的效率。同时如果有些字段值为null，可以在实际插入的时候省略。另外，字段值只需要与字段名称对应即可，不需要按照表中实际字段的位置进行填写。
-
-insert into 表名 values(字段1值，字段2值，字段3值，...)
-这种写法，需要我们在values的后面，按照表中各个字段的实际顺序进行一一对应的填写。同时，如果某个字段的值为null，也必须将null值进行标明。
-
-插入多条语句：
-
-insert into 表名（字段名） values(字段值1,...，字段值n)，(字段值1,...，字段值n)
-一次性插入多条数据
-
-insert into person_bak(pno,pname,age,hire_date,salary) select * from persons;
-将指定表的查询结果，作为要插入到目标表中的数据，进行插入。要求是目标表结构与指定表的结构相同。
-4）、更新数据
-格式：
-update 表名 set 字段1=新值，字段2=新值，...，字段n=新值 where 条件
-进行更新操作时，一定要进行条件的约束，如果该语句没有条件子句的话，就表示对全表进行更新操作。
-5）、删除数据
-delete from 表名 where 条件
-进行删除操作时，一定要添加条件，如果没有条件子句，就意味着删除全表内容。
-6）、数据操作的撤销和提交
-mysql数据库默认模式为自动提交：autocommit=on
-我们如果需要对mysql进行撤销和提交操作，需要先将默认的自动提交模式取消，设置为off
-即：set autocommit=off
-当我们进行增删改操作时，如果执行rollback操作，那么该操作就会被撤销；
-如果执行commit操作，那么该操作就会持久化到数据库中。
-commit
-rollback
-</code></pre><h3 id="数据库函数"><a href="#数据库函数" class="headerlink" title="数据库函数"></a>数据库函数</h3><pre><code>1、字符串函数
-length(字段)：返回该字段字符串的实际长度。
-trim(字段)：将字符串左右两端的空格去除。
-repeat(字段,n)：将字段中的字符串重复n次
-replace(s,s1,s2)：使用s2替换字段s中的s1
-substring(s,n,len):对字符串s的第n个位置开始，截取长度为len的子字符串。注意，此处字符串的字符位置从1开始。
-2、数值函数
-ceil()：返回数值的上限（只入不舍）
-floor()：返回数值的下限（只舍不入）
-mod(x,y)：返回两个数的余数
-round(x,[y])：对x进行四舍五入操作，如果声明了y,则保留到小数点后y位
-truncate(x,y)：对x进行截断操作，保留小数位y位
-3、日期函数
-curdate():当前日期年月日
-curtime():当期时间时分秒
-now():当前的时间 年月日 时分秒
-year():返回当前的年份
-month()：返回当前的月份
-dayofmonth()：返回当前的天数
-date_format():格式化指定字段的日期
-adddate(d，时间间隔):将指定的日期增加或减少对应的时间。
-4、系统函数
-user():返回当前登录数据库的用户名
-database():返回当前登录的数据库名
-</code></pre><h3 id="数据控制语言"><a href="#数据控制语言" class="headerlink" title="数据控制语言"></a>数据控制语言</h3><pre><code>1）创建用户
-create user 用户名 identified by 密码
-2）授予用户权限
-grant 权限 on 数据库 to 用户名
-grant all privileges on mydb.* to &apos;pythondb&apos;@&apos;localhost&apos;;
-此处，将mydb数据库的所有权限都授予pythondb用户
-同时，在授予权限时，可以选择授予不同的权限，如：查询、删除、修改、新增、修改表、创建表、删除表等等。
-3）撤销用户权限
-revoke 权限 on 数据库 from 用户名
-revoke all privileges on mydb.* from &apos;pythondb&apos;@&apos;localhost&apos;;
-将mydb数据库上的所有权限，从pythondb用户收回
-4）删除用户
-drop user 用户名
-drop user &apos;pythondb&apos;@&apos;localhost&apos;;
-</code></pre><h3 id="删除表数据"><a href="#删除表数据" class="headerlink" title="删除表数据"></a>删除表数据</h3><pre><code>delete
-truncate
-这两种方法都可以实现对表数据的删除，但是在实际操作中，他们的删除原理是不同的。
-delete属于DML语句，所有的删除操作都是可以被撤销的。也就是意味着，进行的删除操作并没有真正对数据库的记录进行持久化删除，而且在数据库服务器中仍然保留了其记录数据的缓存，一旦执行rollback，就可以将已删除的内容进行恢复。
-truncate删除数据，实际上是进行的表的截断操作，在删除记录的同时将这些记录在数据库服务器中的缓存同时进行删除。此操作不可撤销
-</code></pre><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><pre><code>背景：银行转账过程中，如果发生了意外，需要使用事务行处理。
-A账户有余额1000元，向余额为200元的B 账号进行转账500元，由于发生了某些故障，造成A账号在转账过程中出此案了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元.
-不使用事务产生的问题：
-1、    当A 账户进行转账扣款时，发生错误。B账号并么有收到转账金额500元。而A账号已经提示完成扣款。
-2、    当A 账号进行转账发生错误，未成功扣款，而B账号提示收到转账金额500元。
-我们称上述的情况产生的数据为脏数据（未清洗de数据）。
-使用事务处理的具体操作：
-1、    关闭MySQL自动提交功能。 set autocommit= off 或者 0；
-2、    开始事务：start transaction  / begin
-3、    执行相应的sql操作
-4、    提交或回滚: commit  rollback
-5、    将MySQL自动：set autocommit =1;
-概念：
-在MySQL中事务主要用于处理数据量大，复杂度高的数据。只有定义了InnoDB引擎的数据库才支持事务。事务处理可以用来维护数据库的完整性，保证SQL操作要么全完成，要么全不执行。
-
-事务满足四个特性: ACID
-A：原子性。一个事物中的所有操纵，会作为一个整体来看待，在执行时如果有一个操作没有成功，那么所有操作都将被滚。回到事务开始前的状态。
-C:一致性。在事务开始之前和事务结束之后，数据库的完整性没有被破坏，说明写入的资料符合数据库的所有设置的规则，包括数据的精度。
-I:隔离性：数据库允许同时并发多个事务，并且同时对数据库进行读写操作，隔离性可以保证防止多个事务并发执行时由于交叉执行而导致数据的不一致。
-事务的隔离分为：读未提交、读提交、可重复读、串行化
-D：持久性。事务处理结束后，对数据的修改时永久佛如，即存储在数据库中。
-
-MySQL数据库中myisam与innodb的区别
-1、    MyISAM是非事务安全型的，而InnoDB是事务安全型的。
-2、    MyISAM是锁支持到表级，而InnoDB支持行级。
-3、    MyISAM是支持全文检索，而InnoDB是不利于全文检索的。
-4、    MyISAM表保存为文件形式的，有利于跨平台时进行数据转移，而InnoDB比MyISAM更安全，可以保证表中数据不丢失的情况下，切换非事务到事务标
-5、    如果在实际应用中，需要执行大量的select查询，那么MyISAM时优先选择的。
-如果需要执行大量的增删改操作，那么InnoDB是优先选择的，可以提高多用户并发操作的性能。
-通常，我们在实现构建数据库服务器时，采用读写分离的方式，即设置一台读服务器，一台写服务器，同时俩台服务器进行数据同步
-</code></pre>
+    </style>
+    <div class="nav">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">优惠</a></li>
+            <li><a href="#">我的</a></li>
+        </ul>
+    </div>
+</body>
+</html>
       
 
       
@@ -536,7 +411,7 @@ MySQL数据库中myisam与innodb的区别
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/09/mydql/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS标签类型/demo01/">展开全文 >></a>
         </p>
       
 
@@ -566,280 +441,61 @@ MySQL数据库中myisam与innodb的区别
 
 
   
-    <article id="post-spider" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS定位/demo01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/spider/">爬虫部分总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/08/spider/" class="archive-article-date">
-  	<time datetime="2018-09-08T15:47:42.511Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-08</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="网络原理"><a href="#网络原理" class="headerlink" title="网络原理"></a>网络原理</h3><pre><code>1、HTTP与HTTPS的区别
-HTTP：我们称为超文本传输协议，主要用来实现从网络传输超文本到本地浏览器，实现高效且准确的超文本传送。目前HTTP的版本为1.1
-HTTPS：我们认为就是以安全为目标的HTTP通道，即在HTTP协议的基础上加入了SSL层，简称HTTPS。
-SSL的主要作用分为以下两部分：
-第一、为HTTP传输文件提供安全的传输通道
-第二、确认网站的真实性，通过HTTPS访问的网站都需要获取到CA认证。
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+</head>
+<body>
+    <style>
+        .wrapper,.content{
+            width: 100px;
+            height: 100px;
+        }
 
-2、网络七层模型（了解）
-从下到上的顺序
-物理层
-数据链路层
-网络层
-传输层（TCP、UDP）
-会话层
-表示层
-应用层（HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP）
+        .wrapper{
+            background-color: red;
+            /*position: absolute;!*absolute 相对中的绝对定位 默认左上角0,0点*!*/
+            /*left: -50px;*/
+            /*top: 0;*/
+            margin-top: 100px;
+            position: relative;
+        }
 
-3、HTTP的请求机制
-第一，由客户端（浏览器）发出请求
-第二，通过网络传输，到指定的服务器地址
-第三，服务器接收相关请求，并进行解析
-第四，服务器将最终的结果响应回客户端
-第五，客户端接收到服务器响应后，通过浏览器解析，最终将内容进行展现
+        .content{
+            background-color: blue;
+            /*position: absolute;*/
+            /*right: 0;*/
+            /*bottom: 50%;*/
+            /*相对定位*/
+            /*position: relative;*/
+            /*left:100%;*/
+            /*top:100%;*/
+            position: absolute;
+            left: 50%;
+            top:-50%;
+            border-radius: 50px;
+            text-align: center;
+            line-height: 100px;
+            color: #eeeeee;
 
-4、客户端访问服务器，发出请求，有四部分构成
-第一，请求方法（request method），默认为get方式。只有在表单提交和文件上传时为post方法。
-第二，请求网址（request url），即在浏览器中输入的网路地址。
-第三，请求头（request header），用来标识为一个浏览器正常的访问
-第四，请求体（request body），用来传输到服务器端的相关数据
+        }
+    </style>
 
-
-5、请求方法中get与post的区别
-第一、使用get方式提交请求时，相关数据会作为url的参数被一起进行提交，我们可以直接在地址栏中观察到相关数据。而采用post方式请求的url不会包含这些数据，而是直接通过表单提交到服务器。
-第二、get方式提交请求，对于提交的数据大小不能大于1024字节，而post方式提交数据，没有大小的限制。
-总之，如果提交的信息比较敏感或者字节较大时，需要使用post方式；如果只是普通的请求使用get方式。
-
-二、HTML网页结构
-1、HTML基本构成
-HTML有三个标签来构成基本结构：
-&lt;html&gt;:作为HTML文件的根标签，所有的页面中的标签和内容都要在HTML标签的范围内。
-&lt;head&gt;：作为HTML文件的头部标签，相关页面的信息、编码、引导外部的CSS文件和JS文件，都需要放置在head标签中。
-&lt;body&gt;：body标签中的内容，就是我们爬虫需要解析的主体。所有需要在页面上展现的内容，都会放置在该标签中。
-2、常见的HTML标签
-1）h1...h6：标题标签，用来显示标题，h1最大，h6最小。
-2）&lt;p&gt;：段落标签。用来对文本内容进行分段。
-3）&lt;a&gt;：链接标签。用来跳转到指定的网址。
-&lt;a target=&apos;&apos; href=&apos;URL&apos;&gt;链接地址&lt;/a&gt;
-其中参数target，_self:在自身的窗口重新打开指定的网址
-_blank：在一个新窗口中打开指定的网址
-4）&lt;img&gt;：图片标签。用来载入指定位置的图片，通常可以接收的图片类型：JPG、png、gif、bmp
-&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;
-其中：src：指定图片的具体位置
-    alt：其中的内容，作为图片无法载入时，显示的内容。
-5）表格标签：table、tr、th、td
-&lt;table&gt;：表格标签，所有表格中的行和单元格内容都必须放置在内部。
-&lt;tr&gt;:表格行，代表表格一行
-&lt;th&gt;:表格头，代表表格的标题行
-&lt;td&gt;：表格单元格，代表表格中的每个单元内容
-6）列表
-有序列表：
-&lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-无序列表:
-&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-自定义列表：
-&lt;dl&gt;
-&lt;dt&gt;
-    &lt;dd&gt;&lt;/dd&gt;
-&lt;/dt&gt;
-&lt;/dl&gt;
-7)div与span
-div：块级元素，用来实现页面布局。自身没有任何效果
-span:内联元素，用做文本容器。
-8）表单
-&lt;form name=&quot;表单名&quot; action=&quot;URL&quot; method=&quot;get/post&quot;&gt;
-默认情况，如果没有声明method属性，缺省值为get
-&lt;input type=&quot;&quot;&gt;
-输入标签，type属性：
-text:文本框
-password：密码框
-checkbox：复选框
-radio：单选框
-submit：提交按钮
-reset：重置按钮
-button：按钮
-file:文件上传
-&lt;textarea cols=&quot;列数&quot; rows=&quot;行数&quot;&gt;：文件区标签
-</code></pre><h3 id="网络爬虫—urllib库"><a href="#网络爬虫—urllib库" class="headerlink" title="网络爬虫—urllib库"></a>网络爬虫—urllib库</h3><pre><code>1、urllib库的基本使用
-import urllib.request
-函数格式：urllib.request.openurl(url, data, timeout)
-参数说明：
-url：指定的请求网址
-data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。
-timeout：指定连接url的超时时间，单位为秒。
-response = urllib.request.openurl()函数返回一个HTTPResponse对象
-我们可以使用response对象中的相关方法：
-read()读取响应体中的内容
-status/getcode()返回响应码
-reason 返回响应信息的内容
-info()返回响应头信息
-geturl()返回请求的url地址
-2、Request请求对象
-
-req = urllib.request.Request(url,data,headers,method)
-参数说明：
-url：指定的请求网址
-data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。
-headers：请求对象的头信息，用来将一个爬虫伪装成一个普通的浏览器请求，主要设置user-agent
-method：请求的方式，默认为get，可以设置为get或post
-3、urllib.error
-在urllib库中有三个error对象
-HTTPError：HTTP访问异常
-URLError：url地址异常
-ContentTooShortError：文件大小异常
-注意，HTTPError是URLError的子类。
-HTTPError，只有一个属性reason
-URLError，有code，reason，headers三个属性。
-4、urllib.robotparser
-作用：用来解析指定网站的robots.txt文件。用来分析哪些内容是允许抓取，哪些内容是不允许的。
-四、requests库
-1、常用方法
-1）函数格式：requests.get(url,[param], **kvw)
-参数说明:
-url：指定爬取的网络地址
-param：需要传递的参数，参数格式：字典或字节流
-返回值：response对象
-属性：
-status_code:状态码
-headers:头信息
-text：抓取到的页面内容
-encoding：页面的编码格式（从headers获取到）
-apparent_encoding：页面的编码格式（从网页内容中获取到）
-content：二进制形式的信息
-注意：text属性返回的页面信息，是根据encoding来显示的。所以我们在使用requests抓取页面信息时，将encoding属性进行设置，通常设为utf-8。
-
-get()函数代表了发出一个request请求，而requests.get()表示返回一个response对象
-
-2）
-requests.request(&apos;GET&apos;,url, **kvw)
-requests.request(&apos;HEAD&apos;,url, **kvw)
-requests.request(&apos;POST&apos;,url, **kvw)
-requests.request(&apos;PUT&apos;,url, **kvw)
-requests.request(&apos;PATCH&apos;,url, **kvw)
-requests.request(&apos;DELETE&apos;,url, **kvw)
-**kvw:控制访问的参数，为可选项
-params:字典或字节流，作为参数添加到url中（get方法使用）
-data：字典、字节流或文件对象（post方法使用）
-json：JSON格式数据，作为request的内容
-headers：字典，HTTP头信息
-cookies：字典或cookie jar，存在于request的cookie中
-auth：元组，支持HTTP认证
-files：字典类型，传输文件
-timeout：设定超时时间，秒为单位
-stream：True/False，默认为True。获取内容立即下载。
-cert：本地SSL整数路径
-verfiy：True/False，默认为True。认证SSL开关
-allow_redirects：True/False,默认为True，重定向开发
-</code></pre><h3 id="beautiful-soup库"><a href="#beautiful-soup库" class="headerlink" title="beautiful soup库"></a>beautiful soup库</h3><pre><code>1、常用格式
-from bs4 import BeautifulSoup
-
-soup = BeautifulSoup(content, &apos;html.parser&apos;)
-参数说明：
-content：使用requests或其他方式，发出请求后获取到的服务器响应内容，通常应该为HTML格式。
-html.parser:HTML4格式解析器
-2、常用的属性
-标签自身属性：
-tag：标签，例如soup.tag可以将指定的标签以及内部的内容返回
-name：标签名，例如：soup.tag.name返回指定标签的名字
-attrs：标签属性，在HTML中一个标签可以有0到N个标签，因此标签属性为字典类型，例如：soup.tag.attrs[&apos;class&apos;]
-string：标签内的文本内容，例如：soup.tag.string
-标签树的属性：
-contents:例如：soup.tag.contents,将指定的标签名内所有的标签都以列表形式返回。
-children：例如：soup.tag.children，将指定的标签中所有的子标签内容，都以迭代器形式返回，进行遍历查询。
-descendants：例如：soup.tag.descendants,将指定的标签中所有的子标签、孙标签都以迭代器形式返回，进行遍历查询。
-注意：BeautifulSoup对象，作为标签树的根节点，即HTML节点
-3、常用方法
-1）函数格式：soup.find(name,attrs)
-参数说明：
-name：标签名
-attrs：标签中的属性值（属性=‘值’）
-返回值：返回查找到第一个符合条件的标签以及内部元素
-
-2）函数格式：soup.find_all(name,attrs)
-函数参数与上面find()相同
-返回值：返回符合条件的所有的标签，以列表形式返回。
-
-4、bs4的遍历模式
-在BeautifulSoup中，有三种遍历模式：
-1）下行遍历
-children、descendants、contents
-find()、find_all()
-2）上行遍历
-parent、parents
-find_parent()、find_parents()
-3）平行遍历
-next_sibling、next_siblings
-previous_sibling、previous_siblings
-find_next_sibling()、find_next_siblings()
-find_previous_siblings()、find_previous_sibling()
-</code></pre><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><pre><code>1、正则表达式的概念
-正则表达式就是使用一些特定的表达式，来表示符合其规范的字符串。
-2、常用操作符
-^:^ab,代表着必须是ab开头，[^ab]代表不能是a或b开头
-$:表示字符串结尾，放在正则表达式的结尾
-[]：代表了值域的范围，例如：[0-9][a-z]
-{}：代表了字符出现的次数,例如：{n}代表了出现n次，{n,m}代表出现了n到m次
-*:代表了字符出现0-n次
-+：代表了字符出现1-n次
-？：代表了字符出现0-1次
-3、常用方法
-1）search()：会在指定的字符串中查找，是否有匹配正则表达式的内容
-函数格式：search(pattern, str)
-参数说明：
-pattern：正则表达式
-str：字符串
-返回值：match对象，可以通过match.group(0)返回匹配正则表达式的内容
-2）match():会从字符串的开始进行匹配
-函数格式：match(pattern, str) 
-返回值：match对象
-3）findall():会从指定的字符串中，匹配所有满足正则表达式的内容
-函数格式：findall(pattern,str)
-返回值：返回所有匹配的内容，以列表形式。
-4）split():根据字符串匹配正则表达式的情况来切分
-函数格式：split(pattern, str, maxsplit)
-maxsplit：最大切分次数，剩余部分将作为一个整体输出
-返回值：将切分后的字符串，以列表形式返回
-5）finditer():根据字符串匹配正则表达式，返回一个迭代对象，其中的每一个对象都是match对象
-函数格式：finditer(pattern,str)
-返回值：返回迭代对象，其中每个对象都是match类型
-
-6）sub():根据正则表达式，将指定的字符串内容替换
-函数格式：sub(pattern, repl, string, count)
-参数说明：
-repl：替换匹配字符串的字符串
-count：匹配的最大次数
-返回值：返回替换后的字符串
-7）compile():生成正则表达式对象
-函数格式：compile(pattern)
-返回值：返回一个正则表达式对象
-4、match对象
-1）match对象属性
-string：待匹配的字符串
-pos：匹配文本的开始位置
-endpos：匹配文件的结束位置
-re：正则表达式
-2）match方法
-group(0)：获得匹配后的字符串
-start()：返回文本开始的位置
-end()：返回文本结束的位置
-span()：返回文本开始，结束的位置，以元组的形式返回
-</code></pre>
+    <div class="wrapper">
+        <div class="content">
+             10
+        </div>
+    </div>
+    <p>这是绝对定位带来的副作用</p>
+</body>
+</html>
       
 
       
@@ -851,7 +507,7 @@ span()：返回文本开始，结束的位置，以元组的形式返回
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/08/spider/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS定位/demo01/">展开全文 >></a>
         </p>
       
 
@@ -881,144 +537,92 @@ span()：返回文本开始，结束的位置，以元组的形式返回
 
 
   
-    <article id="post-readme" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/my6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/06/readme/">MongoDB数据库部分</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/06/readme/" class="archive-article-date">
-  	<time datetime="2018-09-06T03:54:59.024Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-06</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###sql vs nosql<br>    SQL:</p>
-<pre><code>    关系型数据库
-    数据被储存在表中
-    适用于每条记录（数据）具有相同的属性
-    存储数据需要预定义
-    添加数据必须修改表结构
-    ACID事物支持
-
-NOSQL:  
-
-    非关系型数据库
-    可以储存JSON，键值对
-    灵活设置表结构
-    混合存储数据模型（不影响其他数据）
-    支持ACID事物
-    一致性可以改变
-    横向扩展
-
-NoSQL:分布式数据管理系统
-MySQL:传统数据库（关系型）
-MongoDB:一个分布式文件存储数据库，由C++语言编写的开源项目，一个NoSQL中，功能最丰富、最像关系数据库的产品。
-•    MongoDB适用场景
-•    网站动态数据，需要实时的插入，更新与查询。
-•    可以做高性能的持久化缓存层。
-•    存储大尺寸，低价值的数据。
-•    高伸缩性的集群场景。
-•    文档化结构的数据存储及查询。
-</code></pre><h3 id="Git-bash中的MongoDB操作命令"><a href="#Git-bash中的MongoDB操作命令" class="headerlink" title="Git bash中的MongoDB操作命令"></a>Git bash中的MongoDB操作命令</h3><pre><code>如果出现连接不上，首先使用 管理员运行net start mongodb
-Winpty  mongo :启动  (因为这个版本是liuns与window的结合体，因为我们现在使用的操作系统是windows，所以在liuns操作windonws 需要加这个命令)
-Ls : 查看文件
-Clear：清屏
-Use ： 选中与新建 ，如果存在就选中，否则就新建。
-Db 全局数据库对象 ：查看当前数据库 
-Show  dbs：查看库
-Db.stats(): 查看库当前的状态
-Db.getMongo() : 查看当前连接的服务器地址以及端口号
-操作：
-1、Use 库
-2、db.createCollection(“pyuser”)：创建一个表
-3、show collections :查看表
-4、post={&quot;name&quot;:&quot;pony ma&quot;,
-... &quot;age&quot;:45,
-... &quot;sex&quot;:&quot;M&quot;,
-... &quot;marry&quot;:ture,
-... &quot;date&quot;:new Date()}     ：添加数据   （json形式，敲完逗号回车。）
-5、db.pyuser.insert(post)  :将数据添加到表中 
-6、db.pyuser.find()       :查看数据
-7、db.pyuser.find().pretty()  ：查看格式化数据
-Db.py06db,dataSize :查看库的
-db.pyuser.distinct(&apos;name&apos;)  :去重
-</code></pre><h3 id="基本语句的使用"><a href="#基本语句的使用" class="headerlink" title="基本语句的使用"></a>基本语句的使用</h3><pre><code>lt  小于
-lte小于等于
-gt 大于
-gte 大于等于
-
-db.pyuser.find({age:45})
-{ &quot;_id&quot; : ObjectId(&quot;5b907e56e85e3345d9db8e35&quot;), &quot;name&quot; : &quot;pony ma&quot;, &quot;age&quot; : 4
-5, &quot;sex&quot; : &quot;M&quot;, &quot;marry&quot; : true, &quot;date&quot; : ISODate(&quot;2018-09-06T01:09:10.527Z&quot;)
-}                         #查询括号里面写条件
-
-db.pyuser.find({age:{$gt:40}}).pretty()  #年龄大于40  （格式化输出）
-
-db.pyuser.find({age:{$lt:40}}).pretty() #年龄小于40
-
-db.pyuser.find({age:{$lt:50,$gt:30}}).pretty()#逗号表示并且
-
-db.pyuser.find({name:/^p/}).pretty() 以开头来查寻
-
-db.pyuser.find({},{name:1}) { }查询条件 查询ID，和名字，1是True
-
-db.pyuser.find({},{name:1,age:1}) 查询名字和年龄
-
-db.pyuser.find().limit(5) 前五条
-
-db.pyuser.find().skip(3) 跳过3条
-
-db.pyuser.find({$or:[{age:45},{age:50}]}) or或的意思
-
-db.pyuser.count() 当前数据库的数据个数
-
-db.pyuser.totalIndexSize() 当前下标最大值
-
-db.pyuser.find({age:45}).count() 对满足条件的数据进行计数
-
-db.py01tab.drop()删除表
-
-db.grade_3.find().sort({name:1}) 排序升
-db.grade_3.find().sort({name:-1}) 降
-
-db.createCollection(&apos;py01tab&apos;,{capped:true,size:1024,max:3})限制表的数据数量和大小
-
-save 和insert 在字段中不含id功能一样，增加数据。如果存在id则，insert有id属性，在该表中有该id对应的数据，会报错，错误是duplicate，save有id属性时则是修改该id的属性。共同点，多个数据插入时从第二个数据开始不起作用，不能插入
-db.py02tab.update({name:&apos;Jack&apos;},{$set:{name:&quot;Jack Ma&quot;}})默认只修改第一条
-
-db.py02tab.update({name:&apos;IG.wxz&apos;},{$set:{name:&quot;IG.wjl&quot;}},false,true)#修改多条
-
-db.grade_3.find({age:{$in:[6,8]}})在【6,8】里边
-
-db.grade_3.find({age:{$nin:[6,8]}})不在【6,8】里边
-
-db.grade_3.find({age:{$ne:10}},{age:1}).sort({age:1}).pretty() 不等于
-
-db.students.createIndex({name:1}) 建立索引
-
-db.students.createIndex({age:-1},{unique:true}) 建立联合索引
-
-db.students.getIndexes() 查看索引
-
-db.students.dropIndexes() 删除索引，只会删除自定义的索引，系统自带的不会删除
-
-db.students.find({name:&apos;test10000&apos;}).explain(&apos;executionStats&apos;)查看程序运行时间
-</code></pre><h3 id="mongodb-术语"><a href="#mongodb-术语" class="headerlink" title="mongodb 术语"></a>mongodb 术语</h3><pre><code>1、文档（document）相当于传统数据库模型的行，但比行复杂（数据信息）
-2、集合（collection），在mongodb表示一组文档，类似表，集合是没有用模式
-没有模式就是可以混合插入数据类型结构
-3、数据库（database）
-update(查询条件，要更新的数据，是否插入数据，是否全部更新)
-是否插入数据的意思，如果不存在update的记录（数据），是否要插入集合中，默认是FALSE，不插入，True表示插入
-</code></pre>
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>clown</title>
+</head>
+<body>
+<table bgcolor="D3D3D3">
+<tr>
+<td>
+    <div>
+        <h2>审批意见</h2>
+        <textarea rows="7" cols="113"></textarea><br>
+    </div>
+    <br>
+    <div>
+        <h3>审批单</h3>
+        <table border="1" width="750">
+            <tr>
+                <th colspan="5">出差审批单</th>
+            </tr>
+            <tr>
+                <td rowspan="7" bgcolor="D3D3D3" align="center" valign="middle">出差信息</td>
+                <td bgcolor="D3D3D3" align="right" valign="middle">所属单位</td>
+                <td>深圳分公司</td>
+                <td bgcolor="D3D3D3" align="right" valign="middle">出差人</td>
+                <td>超级管理员</td>
+            </tr>
+            <tr>
+                <td bgcolor="D3D3D3" align="right" valign="middle">费用归属部门</td>
+                <td>深圳分公司</td>
+                <td bgcolor="D3D3D3" align="right" valign="middle">联系方式</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td bgcolor="D3D3D3" align="right" valign="middle">出差时间</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td bgcolor="D3D3D3" align="right" valign="middle">估算费用</td>
+                <td></td>
+                <td bgcolor="D3D3D3" align="right" valign="middle">交通工具</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td bgcolor="D3D3D3" align="right" valign="middle">到达单位</td>
+                <td colspan="2"></td>
+                <td>
+                    <input type="checkbox" value="是否存有未还借款">是否存有未还借款
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="D3D3D3" align="right" valign="middle">是否确认WBS号</td>
+                <td>
+                   <input type="radio" value="是" name="sex">是
+                   <input type="radio" value="否" name="sex">否
+                </td>
+                <td bgcolor="D3D3D3"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td bgcolor="D3D3D3" align="right" valign="middle">持卡人姓名</td>
+                <td>超级管理员服</td>
+                <td bgcolor="D3D3D3" align="right" valign="middle">招行卡号</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td bgcolor="D3D3D3" align="right" valign="middle">选择审批领导</td>
+                <td bgcolor="D3D3D3" align="right" valign="middle">部门审核领导</td>
+                <td></td>
+                <td bgcolor="D3D3D3" align="right" valign="middle">部门审核领导</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</td>
+</tr>
+</table>
+</body>
+</html>
       
 
       
@@ -1030,7 +634,7 @@ update(查询条件，要更新的数据，是否插入数据，是否全部更�
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/06/readme/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/my6/">展开全文 >></a>
         </p>
       
 
@@ -1060,241 +664,153 @@ update(查询条件，要更新的数据，是否插入数据，是否全部更�
 
 
   
-    <article id="post-clown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/my5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/19/clown/">面向对象部分总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/19/clown/" class="archive-article-date">
-  	<time datetime="2018-08-19T07:58:54.358Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-19</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="面向对象的概念"><a href="#面向对象的概念" class="headerlink" title="面向对象的概念"></a>面向对象的概念</h3><pre><code>1、类：指具有相同属性或行为的一组事物。
-对象：是指类的具体化。
-类与对象的关系
-类是一组对象的抽象表示，而对象是类的具体化表现。
-2、类的语法结构
-class 类名：
-    变量声明语句
-    执行语句
-    def func(self):
-        执行语句
-其中，类名首字母要求大写（约定俗成），遵守Python命名规则，不能以数字开头，通常我们都是字母开头。
-注意：
-1）如果类中声明了函数，其函数的参数，必须有一个默认的参数为self，self代表了该类的实例化对象。
-2）如果在类中声明了变量，且该变量位于函数体之外，这个变量我们成为类变量，类变量是公共的。类变量的调用可以直接使用类名进行调用，比如：
-class Dog:  # 定义一个类，类名Animal
-    color = &apos;灰色&apos;
-    leg_num = 4
-    weight = 20
-    width = 150
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>clown</title>
+</head>
+<body>
+      <table border="1" width="1000">
+          <tr bgcolor="A4AFF">
+              <th colspan="9" align="left">【表单列表】</th>
+          </tr>
+          <tr bgcolor="EOEOEO">
+              <td></td>
+              <td align="center" valign="middle">表单代码</td>
+              <td align="center" valign="middle">表单名称</td>
+              <td align="center" valign="middle">中文名称</td>
+              <td align="center" valign="middle">表单类型</td>
+              <td align="center" valign="middle">状态</td>
+              <td align="center" valign="middle">更新日期</td>
+              <td align="center" valign="middle">数据权限</td>
+              <td align="center" valign="middle">代码生成</td>
+          </tr>
+          <tr bgcolor="EOEOEO">
+              <td align="center" valign="middle">
+                  <input type="checkbox"><br>
+              </td>
+              <td align="center" valign="middle">00019</td>
+              <td align="center" valign="middle">contravt</td>
+              <td align="center" valign="middle">合同表</td>
+              <td align="center" valign="middle">flight</td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">设置</a>
+              </td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">生成</a>
+              </td>
+          </tr>
+          <tr>
+              <td align="center" valign="middle">
+                  <input type="checkbox"><br>
+              </td>
+              <td align="center" valign="middle">00019</td>
+              <td align="center" valign="middle">contravt</td>
+              <td align="center" valign="middle">合同表</td>
+              <td align="center" valign="middle">flight</td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">设置</a>
+              </td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">生成</a>
+              </td>
+          </tr>
+          <tr bgcolor="EOEOEO">
+              <td align="center" valign="middle">
+                  <input type="checkbox"><br>
+              </td>
+              <td align="center" valign="middle">00019</td>
+              <td align="center" valign="middle">contravt</td>
+              <td align="center" valign="middle">合同表</td>
+              <td align="center" valign="middle">flight</td>
+              <td align="center" valign="middle">已发布</td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">设置</a>
+              </td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">生成</a>
+              </td>
+          </tr>
+          <tr>
+              <td align="center" valign="middle">
+                  <input type="checkbox"><br>
+              </td>
+              <td align="center" valign="middle">00019</td>
+              <td align="center" valign="middle">contravt</td>
+              <td align="center" valign="middle">合同表</td>
+              <td align="center" valign="middle">flight</td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">设置</a>
+              </td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">生成</a>
+              </td>
+          </tr>
+          <tr bgcolor="EOEOEO">
+              <td align="center" valign="middle">
+                  <input type="checkbox"><br>
+              </td>
+              <td align="center" valign="middle">00019</td>
+              <td align="center" valign="middle">contravt</td>
+              <td align="center" valign="middle">合同表</td>
+              <td align="center" valign="middle">flight</td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">设置</a>
+              </td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">生成</a>
+              </td>
+          </tr>
+          <tr>
+              <td align="center" valign="middle">
+                  <input type="checkbox"><br>
+              </td>
+              <td align="center" valign="middle">00019</td>
+              <td align="center" valign="middle">contravt</td>
+              <td align="center" valign="middle">合同表</td>
+              <td align="center" valign="middle">flight</td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">设置</a>
+              </td>
+              <td align="center" valign="middle">
+                  <a target="_blank " href="http://www.baidu.com">生成</a>
+              </td>
+          </tr>
+          <tr>
+              <td colspan="9">
+                  <input type="button" value="增加">
+                  <input type="button" value="修改">
+                  <input type="button" value="删除">
+                  <input type="button" value="发布">
+                  <input type="button" value="模板">
+                  <input type="button" value="布局">
+                  <input type="button" value="逆向向导">
+                  共 9 行 1 页 转第<input type="text">页
+                  <input type="button" value="按钮">
+              </td>
+          </tr>
+      </table>
 
-    def wangwang(self):
-        print(&apos;wangwangwangwang&apos;)
-
-    def eat(self):
-        print(&apos;一顿饭20块钱&apos;)
-
-    def run(self):
-        print(&apos;非常快&apos;)
-
-
-husky = Dog()  # 将类实例化成对象，对象为dog
-husky.run()
-Dog.color
-
-类变量，作为公共的变量，不管类实例化多少个对象，都只实例一份类变量。而且类变量会在对象实例化之前载入内容，一旦改变了类变量中的内容，所有对象中调用这个类变量的值都会随之改变。
-
-3)在类实例化对象时，会将其定义的属性和行为，生成一份副本给具体的实例化对象。对象与对象之间，他们的属性和行为是不相互干扰的。
-
-class Dog:  # 定义一个类，类名Animal
-    color = &apos;灰色&apos;
-
-    def __init__(self, num):
-        self.num = num
-
-
-    def getNum(self):
-        print(self.num)
-
-
-husky = Dog(5)  # 将类实例化成对象，对象为dog
-samoye = Dog(3)
-husky.getNum()
-samoye.getNum()
-
-我们在实例化Dog类时，生成两个对象husky、samoye，这两对象在实例化的过程中会生成两套成员变量和函数，他们的相互不干扰的。我们可以观察上面的代码，发现num变量属于成员变量，即husky和samoye各有持有相同的成员变量，但是修改num的值，husky为5，而samoye为3。结果表明他们的成员变量只能归各自的对象所拥有，并进行改变。对象与对象之间不会相互影响。
-4）使用构造函数，来初始化成员变量
-class Person:
-
-    def __init__(self):  # 构造函数，在实例化对象时被默认调用，用来给对象的成员变量赋值
-        self.name = &apos;tom&apos;
-        self.age = 21
-        self.tel = &apos;1350000000&apos;
-        self.address = &apos;北京&apos;
-        self.sex = &apos;男&apos;
-
-    def setName(self, name):
-        self.name = name
-
-    def getName(self):
-        return self.name
-p1 = Person()
-p1.name
-使用__init__()函数，用来初始化成员变量。对象在实例化时，会默认的调用__init__()函数，同时将成员变量进行初始化。同时，在构造函数中，使用self.变量名进行初始化的成员变量，都是公有的。即在类外可以通过实例化的对象调用。
-
-类变量与成员变量的区别
-1、类变量是声明在类中，位于函数之外声明的变量。这些变量时公共的，即在类外使用类名.类变量的方式进行调用。我们一旦修改类变量的值，所有调用类变量的内容均发生改变。
-2、成员变量，是声明在类中的构造函数中，通过self.变量来进行声明赋值的。这些成员变量是公有的，即在类外可以通过对象名.成员变量的方式进行调用。所有的对象都有自己的成员变量，也就意味着每个对象的成员变量都是独立的，不会相互干扰。
-3、类变量是该类所有实例化对象所公有的，它会早于对象实例化之前被载入内容中。
-成员变量都是跟随对象实例化的过程中，被声明出来的。它是伴随着对象的产生而产生，消亡而消亡的。
-4、成员变量和方法，默认情况下都是公有的。也就是说在类外可以直接使用对象进行调用。我们可以通过为成员变量设置双下划线，将其标识为私有的成员变量，例如：self.__name = &apos;tom&apos;。私有的成员变量只能在类内进行直接使用，类外必须通过相关方法进行间接调用。
-</code></pre><h3 id="Python中对象创建的流程"><a href="#Python中对象创建的流程" class="headerlink" title="Python中对象创建的流程"></a>Python中对象创建的流程</h3><pre><code>1、Python创建一个对象，首先要调用__new__方法，用来创建并返回一个对象。通常，Python中不需要我们直接显示调用，它会默认调用object.__new__()方法
-2、然后，调用__init__方法，对该对象进行初始化。
-
-析构函数：
-1、析构函数与构造函数一样，都是Python中特殊的函数。
-2、析构函数如果用户没有定义的话，Python会提供一个默认的析构函数
-3、析构函数__del__(self)，作用用来释放掉对象所占用的内存空间，在Python回收对象空间之前自动被执行。
-4、通常在析构函数中，主要是将对象中占用大量资源的变量进行手动的释放，便于后续Python解释器去回收这些内存空间。
-</code></pre><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><pre><code>1）Python中能够实现单继承与多继承。
-单继承：就是子类只有一个直接父类。
-多继承：子类有两个及两个以上的直接父类。
-2）子类继承父类，子类可以继承父类的相关特征。子类继承了父类的方法，如果在多继承情况下，父类出现同名函数，那么子类继承该函数时，根据继承的顺序进行调用。
-3）super()函数，它指代了当前类的父类。我们可以在子类中调用super函数，用来初始化父类。但是使用super()调用父类的构造函数时，只能对多继承中的第一个父类生效。
-4)抽象与继承的区别与关系
-抽象：指对同一类别事物的相似部分进行抽取。抽象我们认为是对具体化对象的相关行为和属性的泛化过程。
-继承：Python中我们通常认为类就是一个抽象的内容。类本身并不能直接执行，需要通过继承，进行对象的实例化，进而获得具体的对象本身，才能执行相关的功能。
-也就是说继承其实是抽象的具体化过程。
-
-5）多继承中，当一个子类继承多个父类时，我们需要如下声明：
-class SubClass(A,B):
-其中，A、B是SubClass的父类。那么，如果我们分为两种个情况：
-第一，子类中没有显式的定义__init__()，那么在实例化子类时调用其父类的构造函数。如果有多个类，都定义了__init()函数，那么它会调用第一个具有__init__()函数的父类。
-第二，子类中显式的定义理论__init_(),那么实例化子类时不再调用父类的构造函数。此时，如果我们要调用父类的构造函数，有两种方法。
-1）在子类的构造函数中，显式的调用对应父类的构造函数，例如：
-A.__init__()
-2)采用super()函数，super().__init__()或者super(子类，self).__init__()
-但是如果遇到其多个父类，他们的构造函数同名时，我们根据他们在MRO中的顺序，分别调用他们，例如：
-class SubClass(B, A):
-    def __init__(self):
-        super().__init__()   # 此处调用了父类B
-        super(B, self).__init__() #此处调用了父类C
-        print(&apos;我是子类&apos;)
-注意，在这里不要看到super就认为是父类，但是在多继承时，实际上super指的是MRO中的下一个类。
-
-### 封装
-在Python中，我们针对其内部细节进行封装。通常我们将属性定义为私有类型，意味着在类外无法直接访问。可以通过相关的方法对其进行调用。
-私有的成员变量和方法，都需要在类内进行定义。所有在类外实现的定义都是公有的，代码如下：
-class A:
-    __N = &apos;hello&apos;      # 此处是一个私有的类变量
-
-    def __init__(self):
-        self.__name = &apos;tom&apos;
-
-    def __method(self):
-        print(&apos;我是私有函数&apos;)
-
-    def show(self):
-        self.__method()
-        print(self.__name)
-
-a = A()
-A.__age = 10       # 此处的__age是一个公有的类变量
-print(A.__age)
-
-8）property方法
-在Python中，我们可以使用property来修饰指定的函数，被修饰后的函数，在类外可以通过对象调用（类似调用变量）
-
-class Person:
-    def __init__(self, name, height, weight):
-        self.__name = name
-        self.__height = height
-        self.__weight = weight
-
-@property
-def bmi(self):
-    return self.__weight / self.__height**2
-
-p = Person()
-print(p.bmi)  # 此处调用的bmi是Person类中的函数。
-原理：当类被载入时，首先会载入类的名称和被property修饰的名字到类的命名空间中；然后在类对象进行实例化时，Python解析器会查找是否存在property修饰的名字，如果存在，就不在实例化对象是为其分配内存空间。
-9）classmethod方法
-在Python中，我们通常使用classmethod用来修饰一个方法，这个方法就被称为类方法，类方法通常用来操作类变量。类方法和类变量一样，都需要通过类名来调用。
-class Goods:
-    __discount = 0.8
-
-    def __init__(self, name, price):
-        self.__name = name
-        self.__price = price
-
-    @classmethod
-    def change_discount(cls, new_discount): #此处传递的默认参数不是对象参数self，而是类参数cls
-        cls.__discount = new_discount
-
-    @classmethod
-    def get_discount(cls):
-        return cls.__discount
-
-goods = Goods(&apos;apple&apos;, 6)
-print(Goods.get_discount())
-Goods.change_discount(0.9)
-print(Goods.get_discount())
-10)staticmethod方法
-在Python中，我们使用staticmethod来修饰函数，该函数被称为静态方法，首先，静态方法不需要使用对象参数或类参数作为默认参数。其次，静态方法通常只能调用类变量，而不可以使用成员变量。最后，在类外进行调用时，可以使用类名来调用。
-
-实例方法、类方法与静态方法的区别
-实例方法：第一个参数必须是实例对象（self）,通过它来传递实例的属性和方法，只能由实例对象来调用。
-类方法：使用装饰器@classmethod，第一个参数必须是类对象（cls）,通过它来传递类的属性和方法。可以通过实例对象或类对象来调用，通常使用类对象调用。
-静态方法：使用装饰器@staticmethod,没有默认参数（self和cls），但是方法体中不能使用类或实例对象的任何属性和方法。可以通过实例对象或类对象进行调用。
-
-1、类方法和静态方法都可以通过对象实例或者类名来调用。
-2、类方法主要针对的是类，可以通过继承和重新定义
-3、静态方法不能被继承，无法被重写，可以被认为是全局函数。静态方法在使用时完全不会用到对象实例本身。静态方法逻辑上属于类，但是不会涉及到类中的属性和方法的操作。
-
-11）方法重写
-概念：当子类继承父类时，子类会继承父类所有的公有方法。如果在子类中重写定义一个与父类中同名的方法，我们成为方法的重写（覆盖）。方法重写只需要名字相同即可，与方法的参数个数、顺序无关
-12）多态与鸭子类型
-多态：多态一般都是通过继承来实现的，也就是根据不同的对象形态来进行区分。我们在Python中，使用多态时，意味着在编码时变量并不知道所引用的对象具体内容，只有在程序运行时相关对象被实例化后，才能够确定。
-鸭子类型：在Python中，因为其自身特性并没有对多态进行明确的规定，可以创建一个功能相似，但与原对象无关的、全新对象，来实现程序的松耦合。
-我们通常在开发中，采用接口的方式来实现。
-我们认为在一组功能相似，但没有继承关系的对象中，采用接口方式。
-class Payment:
-    def payment(self, money):
-        pass
-
-class Weixinpay(Payment):
-    def payment(self, money):
-        print(&apos;微信支付了{0}元&apos;.format(money))
-
-class Alipay(Payment):
-    def payment(self, money):
-        print(&apos;支付宝支付了{0}元&apos;.format(money))
-
-class My(Payment):
-    def payment(self, money):
-        print(&apos;支付了{0}元&apos;.format(money))
-
-此例，我们可以看到：
-第一，通过继承，实现了多态，即三种支付方式不同的形态
-第二，我们观察到，微信支付、支付宝、个人支付，三者之间没有任何继承关系，但是都具有相同的支付功能，我们可以认为这种形式就是鸭子类型
-第三，因为三种支付方式，分别继承了接口类Payment，都重新了相关的支付方法payment()
-
-运算符重载
-1、__getitem__：索引迭代
-在Python，可迭代化对象在使用循环迭代时，都会默认的调用__iter__,如果没有next()方法，会调用__getitem__方法。
-</code></pre>
+</body>
+</html>
       
 
       
@@ -1306,7 +822,7 @@ class My(Payment):
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/19/clown/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/my5/">展开全文 >></a>
         </p>
       
 
@@ -1336,102 +852,161 @@ class My(Payment):
 
 
   
-    <article id="post-hello-world6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/my4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/hello-world6/">异常部分总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/05/hello-world6/" class="archive-article-date">
-  	<time datetime="2018-08-05T10:55:57.884Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-05</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><pre><code>1）概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。
-2）异常的阶段
-第一、产生异常（比如：代码错误、业务逻辑错误）
-第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）
-3）常见的异常类
-Exception：Python中所有异常的父类。
-NameError：访问了一个未声明的变量。
-keyError:访问一个不存在的字典key
-IndexError：索引超出序列的范围
-ValueError：传给函数的参数类型不正确。
-IOError：文件操作时输入输出错误
-4）异常处理流程
-基本语法：
-try：
-可能会产生异常的代码
-except  对应的异常 as 别名：
-异常处理语句
-
-说明：在try中，放置可能会产生错误的相关代码；except后标明对应的异常类型，一旦try中产生相关异常，except后声明的异常类能够对应捕获，执行相关异常处理语句。如果try外面后续还要其他语句，会继续执行。在产生异常是，出现异常的语句后，如果还有其他语句则不会执行。
-try:
-可能会产生异常的代码
-except 对应的异常 as 别名：
-异常处理语句
-else:
-程序代码
-说明：在此结构中，如果try中的代码出现异常，则使用except后面声明的异常类进行捕获处理，如果没有异常出现，则执行else内部的代码。
-
-try:
-可能会产生异常的代码
-except 对应的异常 as 别名：
-    异常处理语句
-except 对应的异常 as 别名：
-    异常处理语句
-说明：当try中有多行代码可能会出现不同的异常，那么使用多个except与之对应，根据产生异常的顺序来依次捕获处理。
-
-try：
-可能会出产生异常的代码
-except 对应的异常 as 别名：
-异常处理语句
-finally：
-代码
-说明：当异常捕获处理流程中，使用了finally来控制，表明不管是否出现异常进行捕获，最后代码都将允许finally内部的语句。
-注意：finally中的语句，不管前面的代码出现何种操作，比如：break、return、exit等都会执行完finally内部的代码后，才会实现。
-
-5）异常的分类
-在Python中所有的异常都继承自BaseExcept,如下：
-        |------&gt;KeyboardInterrupt（键盘中断异常） 
-        |
-BaseExcept|------&gt;SystemExit(系统退出异常)
-        |
-        |------&gt;Except（其他所有异常的父类）    
-其中：keyboardInterrupt在使用强制中断程序时产生。
-SystemExit在使用sys.exit()函数时产生。
-
-6）主动抛出异常
-raise 异常类对象实例或自定义异常类实例
-raise IOError(&apos;IO 错误&apos;)
-
-7）finally的替换写法
-with open(&apos;myfile.txt&apos;,&apos;r&apos;) as f:
-    for line in f:
-        print(line)
-其中打开的文件对象f，在执行完内容的读取后，被强制性关闭。及时在读取过程中，出现错误，也会被关闭。
-8）使用异常机制的优势
-第一，把错误控制与业务逻辑进行区分，增强程序的可读性和健壮性。
-第二，代码结构更加清晰，复杂的业务流程的实现更加便利
-第三，程序的容错性更强，不会因为一个小bug导致整体崩溃。
-
-9）assert 断言
-语法格式：assert 表达式，断言内容。代码如下
-try:
-    assert 1==2,&apos;1 不等于 2&apos;
-except AssertionError as ae:
-    print(&apos;{}{}&apos;.format(ae.__class__.__name__, ae))
-如果断言表达式为真，则正常执行，如果不为真，则返回断言内容，作为异常捕获的输出
-</code></pre>
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+<div align="center">
+    <table border="1" width="1000" height="100">
+        <tr>
+            <th colspan="9" align="left">设备台账</th>
+        </tr>
+        <tr bgcolor="D2E9FF">
+            <td align="center" valign="center" width="80">编码</td>
+            <td align="center" valign="center">名称</td>
+            <td align="center" valign="center">分类</td>
+            <td align="center" valign="center">负责人</td>
+            <td align="center" valign="center">专业</td>
+            <td align="center" valign="center">规格</td>
+            <td align="center" valign="center">生产厂家</td>
+            <td align="center" valign="center">型号</td>
+            <td align="center" valign="center">邮件清单</td>
+        </tr>
+        <tr bgcolor="ACD6FF">
+            <td align="center" valign="center">124</td>
+            <td align="center" valign="center">#2燃机</td>
+            <td align="center" valign="center">燃机</td>
+            <td align="center" valign="center">王五</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr bgcolor="ECF5FF">
+            <td height="30"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <br>
+    <table border="1" width="900">
+        <tr height="30">
+            <th colspan="6" align="left" bgcolor="D2E9FF">
+                <ul type="circle">
+                    <li>设备编码</li>
+                </ul>
+            </th>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="80" bgcolor="ECF5FF">编码</td>
+            <td align="center" valign="center">12MB</td>
+            <td align="center" valign="center" bgcolor="ECF5FF">分类</td>
+            <td align="center" valign="center">燃机</td>
+            <td align="center" valign="center" bgcolor="ECF5FF">设备编号</td>
+            <td align="center" valign="center">11830</td>
+        </tr>
+    </table>
+    <br>
+    <table border="1" width="900">
+        <tr height="30">
+            <th colspan="6" align="left" bgcolor="D2E9FF">
+                <ul type="circle">
+                    <li>具体内容</li>
+                </ul>
+            </th>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">名称</td>
+            <td align="center" valign="center" colspan="2"></td>
+            <td align="center" valign="center" width="80" bgcolor="ECF5FF">资产编号</td>
+            <td align="center" valign="center" colspan="2"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">型号编号</td>
+            <td align="center" valign="center" colspan="2"></td>
+            <td align="center" valign="center" width="80" bgcolor="ECF5FF">出厂编号</td>
+            <td align="center" valign="center" colspan="2"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">生产厂家</td>
+            <td align="center" valign="center" colspan="2"></td>
+            <td align="center" valign="center" width="80" bgcolor="ECF5FF">发货编号</td>
+            <td align="center" valign="center" colspan="2"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">供应商</td>
+            <td align="center" valign="center" colspan="2"></td>
+            <td align="center" valign="center" width="80" bgcolor="ECF5FF">标准</td>
+            <td align="center" valign="center" colspan="2"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">质量等级</td>
+            <td align="center" valign="center" colspan="2"></td>
+            <td align="center" valign="center" width="80" bgcolor="ECF5FF">安全等级</td>
+            <td align="center" valign="center" colspan="2"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">库存编号</td>
+            <td align="center" valign="center"></td>
+            <td align="center" valign="center" width="160" bgcolor="ECF5FF">库存位置</td>
+            <td align="center" valign="center" width="80"></td>
+            <td align="center" valign="center" width="160" bgcolor="ECF5FF">保修期</td>
+            <td align="center" valign="center"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">部件清单编号</td>
+            <td align="center" valign="center"></td>
+            <td align="center" valign="center" width="160" bgcolor="ECF5FF">安装位置位置</td>
+            <td align="center" valign="center" width="80"></td>
+            <td align="center" valign="center" width="160" bgcolor="ECF5FF">其他</td>
+            <td align="center" valign="center"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">型号编号</td>
+            <td align="center" valign="center" colspan="2"></td>
+            <td align="center" valign="center" width="80" bgcolor="ECF5FF">名称</td>
+            <td align="center" valign="center" colspan="2"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">注释</td>
+            <td align="center" valign="center"></td>
+            <td align="center" valign="center" width="160" bgcolor="ECF5FF">开口点</td>
+            <td align="center" valign="center" width="80"></td>
+            <td align="center" valign="center" width="160" bgcolor="ECF5FF">型号</td>
+            <td align="center" valign="center"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" width="120" bgcolor="ECF5FF">专业</td>
+            <td align="center" valign="center"></td>
+            <td align="center" valign="center" width="160" bgcolor="ECF5FF">填写人</td>
+            <td align="center" valign="center" width="80"></td>
+            <td align="center" valign="center" width="160" bgcolor="ECF5FF">规格</td>
+            <td align="center" valign="center"></td>
+        </tr>
+        <tr>
+            <td align="center" valign="center" bgcolor="ECF5FF">扩展数据项目</td>
+            <td align="center" valign="center" colspan="5" height="80"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
       
 
       
@@ -1443,7 +1018,7 @@ except AssertionError as ae:
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/05/hello-world6/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/my4/">展开全文 >></a>
         </p>
       
 
@@ -1473,30 +1048,43 @@ except AssertionError as ae:
 
 
   
-    <article id="post-hello-world5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/my3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/hello-world5/">模块部分总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/05/hello-world5/" class="archive-article-date">
-  	<time datetime="2018-08-05T10:50:55.767Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-05</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="包与模块"><a href="#包与模块" class="headerlink" title="包与模块"></a>包与模块</h3><p>  1）模块<br>  基本概念：在Python中进行Python定义和声明的文件，以.py结尾。使用import或from   import导入的文件，我们成为模块。<br>  2）模块的优势<br>  首先，使用模块，可以将常用的功能和变量，统一分类存储在不同的文件中，在使用时进行导入。提供了代码的可维护性。<br>  其次，使用模块因为将常用功能进行了统一调用，提供了代码的复用性<br>  最后，解决了在同一个文件中，方法和变量重名的问题。<br>  3）导入时的问题<br>  如果导入了与文件同名的函数（方法名相同，函数个数相同）时，需要使用模块名调用函数，与文件中的函数进行区分，例如：<br>  import my<br>  my.show()<br>  def show():<br>    pass<br>  show()<br>  4)模块可以在Python文件中，实现多次import导入，但是只有第一次导入时才真正将模块中的内容运行、方法载入，其他再进行导入时，Python解析器会先检测是否已经载入该模块，如果载入就不在执行相关操作。<br>  总结：<br>  模块载入一共分三个步骤：<br>  1、为模块的导入，创建命名空间（划分新的内存地址），被载入的文件按照全局作用域来使用。<br>  2、模块载入后，将在上一步操作中创建的命名空间中，执行模块中的代码<br>  3、创建一个模块的名字，来引用模块所在的命名空间。my.show()</p>
-<p>  5)当使用from  import引入多个模块时，同时多个模块存在同名函数，那么在程序中调用该函数时，以程序导入的最后一个模块的函数为准。</p>
-<p>  包：<br>  1）概念：包在Python中定义为可以包含多个模块文件的目录，其中必须要包含一个名为“<strong>init</strong>.py”的文件，用来初始化包。<br>  2）包在调用的使用，首先会初始化<strong>init</strong>.py文件，主要功能为包中模块运行时提供所需要的相关数据，比如：数据库用户名称、密码、地址等内容。</p>
-
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>HTML页面</title>
+</head>
+<body>
+    <form name="regist" action="my.html" method="post">
+        用户名：<input type="text" name="tom" value="小花"> <br>
+        <br>
+        密&nbsp;&nbsp;&nbsp;码：<input type="password" name="password"> <br>
+        <br>
+        <input type="radio" value="男" name="sex">男
+        <input type="radio" value="女" name="sex">女<br>
+        <br>
+        喜好:<input type="checkbox" value="" name="睡觉">睡觉
+        <input type="checkbox" value="" name="看电视">看电视
+        <input type="checkbox" value="" name="打游戏">打游戏<br>
+        <br>
+        地址:<select name="城市">
+            <option value="zhengzhou">郑州</option>
+            <option value="shanghai">上海</option>
+        </select><br>
+        留言:<br>
+        <textarea rows="5" cols="49"></textarea><br>
+        <br>
+        <input type="submit" value="提交">&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="重写">
+    </form>
+</body>
+</html>
       
 
       
@@ -1508,7 +1096,7 @@ except AssertionError as ae:
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/05/hello-world5/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/my3/">展开全文 >></a>
         </p>
       
 
@@ -1538,110 +1126,84 @@ except AssertionError as ae:
 
 
   
-    <article id="post-hello-world4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/my2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/hello-world4/">文件部分总结</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/05/hello-world4/" class="archive-article-date">
-  	<time datetime="2018-08-05T10:44:19.453Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-05</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Excel，xml-，二进制文件"><a href="#Excel，xml-，二进制文件" class="headerlink" title="Excel，xml ，二进制文件"></a>Excel，xml ，二进制文件</h2><h3 id="二进制文件的输入输出"><a href="#二进制文件的输入输出" class="headerlink" title="二进制文件的输入输出"></a>二进制文件的输入输出</h3><pre><code>二进制，Excel，xml，文件是是我们常用的文件，在这里简单介绍下下二进制文件写入，读取
-1）、二进制文件不同与文本文件，他能被机器直接读取，因此在储存的时候需要一定的手段去储存这里介绍两种即，truct和pickle
-使用struct模块，进行数据的输入输出，使用如下
-第一，对要写入到文件中的各种类型数据，进行统一打包
-struct.pack(&apos;if&apos;,10,12.4),其中，i:代表了整数，f：代表了浮点数
-？：代表布尔型对文件进行格式化的规定
-第二，使用write()写入，写入后以二进制的方式进行文件存储。
-第三，读取时，首先采用struct.unpack()来解包里面包含的相关数据，返回一个序列，即写入时的顺序，与读取时的顺序应该一致。
-注意：需要将所有写入的数据，一次性都封装到一个bytes中，因为在Python中没有byte的概念，所以需要第三方的模块进行封装。
-使用pickel模块，进行数据的输入输出
-使用步骤：
-第一，对要写入文件中的数据，进行逐一的写入。例如：
-f = open(&apos;myfile.dat&apos;,&apos;wb&apos;)
-pickle.dump(10, f)
-第二，读取数据时，同理，需要逐一的读取。例如：
-pickle.load(f)
-注意，在使用时，我们能够观察到该模块的dump和load函数，与前面所学的json模块的函数一致，在Python中json与pickle都能够实现序列化和反序列化的两个模块。
-在实际的使用中，推荐使用pickle 模块。
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>练习</title>
+</head>
+<body>
+     <table bgcolor="D3D3D3">
+     <tr>
+     <td>
+     <form name="tom" action="#" method="post">
+         <div>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申请人：<input type="text" value="小花" disabled>&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申请部门：<input type="text" value="IT部" disabled>
+         </div>
+         <br>
+         <div>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：<input type="text" value="126324" disabled>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*申请/借用：
+             <select>
+             <option value="固定资产">&nbsp;&nbsp;&nbsp;&nbsp;固定资产&nbsp;&nbsp;&nbsp;&nbsp;</option>
+             <option value="活动资产">  活动资产  </option>
+             </select><br>
+         </div>
+         <br>
+         <div>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;物料编号：<input type="text" value="235434">
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*资产名称：
+         <select>
+             <option value="DELL123系列002">DELL123系列002</option>
+             <option value="DELL123系列002">DELL123系列003</option>
+         </select><br>
+         </div>
+         <br>
+         <div>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数量：<input type="text" value="346">
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;特批：&nbsp;&nbsp;&nbsp;<input type="radio" value="是">是
+             <input type="radio" value="否">否<br>
+         </div>
+         <br>
+         <div>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;借用性质：
+             <select>
+                 <option>供货通知单</option>
+                 <option>供货通知单</option>
+             </select>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实收保证金：<input type="text" value="100000">
+         </div>
+         <br>
+         <div>
+             预计归还日期：<input type="text" value="2018.10.1">
+             期望归还日期：<input type="text" value="2018.9.1">
+         </div>
+         <br>
+         <div>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*客户单位：<textarea rows="1" cols="70"></textarea><br>
+         </div>
+         <br>
+         <div style="background-color:">
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申请原因：
+             <textarea rows="5" cols="70"></textarea><br>
+         </div>
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="保存" style="background:red;color:white">
+         &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="提交" style="background:red;color:white">
+     </form>
+     </td>
+     </tr>
+     </table>
 
-2）txt文件定位
-函数格式：seek(n)
-返回值：返回指定的位置
-说明：通过指定元素的位置，将文件指针移动到该位置。
-seek()函数有三个固定值，分别为：0,1,2
-0：文件的开头
-1：文件当前的位置
-2：文件的结尾位置
-应注意文件在定位时中文文件是一个中文代表两个字节
-</code></pre><h3 id="Excel文件的操作"><a href="#Excel文件的操作" class="headerlink" title="Excel文件的操作"></a>Excel文件的操作</h3><pre><code>1、需要三个主要的模块
-xlrd:用来读取Excel文件中的内容
-xlwt：用来生成Excel文件
-xlutils：用来实现Excel文件的复制
-2、打开，修改，关闭文件
-打开文件xlrd模块
-open_workbook()
-函数格式：open_workbook(文件名)
-
-函数格式：sheet_by_name(sheet页面名)/sheet_by_index(sheet页索引位，默认从0开始)
-返回值：sheet页对象
-
-函数格式：sheet.cell(rownum,colnum)
-返回值：返回指定行列的单元格对象，如果要获取其中的内容，调用value属性。
-
-文件的写入用到xlwt模块
-函数名称：Workbook()
-
-函数名称：add_sheet(sheet名字)
-返回值：返回一个新创建的sheet页对象
-
-函数名称：write(row, col, value)
-返回值：无
-说明：对指定的行列单元格内，写入value内容。
-
-复制文件xlutils
-函数格式：copy(Excel对象)
-返回值：返回一个指定对象的副本
-说明：在Python中对Excel的修改，都是生成一个对应的副本，修改后保存。
-
-函数格式：get_sheet(索引位)
-返回值：返回一个指定对象副本中的sheet页
-说明：我们实际修改的数据，都是位于sheet页中。因此要获取到指定的sheet页。
-</code></pre><h3 id="XML文件的解析"><a href="#XML文件的解析" class="headerlink" title="XML文件的解析"></a>XML文件的解析</h3><pre><code>1、XML解析的两种方式：DOM与SAX
-DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时 ，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数，来读取或修改文档中的内容。
-SAX：是一种时间驱动的API，利用SAX解析XML 。主要使用解析器负责读取XML文档，并向事件处理器发生事件，比如：元素开始、元素结束。常用在1）大型文档的处理，2）只需要文件的部分内容，或者从文件中得到特定的部分3）建立自己的对象模型。
-dom与sax对比：
-1、DOM解析需要读取整个文档到内存中，并且将所有元素保存到树形结构。那也就意味着，可以根据树形结构导航到任意节点，获取其相关内容。
-2、SAX解析文档，将文档边读入，边解析的方式，不需要一次性读入全部文档内容，只需要读入一部分即可。同时，因为其边读入边解析的工作方式，能够适应大文件的解析，提高解析效率。
-
-SAX解析文件步骤：
-1、创建解析器
-parser = sax.make_parser()
-2、读取xml文档
-xml.sax.parse(xmlfile)
-3、设置ContentHandler对象，重写startDocument、endDocument、startElement、endElement方法
-
-startDocument():文档载入时调用，文档开始
-endDocument()：当解析器达到文档结尾时调用
-
-startElement(name,attrs):当遇到XML标签时调用，name是标签的名字，attrs标签的属性字典
-endElement(name):当遇到XML标签结束时调用，name是标签名
-4、使用SAX解析文件，需要为解析器配置ContentHandler，定义了如何解析标签，以及处理标签间文本内容的业务逻辑。
-carhandler = CarHandler()
-parser.setContentHandler(carhandler)
-</code></pre>
+</body>
+</html>
       
 
       
@@ -1653,7 +1215,7 @@ parser.setContentHandler(carhandler)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/05/hello-world4/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/my2/">展开全文 >></a>
         </p>
       
 
@@ -1683,99 +1245,88 @@ parser.setContentHandler(carhandler)
 
 
   
-    <article id="post-hello-world3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/my1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/hello-world3/">文件函数格式部分</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/29/hello-world3/" class="archive-article-date">
-  	<time datetime="2018-07-29T07:57:04.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="文件输入输出（IO）"><a href="#文件输入输出（IO）" class="headerlink" title="文件输入输出（IO）"></a>文件输入输出（IO）</h3><pre><code>1）格式化函数
-repr()
-函数格式：repr(Object)
-返回值：返回一个字符串类型的数据
-说明：该函数，将参数中的对象进行处理，变为字符串类型，其中如果参数为字符串仍然会在外部加上“”，其内部的字符串的边界符仍然存在。
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>我的第一个HTML页面</title>
+</head>
+<body>
+    <!--
+    <ul>
+        <li>水果</li>
+            <ul>
+                <li>荔枝</li>
+                    <ul>
+                        <li>青荔枝</li>
+                        <li>红荔枝</li>
+                    </ul>
+                <li>苹果</li>
+                    <ul>
+                        <li>青苹果</li>
+                        <li>红苹果</li>
+                    </ul>
 
-函数格式：rjust(int) /ljust(int)/center()
-说明：该函数，将输出的字符串居右(居左/居中)对其，左侧(右侧/两侧)使用参数中规定的空格数来对齐
-2）文本文件的输入输出
-文本文件的操作步骤：
-1、打开文件
-函数格式：open(file,mode,buffering,encoding)
-返回值：返回一个文件对象，用来对文件进行操作。
-说明：该函数主要是进行文件打开操作，如果文件不存在就新建一个文件。如果存在就打开原有文件。
-2、操作文件
-1）写文件
-函数格式：write(str)
-返回值：返回所写入文件的字符串中的字符数。
-说明：该函数可以一次性写入一个字符串内容，到文件中。每次写入文件是，如果使用的模式为w，那么因为着本次写入为覆盖式写入，即写入内容会替换掉原有文件内容。
-函数格式：writelines(sequence)
-返回值：无
-说明：该函数可以使用列表、字符串、元组、集合、字典等作为参数，其中这些序列中的元素必须为字符串类型，同时也可以一次性写入多行字符串。
-2）读文件
-函数格式：read([size])
-返回值：返回按字节逐一读取的数据。
-说明：该函数按照字节个数，逐一读取文件中的数据。如果没有规定读取数据的字节大小即size，一直读完文件中全部数据，如果规定了数据的字节大小，只读取规定字节数的内容。
+            </ul>
+        <li>三亚</li>
+        <li>普吉岛</li>
+        <li>爱琴海</li>
+    </ul>
+    <ol>
+        <li>明珠塔</li>
+        <li>维多利亚港</li>
+        <li>世界之窗</li>
+        <li>小梅沙</li>
+    </ol>
 
-函数格式：readline()
-返回值：返回读取的一行字符串
-说明：该函数一次能够读取文件中一行内容，如果需要读取全部内容，需要配合while循环使用，注意使用读取到的文件内容作为条件判断，即文件内容为空字符串时，退出循环。
+    <ul type="circle">
+        <li>姓名</li>
+            <ol>
+                <li>小花</li>
+                <li>小王</li>
+                <li>小李</li>
+            </ol>
+        <li>年龄</li>
+            <ol>
+                <li>23</li>
+                <li>45</li>
+                <li>13</li>
+            </ol>
 
-函数格式：readlines()
-返回值：返回一个包含多个字符串的列表。
-说明：该函数能够一次性将文件中的数据全部读取出来，然后将文件中每行字符串，作为一个列表的元素，将其组装成一个列表返回。
-
-3、关闭文件
-函数格式：close()
-返回值：无
-说明：当我们操作文件时，进行相关的写入操作，Python将数据写入文件之前，会将文件保存在文件缓冲区中，在我们调用close()函数时，首先会将文件缓冲区内还没有写入到文件中的数据进行刷新并强制写入文件，然后关闭Python与文件的通道，释放相关资源。
-
-4、json格式处理
-在Python中，提供了json模块可以实现对特殊数据结构的读写。比如：列表和字典。
-1）将嵌套列表或字典转为json格式数据
-import json
-item = json.dumps(list/dict)
-file.writelines(item)
-
-json.dump(list, file)
-2)将文件中的列表或字典json字符串读取出来
-f= open(file,mode)
-json.load(f)
-</code></pre><h3 id="文件及路径操作函数"><a href="#文件及路径操作函数" class="headerlink" title="文件及路径操作函数"></a>文件及路径操作函数</h3><pre><code>1）isfile()与isdir() （os.path模块）
-函数格式：os.path.isfile(file)
-返回值：bool
-说明：根据传入的参数，判断该内容是否为文件类型。如果是文件类型返回True，如果不是返回False
-isdir()
-函数格式：os.path.isdir(path)
-返回值：bool
-说明：根据传入的参数，判断内容是否为目录类型，如果是目录就返回True，如果不是返回False
-
-2）创建路径 mkdir()、删除路径removedirs() (os模块)
-函数格式：os.mkdir(path)
-删除文件 remove() （os模块）
-判断文件/目录是否存在 exists()
-返回指定路径下，所有子路径 listdir()
-返回当前路径 getcwd()
-返回文件大小 getsize()
-重命名 rename()
-替换 replace()
-注意：在Python3.x版本中，将pathlib作为内置模块进行了引入。我们可以通过使用from pathlib import Path，使用。
-其使用的前提为：需要先创建一个path对象，然后对其进行操作。
-p = Path(&apos;c:\pythoncode\etc&apos;)
-</code></pre>
+    </ul>
+    <dl>
+        <dt>姓名</dt>
+            <dd>小花</dd>
+        <dt>年龄</dt>
+            <dd>23</dd>
+        <dt>地址</dt>
+            <dd>郑州</dd>
+    </dl>
+    -->
+    <form name="regist" action="my.html" method="post">
+        用户名：<input type="text" name="tom" value="小花" disabled> <br>
+        密&nbsp;&nbsp;&nbsp;码：<input type="password" name="password"> <br>
+        <input type="checkbox" checked>阅读并接受协议<br>
+        性别<input type="radio" value="男" name="sex">男
+        <input type="radio" value="女" name="sex">女<br>
+        <select name="城市">
+            <option value="zhengzhou">郑州</option>
+            <option value="shanghai" selected>上海</option>
+        </select><br>
+        留言<textarea rows="5" cols="49"></textarea><br>
+        <input type="submit" value="注册">
+        <input type="reset" value="重置">
+        <input type="button" value="按钮"><br>
+        文件上传<input type="file" name="file">
+    </form>
+</body>
+</html>
       
 
       
@@ -1787,7 +1338,7 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/29/hello-world3/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/my1/">展开全文 >></a>
         </p>
       
 
@@ -1817,141 +1368,82 @@ p = Path(&apos;c:\pythoncode\etc&apos;)
 
 
   
-    <article id="post-hello-world1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-CCS/CSS使用方式/my" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/hello-world1/">练习例题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/29/hello-world1/" class="archive-article-date">
-  	<time datetime="2018-07-29T07:44:19.659Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="练习一"><a href="#练习一" class="headerlink" title="练习一"></a>练习一</h2><h3 id="敏感词程序："><a href="#敏感词程序：" class="headerlink" title="敏感词程序："></a>敏感词程序：</h3><pre><code>开发敏感词语过滤程序，提示用户输入评论内容，如果用户输入的内容中包含特殊的字符：
-则将用户输入的内容中的敏感词汇替换成***，并添加到一个列表中；
-如果用户输入的内容没有敏感词汇，则直接添加到上述的列表中
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br></pre></td><td class="code"><pre><span class="line">    如下：</span><br><span class="line">    li = [<span class="string">"苍老师"</span>,<span class="string">"贩毒"</span>,<span class="string">"武老师"</span>,<span class="string">"自杀"</span>]</span><br><span class="line">    lis = list()</span><br><span class="line">    content = input(<span class="string">'请输入内容：'</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> li:  </span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">in</span> content:</span><br><span class="line">            content = content.replace(i,len(i)*<span class="string">'*'</span>)</span><br><span class="line">    lis.append(content)           </span><br><span class="line">    <span class="built_in">print</span>(lis)</span><br><span class="line">    <span class="built_in">exit</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">### 购物平台：</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    goods_dic = &#123;</span><br><span class="line">        <span class="string">'10001'</span> : <span class="string">'电视机'</span>,</span><br><span class="line">        <span class="string">'10002'</span> : <span class="string">'手机'</span>,</span><br><span class="line">        <span class="string">'10003'</span> : <span class="string">'洗衣机'</span>,</span><br><span class="line">        <span class="string">'10004'</span> : <span class="string">'冰箱'</span>,</span><br><span class="line">        <span class="string">'10005'</span> : <span class="string">'空调'</span></span><br><span class="line">    &#125;</span><br><span class="line">    goods = &#123;</span><br><span class="line">        <span class="string">'10001'</span>:&#123;</span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10001'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'电视机'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:1500,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'zhengzhou'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:100,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'康佳'</span></span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="string">'10002'</span>:&#123;</span><br><span class="line"></span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10002'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'手机'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:2999,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'深圳'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:99,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'华为'</span></span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="string">'10003'</span>:&#123;</span><br><span class="line"></span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10003'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'洗衣机'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:2000,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'青岛'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:50,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'海尔'</span></span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line">        </span><br><span class="line">        <span class="string">'10004'</span>:&#123;</span><br><span class="line"></span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10004'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'冰箱'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:2500,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'青岛'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:70,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'海尔'</span></span><br><span class="line"></span><br><span class="line">                &#125;,</span><br><span class="line">        </span><br><span class="line">        <span class="string">'10005'</span>:&#123;</span><br><span class="line"></span><br><span class="line">                <span class="string">'id'</span>:<span class="string">'10005'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'name'</span>:<span class="string">'空调'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'price'</span>:2700,</span><br><span class="line"></span><br><span class="line">                <span class="string">'address'</span>:<span class="string">'大连'</span>,</span><br><span class="line"></span><br><span class="line">                <span class="string">'num'</span>:115,</span><br><span class="line"></span><br><span class="line">                <span class="string">'brand'</span>:<span class="string">'格力'</span></span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'序号      商品名称'</span>)</span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> goods_dic:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'&#123;0&#125;       &#123;1&#125;'</span>.format(key, goods_dic[key]))</span><br><span class="line"></span><br><span class="line">    <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">    商品菜单项</span></span><br><span class="line"><span class="string">    1、输入商品编码，显示商品名称</span></span><br><span class="line"><span class="string">    2、添加商品，输入新商品的编码和对应名称</span></span><br><span class="line"><span class="string">    3、下架商品，根据商品编号进行删除</span></span><br><span class="line"><span class="string">    4、修改商品，根据商品编号进行修改</span></span><br><span class="line"><span class="string">    '</span><span class="string">''</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'*'</span>*30)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'1、输入商品序号，查询商品信息'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'2、添加商品信息'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'3、下架商品'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'4、修改商品信息'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'5、购买商品'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'6、退出'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'*'</span>*30)</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        msg = int(input(<span class="string">'请输入菜单选项：'</span>))</span><br><span class="line">        <span class="keyword">if</span> 1 == msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号：'</span>)</span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'序号      商品名称'</span>)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'&#123;0&#125;       &#123;1&#125;'</span>.format(gno, goods_dic[gno]))</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'商品详细信息'</span>)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'&#123;0&#125;'</span>.format(goods[gno]))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span> (<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span> 2 == msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号：'</span>)</span><br><span class="line">            gname = input(<span class="string">'请输入商品名称：'</span>)</span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                goods[gno] = &#123;&#125;</span><br><span class="line">                goods_dic[gno] = gname</span><br><span class="line">                goods[gno][<span class="string">'id'</span>] = gno</span><br><span class="line">                goods[gno][<span class="string">'name'</span>] = gname</span><br><span class="line">                a = int(input(<span class="string">'请输入商品单价：'</span>))</span><br><span class="line">                b = input(<span class="string">'请输入商品产地：'</span>)</span><br><span class="line">                c = int(input(<span class="string">'请输入商品数量：'</span>))</span><br><span class="line">                d = input(<span class="string">'请输入商品品牌：'</span>)</span><br><span class="line">                goods[gno][<span class="string">'price'</span>] = a</span><br><span class="line">                goods[gno][<span class="string">'address'</span>] = b</span><br><span class="line">                goods[gno][<span class="string">'num'</span>] = c</span><br><span class="line">                goods[gno][<span class="string">'brand'</span>] = d</span><br><span class="line">                <span class="built_in">print</span>(goods_dic)</span><br><span class="line">                <span class="built_in">print</span>(goods[gno])</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span> 3 == msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号：'</span>)</span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                del goods_dic[gno]</span><br><span class="line">                del goods[gno]</span><br><span class="line">                <span class="built_in">print</span> (goods_dic)</span><br><span class="line">                <span class="built_in">print</span> (goods)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span>  </span><br><span class="line">        <span class="keyword">elif</span> 4 == msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号：'</span>)       </span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                gname = input(<span class="string">'请输入商品名称：'</span>)</span><br><span class="line">                a = int(input(<span class="string">'请输入商品单价：'</span>))</span><br><span class="line">                b = int(input(<span class="string">'请输入商品数量：'</span>))</span><br><span class="line">                goods_dic[gno] = gname</span><br><span class="line">                goods[gno][<span class="string">'name'</span>] = gname</span><br><span class="line">                goods[gno][<span class="string">'price'</span>] = a</span><br><span class="line">                goods[gno][<span class="string">'num'</span>] = b</span><br><span class="line">                <span class="built_in">print</span> (goods_dic)</span><br><span class="line">                <span class="built_in">print</span>(goods[gno])</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">            <span class="keyword">elif</span> gno not <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span> 5 ==msg:</span><br><span class="line">            gno = input(<span class="string">'请输入商品序号'</span>)</span><br><span class="line">            <span class="keyword">if</span> gno <span class="keyword">in</span> goods_dic.keys():</span><br><span class="line">                num1 = int(input(<span class="string">'请输入购买数量：'</span>))</span><br><span class="line">                <span class="keyword">if</span> num1 &lt;= goods[gno][<span class="string">'num'</span>]and num1 &gt; 0:</span><br><span class="line">                    a = goods[gno][<span class="string">'price'</span>]</span><br><span class="line">                    b = goods[gno][<span class="string">'price'</span>]*num1</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">'序号   商品名 数量  单价  总价'</span>)</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">'&#123;0&#125;    &#123;1&#125;    &#123;2&#125;  &#123;3&#125;元  &#123;4&#125;元'</span>.format(gno,goods_dic[gno],num1,a,b))</span><br><span class="line">                    <span class="built_in">continue</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">'库存不足，请重新选择商品'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'输入商品号有误，请重新输入'</span>)</span><br><span class="line">                <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span> 6 == msg:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'你输入有误，请重新输入！'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 产生随机数：</span></span><br><span class="line">    产生一个简单的随机数列</span><br><span class="line"></span><br><span class="line">    import random</span><br><span class="line">    lis = [random.randrange(10,20) <span class="keyword">for</span> x <span class="keyword">in</span> range(20)]</span><br><span class="line">    lis1 = [random.randrange(10,20) <span class="keyword">for</span> x <span class="keyword">in</span> range(20)]</span><br><span class="line">    set1 = <span class="built_in">set</span>(lis)</span><br><span class="line">    set2 = <span class="built_in">set</span>(lis1)</span><br><span class="line">    set4 = set1 ^ set2</span><br><span class="line">    set3 = set1&amp;set2</span><br><span class="line">    <span class="built_in">print</span>(lis)</span><br><span class="line">    <span class="built_in">print</span>(lis1)</span><br><span class="line">    <span class="built_in">print</span>(set1)</span><br><span class="line">    <span class="built_in">print</span>(len(set1))</span><br><span class="line">    <span class="built_in">print</span>(set2)</span><br><span class="line">    <span class="built_in">print</span>(len(set2))</span><br><span class="line">    <span class="built_in">print</span>(set4)</span><br><span class="line">    <span class="built_in">print</span>(len(set4))</span><br><span class="line">    <span class="built_in">print</span>(set3)</span><br><span class="line">    <span class="built_in">print</span>(len(set3))</span><br></pre></td></tr></table></figure>
-
-###  医院挂号：
-模拟医院挂号
-```bash
-def gene(n):
-    i = 1000
-
-    while True:        
-        if &apos;A&apos; == n:
-            no = n + str(i)
-            yield no          
-            i +=1
-        elif &apos;B&apos; == n:
-            no = n + str(i)
-            yield no 
-            i +=1
-        elif &apos;C&apos; == n:
-            no = n + str(i)
-            yield no
-            i +=1 
-        else:
-            pass
-f = gene(&apos;A&apos;)
-f = gene(&apos;B&apos;)
-f = gene(&apos;C&apos;)
-while True:
-        n = input(&apos;请输入诊室号：&apos;)
-        m = input(&apos;请输入就诊名字：&apos;)
-        if &apos;A&apos; == n:
-            #f = gene(n)
-            print(&apos;请稍等，{0}的就诊序号是：{1}科室{2}&apos;.format(m,n,next(f)))
-        elif &apos;B&apos; == n:
-            #f = gene(n)
-            print(&apos;请稍等，{0}的就诊序号是：{1}科室{2}&apos;.format(n,next(f)))
-        elif &apos;C&apos; == n:
-            #f = gene(n)
-            print(&apos;请稍等，{0}的就诊序号是：{1}科室{2}&apos;.format(n,next(f)))
-</code></pre><h3 id="博客园登录："><a href="#博客园登录：" class="headerlink" title="博客园登录："></a>博客园登录：</h3><pre><code>简单的登录程序，仅供参考
-
-import time
-time1 = time.strftime(&apos;%Y-%m-%d&apos;,time.localtime())
-bank = {&apos;张三&apos;:&apos;147&apos;,&apos;李四&apos;:&apos;258&apos;,&apos;王五&apos;:&apos;369&apos;}
-print(&apos;*&apos;*20)
-print(&apos;欢迎来到博客园首页&apos;)
-print(&apos;1:请登录&apos;)
-print(&apos;2:请注册&apos;)
-print(&apos;3:文章页面&apos;)
-print(&apos;4:日记页面&apos;)
-print(&apos;5:评论页面&apos;)
-print(&apos;6:收藏页面&apos;)
-print(&apos;7:注销&apos;)
-print(&apos;8:退出程序&apos;)
-print(&apos;*&apos;*20)
-dic = dict()
-while True:
-    choose = int(input(&apos;请输入你的选择：&apos;))
-    if choose == 1:
-        i = 2
-        while i &gt;=0:
-            name = input(&apos;请输入名字：&apos;)
-            password = input(&apos;请输入密码：&apos;)
-            if name in bank.keys() and password == bank[name]:
-                dic[name] = password
-                print(&apos;{0}:{1}访问了博客乐园&apos;.format(name,time1))
-                break
-            else:
-                if i &gt; 0:
-                    print(&apos;输入用户名或密码错误，你还有{0}次机会&apos;.format(i))
-                else:
-                    print(&apos;三次机会已使用完毕，请联系工作人员&apos;)
-                    exit()
-                i = i - 1
-    elif choose == 2:
-        while True:
-            name = input(&apos;请输入名字：&apos;)
-            password = input(&apos;请输入密码：&apos;)            
-            if name in bank.keys():
-                print(&apos;输入用户名重复，请重新输入&apos;)
-                continue
-            else:
-                bank[name] = password
-                dic[name] = password
-                print(&apos;注册成功，并已登录&apos;)
-                break
-    elif choose == 3:
-        if len(dic) != 0:
-            print(&apos;欢迎{0}用户访问、评论、文章页面内容&apos;.format(name))
-        else:
-            print(&apos;你没有登录，请登录或注册&apos;)
-    elif choose == 4:
-        if len(dic) != 0:
-            print(&apos;欢迎{0}用户访问、评论、日记页面内容&apos;.format(name))
-        else:
-            print(&apos;你没有登录，请登录或注册&apos;)
-    elif choose == 5:
-        if len(dic) != 0:
-            print(&apos;欢迎{0}用户访问、评论、收藏页面内容&apos;.format(name))
-        else:
-            print(&apos;你没有登录，请登录或注册&apos;)
-    elif choose == 6:
-        if len(dic) != 0:
-            print(&apos;欢迎{0}用户访问评论页面内容&apos;.format(name))
-        else:
-            print(&apos;你没有登录，请登录或注册&apos;)
-    elif choose == 7:
-        dic.clear()
-        print(&apos;已注销用户&apos;)
-    elif choose == 8:
-        print(&apos;已退出程序&apos;)
-        exit()
-</code></pre>
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta content="text/html" charset="UTF-8">
+    <title>我的第一个HTML页面</title>
+</head>
+<body>
+    <!--
+    <h1>我是傻逼</h1>
+    <h2>我是傻逼</h2>
+    <h3>我是傻逼</h3>
+    <h4>我是傻逼</h4>
+    <h5>我是傻逼</h5>
+    <h6>我是傻逼</h6>
+    <hr></hr>
+    <p>如何学习编写第一个程序，每个程序员都有不同的故事。我还是个孩子时就开始学习编程了，
+        当时我父亲在计算时代的先锋之一——数字设备公司（Digital Equipment Corporation）工作。</p>
+    <p>我使用一台简陋的计算机编写了第一个程序，这台计算机是父亲在家里的地下室组装而成的，它没 有机箱，裸露的主板与键盘相连，显示器是裸露的阴极射线管。我编写的这个程序是一款简单的 猜数字游戏，其输出类似于下面这样:</p>
+    <a target="_blank " href="http://www.baidu.com">百度</a>
+    <img src="313742.jpg"  alt=" 图片"\ >
+     -->
+     <table border="1" bgcolor="orange" width="600" height="250">
+         <tr>
+             <th align="center" valign="center" colspan="7">课程表</th>
+         </tr>
+         <tr>
+             <td align="center" valign="center" colspan="2"></td>
+             <td align="center" valign="center">星期一</td>
+             <td align="center" valign="center">星期二</td>
+             <td align="center" valign="center">星期三</td>
+             <td align="center" valign="center">星期四</td>
+             <td align="center" valign="center">星期五</td>
+         </tr>
+         <tr>
+             <td align="center" valign="center" rowspan="2">上午</td>
+             <td align="center" valign="center">1</td>
+             <td align="center" valign="center">语文</td>
+             <td align="center" valign="center">英语</td>
+             <td align="center" valign="center">数学</td>
+             <td align="center" valign="center">化学</td>
+             <td align="center" valign="center">物理</td>
+         </tr>
+         <tr>
+             <td align="center" valign="center">2</td>
+             <td align="center" valign="center">语文</td>
+             <td align="center" valign="center">语文</td>
+             <td align="center" valign="center">数学</td>
+             <td align="center" valign="center">化学</td>
+             <td align="center" valign="center">地理</td>
+         </tr>
+         <tr>
+             <td align="center" valign="center" rowspan="2">上午</td>
+             <td align="center" valign="center">1</td>
+             <td align="center" valign="center">生物</td>
+             <td align="center" valign="center">自习</td>
+             <td align="center" valign="center">数学</td>
+             <td align="center" valign="center">音乐</td>
+             <td align="center" valign="center">物理</td>
+         </tr>
+         <tr>
+             <td align="center" valign="center">2</td>
+             <td align="center" valign="center">语文</td>
+             <td align="center" valign="center">物理</td>
+             <td align="center" valign="center">英语</td>
+             <td align="center" valign="center">物理</td>
+             <td align="center" valign="center">化学</td>
+         </tr>
+     </table>
+</body>
+</html>
       
 
       
@@ -1963,7 +1455,7 @@ while True:
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/29/hello-world1/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/CCS/CSS使用方式/my/">展开全文 >></a>
         </p>
       
 
@@ -1995,7 +1487,7 @@ while True:
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
